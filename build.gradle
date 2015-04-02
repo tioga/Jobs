@@ -1,0 +1,63 @@
+
+/*
+ * Copyright (c) 2014 Jacob D. Parr
+ *
+ * This software may not be used without permission.
+ */
+buildscript {
+  repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+  }
+  dependencies {
+    classpath "org.hidetake:gradle-ssh-plugin:1.0.1"
+    classpath "com.github.ben-manes:gradle-versions-plugin:0.7"
+    classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
+  }
+}
+
+apply from: "build-config-java.gradle"
+
+subprojects {
+
+  group = "org.tiogasolutions.workhorse"
+
+  apply (from: "../build-config-versions.gradle")
+  apply (from: "../build-config-reports.gradle")
+
+  targetCompatibility = "1.8"
+  sourceCompatibility = "1.8"
+
+  ext {
+    whPub    = "1.0.0"
+    whAgent  = "1.0.0"
+    whClient = "1.0.0"
+
+    yakDevJackson = "4.1.5"
+
+    yakLibJaxrs           = "4.1.3"
+    yakLibCouchAce        = "4.1.6"
+    yakLibJaxrsJackson    = "5.0.4"
+
+    yakAppCommon = "1.0.3"
+
+    jerseyVersion         = "2.16"
+    testNgVersion         = "6.8.21"
+  }
+
+  configurations.all({
+    resolutionStrategy({
+      failOnVersionConflict()
+      force(
+        // jackson-xxx has a bad dependency on jackson-annotations:2.5.0
+        "com.fasterxml.jackson.core:jackson-annotations:2.5.1",
+
+        // Various libraries using different versions
+        "org.slf4j:slf4j:1.7.10",
+        "org.slf4j:slf4j-api:1.7.10",
+        "org.javassist:javassist:3.18.1-GA",
+      )
+    })
+  })
+}

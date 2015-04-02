@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2014 Jacob D. Parr
+ *
+ * This software may not be used without permission.
+ */
+project(":wh-pub") {
+
+  version = whPub
+
+  apply (from: "../build-config-deployer.gradle")
+
+  dependencies {
+    compile("com.fasterxml.jackson.core:jackson-annotations:2.5.1")
+
+    testCompile ("org.testng:testng:$testNgVersion")
+  }
+}
