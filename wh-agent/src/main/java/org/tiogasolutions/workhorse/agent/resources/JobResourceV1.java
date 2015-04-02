@@ -3,13 +3,16 @@ package org.tiogasolutions.workhorse.agent.resources;
 import org.crazyyak.dev.common.IoUtils;
 import org.crazyyak.dev.common.ReflectUtils;
 import org.crazyyak.dev.common.StringUtils;
-import org.tiogasolutions.workhorse.agent.entities.JobEntity;
+import org.crazyyak.dev.common.exceptions.ApiNotFoundException;
+import org.tiogasolutions.workhorse.agent.entities.JobDefinitionEntity;
 import org.tiogasolutions.workhorse.agent.support.ExecutionContextManager;
 import org.tiogasolutions.workhorse.pub.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -18,19 +21,19 @@ import java.util.concurrent.Executors;
 public class JobResourceV1 {
 
   private final ExecutionContextManager ecm;
-  private final JobEntity jobEntity;
+  private final JobDefinitionEntity jobDefinitionEntity;
 
   private static final ExecutorService executor = Executors.newCachedThreadPool();
 
-  public JobResourceV1(ExecutionContextManager ecm, JobEntity jobEntity) {
+  public JobResourceV1(ExecutionContextManager ecm, JobDefinitionEntity jobDefinitionEntity) {
     this.ecm = ecm;
-    this.jobEntity = jobEntity;
+    this.jobDefinitionEntity = jobDefinitionEntity;
   }
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public Job getJob() throws Exception {
-    return jobEntity.toJob();
+  public JobDefinition getJob() throws Exception {
+    return jobDefinitionEntity.toJobDefinition();
   }
 
 
@@ -51,7 +54,7 @@ public class JobResourceV1 {
   private JobExecution executeJob(String callbackUrl) throws Exception {
     List<JobActionResult> results = new ArrayList<>();
 
-    for (JobAction jobAction : jobEntity.getJobActions()) {
+    for (JobAction jobAction : jobDefinitionEntity.getJobActions()) {
       ActionType actionType = jobAction.getActionType();
       if (actionType.isOsCommand()) {
         JobActionResult result = processOsCommand(jobAction);
@@ -72,6 +75,10 @@ public class JobResourceV1 {
     String[] commandArray = ReflectUtils.toArray(String.class, commands);
 
     File workingDir = jobAction.getWorkingDirectory();
+    if (workingDir.exists() == false) {
+      String msg = "The specified working directory does not exist: " + workingDir.getAbsolutePath();
+      throw new FileNotFoundException(msg);
+    }
 
     Process process = new ProcessBuilder()
       .command(commandArray)

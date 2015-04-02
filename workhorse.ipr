@@ -263,13 +263,13 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.crazyyak.dev/yak-dev-jackson/4.1.5/59cfe7f4a04fb4b0efec30c12832b1637c3dcda/yak-dev-jackson-4.1.5-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Gradle: org.crazyyak.lib:yak-lib-couchace:4.1.6">
+    <library name="Gradle: org.crazyyak.lib:yak-lib-couchace:5.0.6">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/crazyyak/lib/yak-lib-couchace/4.1.6/yak-lib-couchace-4.1.6.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/crazyyak/lib/yak-lib-couchace/5.0.6/yak-lib-couchace-5.0.6.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/crazyyak/lib/yak-lib-couchace/4.1.6/yak-lib-couchace-4.1.6-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/crazyyak/lib/yak-lib-couchace/5.0.6/yak-lib-couchace-5.0.6-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: org.crazyyak.lib:yak-lib-jaxrs-jackson:5.0.4">

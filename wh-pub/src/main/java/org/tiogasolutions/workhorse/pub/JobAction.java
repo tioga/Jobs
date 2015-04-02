@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,11 +19,11 @@ public class JobAction {
   private TimeUnit timeoutUnit;
 
   @JsonCreator
-  public JobAction(@JsonProperty("actionType") ActionType actionType,
-                   @JsonProperty("command") String command,
-                   @JsonProperty("workingDirectory") String dir,
-                   @JsonProperty("timeout") long timeout,
-                   @JsonProperty("timeoutUnit") TimeUnit timeoutUnit) {
+  private JobAction(@JsonProperty("actionType") ActionType actionType,
+                    @JsonProperty("command") String command,
+                    @JsonProperty("workingDirectory") String dir,
+                    @JsonProperty("timeout") long timeout,
+                    @JsonProperty("timeoutUnit") TimeUnit timeoutUnit) {
 
     this.command = command;
     this.actionType = actionType;
@@ -51,5 +52,13 @@ public class JobAction {
 
   public TimeUnit getTimeoutUnit() {
     return timeoutUnit;
+  }
+
+  public static JobAction newJobAction(ActionType actionType, String command, File workingDirectory, long timeout, TimeUnit timeoutUnit) {
+    return new JobAction(actionType, command, workingDirectory.getAbsolutePath(), timeout, timeoutUnit);
+  }
+
+  public static JobAction newJobAction(ActionType actionType, String command, Path workingDirectory, long timeout, TimeUnit timeoutUnit) {
+    return new JobAction(actionType, command, workingDirectory.toFile().getAbsolutePath(), timeout, timeoutUnit);
   }
 }

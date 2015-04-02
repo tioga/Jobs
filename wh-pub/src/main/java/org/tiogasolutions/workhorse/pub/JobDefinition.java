@@ -10,16 +10,16 @@ import java.util.List;
 /**
  * Created by jacobp on 4/1/2015.
  */
-public class Job {
+public class JobDefinition {
 
   private final String jobId;
   private final String revision;
   private final List<JobAction> jobActions = new ArrayList<>();
 
   @JsonCreator
-  public Job(@JsonProperty("jobId") String jobId,
-             @JsonProperty("revision") String revision,
-             @JsonProperty("actions") Collection<? extends JobAction> actions) {
+  public JobDefinition(@JsonProperty("jobId") String jobId,
+                       @JsonProperty("revision") String revision,
+                       @JsonProperty("actions") Collection<? extends JobAction> actions) {
 
     this.jobId = jobId;
     this.revision = revision;
@@ -46,10 +46,10 @@ public class Job {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    Job job = (Job) o;
+    JobDefinition jobDefinition = (JobDefinition) o;
 
-    if (!jobId.equals(job.jobId)) return false;
-    return getClass().equals(job.getClass());
+    if (!jobId.equals(jobDefinition.jobId)) return false;
+    return getClass().equals(jobDefinition.getClass());
   }
 
   @Override

@@ -10,8 +10,7 @@ import org.crazyyak.dev.jackson.YakJacksonObjectMapper;
 import org.crazyyak.lib.jaxrs.jackson.JacksonReaderWriterProvider;
 import org.tiogasolutions.workhorse.agent.view.LocalResource;
 import org.tiogasolutions.workhorse.agent.view.Thymeleaf;
-import org.tiogasolutions.workhorse.pub.Job;
-import org.tiogasolutions.workhorse.pub.JobActionResult;
+import org.tiogasolutions.workhorse.pub.JobDefinition;
 import org.tiogasolutions.workhorse.pub.JobExecution;
 
 import javax.ws.rs.Consumes;
@@ -27,7 +26,7 @@ public class WhReaderWriterProvider extends JacksonReaderWriterProvider {
 
   public WhReaderWriterProvider(@Context Application application) {
     super(new YakJacksonObjectMapper(), Arrays.asList(MediaType.APPLICATION_JSON_TYPE));
-    addSupportedType(Job.class);
+    addSupportedType(JobDefinition.class);
     addSupportedType(JobExecution.class);
 
     addSupportedType(ListQueryResult.class);

@@ -6,7 +6,7 @@ import com.couchace.annotations.CouchRevision;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.crazyyak.dev.common.id.uuid.TimeUuid;
-import org.tiogasolutions.workhorse.pub.Job;
+import org.tiogasolutions.workhorse.pub.JobDefinition;
 import org.tiogasolutions.workhorse.pub.JobAction;
 
 import java.util.ArrayList;
@@ -14,17 +14,17 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-@CouchEntity(JobStore.JOB_DESIGN_NAME)
-public class JobEntity {
+@CouchEntity(JobDefinitionStore.JOB_DESIGN_NAME)
+public class JobDefinitionEntity {
 
   private final String jobId;
   private final String revision;
   private final List<JobAction> jobActions = new ArrayList<>();
 
   @JsonCreator
-  public JobEntity(@JsonProperty("jobId") String jobId,
-                   @JsonProperty("revision") String revision,
-                   @JsonProperty("actions") Collection<? extends JobAction> actions) {
+  public JobDefinitionEntity(@JsonProperty("jobId") String jobId,
+                             @JsonProperty("revision") String revision,
+                             @JsonProperty("actions") Collection<? extends JobAction> actions) {
 
     this.jobId = jobId;
     this.revision = revision;
@@ -48,8 +48,8 @@ public class JobEntity {
     return jobActions;
   }
 
-  public Job toJob() {
-    return new Job(jobId, revision, jobActions);
+  public JobDefinition toJobDefinition() {
+    return new JobDefinition(jobId, revision, jobActions);
   }
 
   @Override
@@ -57,10 +57,10 @@ public class JobEntity {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    JobEntity jobEntity = (JobEntity) o;
+    JobDefinitionEntity jobDefinitionEntity = (JobDefinitionEntity) o;
 
-    if (!jobId.equals(jobEntity.jobId)) return false;
-    return getClass().equals(jobEntity.getClass());
+    if (!jobId.equals(jobDefinitionEntity.jobId)) return false;
+    return getClass().equals(jobDefinitionEntity.getClass());
 
   }
 
@@ -71,15 +71,15 @@ public class JobEntity {
     return result;
   }
 
-  public static JobEntity newEntity(JobAction... jobActions) {
-    return newEntity(Arrays.asList(jobActions));
+  public static JobDefinitionEntity newEntity(JobAction... jobActions) {
+    return newJobDefinition(TimeUuid.randomUUID().toString(), Arrays.asList(jobActions));
   }
 
-  public static JobEntity newEntity(Collection<? extends JobAction> actions) {
-    return new JobEntity(
-      TimeUuid.randomUUID().toString(),
-      null,
-      actions
-    );
+  public static JobDefinitionEntity newEntity(Collection<? extends JobAction> jobActions) {
+    return newJobDefinition(TimeUuid.randomUUID().toString(), jobActions);
+  }
+
+  public static JobDefinitionEntity newJobDefinition(String id, Collection<? extends JobAction> actions) {
+    return new JobDefinitionEntity(id, null, actions);
   }
 }

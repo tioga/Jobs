@@ -8,7 +8,7 @@ package org.tiogasolutions.workhorse.agent.resources;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.tiogasolutions.workhorse.agent.WhApplication;
-import org.tiogasolutions.workhorse.agent.entities.JobStore;
+import org.tiogasolutions.workhorse.agent.entities.JobDefinitionStore;
 import org.tiogasolutions.workhorse.agent.support.ExecutionContextManager;
 import org.tiogasolutions.workhorse.agent.support.WhCouchServer;
 import org.tiogasolutions.workhorse.agent.view.Thymeleaf;
@@ -21,7 +21,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import java.io.IOException;
 
 @Path("/")
 public class RootResourceV1 extends RootResourceSupport {
@@ -30,25 +29,11 @@ public class RootResourceV1 extends RootResourceSupport {
 
   private @Context UriInfo uriInfo;
 
-  // TODO inject this resource.
-  private final JobStore jobStore;
-
   // TODO inject this resource
   private final ExecutionContextManager ecm = WhApplication.executionContextManager;
 
-  public RootResourceV1() throws IOException {
+  public RootResourceV1() throws Exception {
     log.info("Created ");
-
-    WhCouchServer couchServer = new WhCouchServer();
-    jobStore = new JobStore(couchServer);
-
-//    JobEntity entity = JobEntity.newEntity(
-//      new Action(ActionType.osCommand,
-//      "echo I love you too > test.txt",
-//      "c:\tmp", Long.MAX_VALUE, TimeUnit.SECONDS)
-//    );
-//    jobStore.create(entity);
-
   }
 
   @Override
@@ -69,8 +54,10 @@ public class RootResourceV1 extends RootResourceSupport {
   }
 
   @Path("/api/v1/client")
-  public ClientResourceV1 getClientResource() throws IOException {
-    return new ClientResourceV1(ecm, jobStore);
+  public ClientResourceV1 getClientResource() throws Exception {
+    WhCouchServer couchServer = new WhCouchServer();
+    JobDefinitionStore jobDefinitionStore = new JobDefinitionStore(couchServer, ecm, "workhorse-", null);
+    return new ClientResourceV1(ecm, jobDefinitionStore);
   }
 }
 
