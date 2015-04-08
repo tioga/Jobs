@@ -17,34 +17,17 @@ buildscript {
   }
 }
 
-apply from: "build-config-java.gradle"
+apply(from: "https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-java.gradle")
 
 subprojects {
 
-  group = "org.tiogasolutions.workhorse"
+  group = "org.tiogasolutions.jobserver"
 
-  apply (from: "../build-config-versions.gradle")
-  apply (from: "../build-config-reports.gradle")
+  apply(from: "https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-reports.gradle")
+  apply(from: "https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-versions.gradle")
 
   targetCompatibility = "1.8"
   sourceCompatibility = "1.8"
-
-  ext {
-    whPub    = "1.0.0"
-    whAgent  = "1.0.0"
-    whClient = "1.0.0"
-
-    yakDevJackson = "4.1.5"
-
-    yakLibJaxrs           = "4.1.3"
-    yakLibCouchAce        = "5.0.6"
-    yakLibJaxrsJackson    = "5.0.4"
-
-    yakAppCommon = "1.0.3"
-
-    jerseyVersion         = "2.16"
-    testNgVersion         = "6.8.21"
-  }
 
   configurations.all({
     resolutionStrategy({
@@ -60,4 +43,11 @@ subprojects {
       )
     })
   })
+
+  ext {
+    pomProjectDescription = "Tioga Solutions' Job Server"
+    pomUrl = 'https://www.tiogasolutions.org'
+    pomScmUrl = "https://github.com/tioga"
+    pomScmConnection = "https://github.com/tioga/job-server.git"
+  }
 }
