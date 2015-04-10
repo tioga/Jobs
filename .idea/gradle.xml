@@ -10,9 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/tioga-job-agent" />
-            <option value="$PROJECT_DIR$/tioga-job-client" />
-            <option value="$PROJECT_DIR$/tioga-job-pub" />
+            <option value="$PROJECT_DIR$/tioga-jobs-agent" />
+            <option value="$PROJECT_DIR$/tioga-jobs-client" />
+            <option value="$PROJECT_DIR$/tioga-jobs-pub" />
           </set>
         </option>
       </GradleProjectSettings>

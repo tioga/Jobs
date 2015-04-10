@@ -2,98 +2,186 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e9d7ca1-ab03-4121-8a51-7a6fc257e1d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="C:\dvlp\3rd-party\tioga-solutions\job-server\tioga-jobserver-client\build\poms\pom-default.xml.asc" />
-      <change type="NEW" beforePath="" afterPath="C:\dvlp\3rd-party\tioga-solutions\job-server\tioga-jobserver-pub\build\poms\pom-default.xml.asc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_app_tioga_app_common_1_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_couchace_tioga_couchace_annotations_1_4_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_couchace_tioga_couchace_core_1_4_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_couchace_tioga_couchace_jackson_1_4_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_couchace_tioga_couchace_jersey_1_4_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_dev_tioga_dev_common_4_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_dev_tioga_dev_domain_4_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_dev_tioga_dev_jackson_4_1_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_lib_tioga_lib_couchace_5_0_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_lib_tioga_lib_jaxrs_4_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tiogasolutions_lib_tioga_lib_jaxrs_jackson_5_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tioga-jobserver-client/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tioga-jobserver-pub/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/build/ivy.xml" />
-      <change type="NEW" beforePath="" afterPath="C:\dvlp\3rd-party\tioga-solutions\job-server\tioga-jobserver-client\build\ivy.xml" />
-      <change type="NEW" beforePath="" afterPath="C:\dvlp\3rd-party\tioga-solutions\job-server\tioga-jobserver-pub\build\ivy.xml" />
-      <change type="NEW" beforePath="" afterPath="C:\dvlp\3rd-party\tioga-solutions\job-server\tioga-jobserver-client\build\poms\pom-default.xml" />
-      <change type="NEW" beforePath="" afterPath="C:\dvlp\3rd-party\tioga-solutions\job-server\tioga-jobserver-pub\build\poms\pom-default.xml" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\build-config-deployer.gradle" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\build-config-java.gradle" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\build-config-reports.gradle" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\build-config-versions.gradle" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\css\base-style.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\css\style.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\css\tree.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\images\d.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\images\d.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\images\throbber.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\js\jquery.jstree.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\js\jquery.min-1.11.0.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\js\script.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\root.wh-agent.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\reports\project\dependencies\root.wh-agent.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\resources\main\wh-agent\design-docs\entity-design.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\resources\main\wh-agent\json-docs\jobDefinition-prod.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\build\resources\main\wh-agent\view\welcome.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\build\tmp\jar\MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\workhorse.ipr" afterPath="" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\crazyyak\dev\common\exceptions\ApiConflictException.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/crazyyak/dev/common/exceptions/ApiConflictException.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\crazyyak\dev\common\exceptions\ApiNotFoundException.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/crazyyak/dev/common/exceptions/ApiNotFoundException.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\WhApplication.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/WhApplication.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\DomainProfileEntity.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/entities/DomainProfileEntity.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\DomainStatus.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/entities/DomainStatus.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\JobDefinitionEntity.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/entities/JobDefinitionEntity.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\JobDefinitionStore.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/entities/JobDefinitionStore.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\grizzly\CpResourceConfig.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/grizzly/CpResourceConfig.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\grizzly\GrizzlyHorseServer.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/grizzly/GrizzlyHorseServer.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\ClientResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/ClientResourceV1.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\JobResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/JobResourceV1.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\JobsResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/JobsResourceV1.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\RootResourceSupport.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/RootResourceSupport.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\RootResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/RootResourceV1.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\ExecutionContext.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/ExecutionContext.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\ExecutionContextManager.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/ExecutionContextManager.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhCouchServer.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhCouchServer.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhException.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhException.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhFilter.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhFilter.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhJaxRsExceptionMapper.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhJaxRsExceptionMapper.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhReaderWriterProvider.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhReaderWriterProvider.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ClassPathResourceResolver.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ClassPathResourceResolver.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ClassPathTemplateResolver.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ClassPathTemplateResolver.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\LocalResource.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/LocalResource.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\LocalResourceMessageBodyWriter.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/LocalResourceMessageBodyWriter.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\Thymeleaf.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/Thymeleaf.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ThymeleafMessageBodyWriter.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ThymeleafMessageBodyWriter.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ThymeleafViewFactory.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ThymeleafViewFactory.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\resources\wh-agent\design-docs\entity-design.json" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/resources/wh-agent/design-docs/entity-design.json" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\resources\wh-agent\json-docs\jobDefinition-prod.json" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/resources/wh-agent/json-docs/jobDefinition-prod.json" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\main\resources\wh-agent\view\welcome.html" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/main/resources/wh-agent/view/welcome.html" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\src\test\java\org\tiogasolutions\workhorse\agent\resources\JobResourceV1Test.java" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/src/test/java/org/tiogasolutions/workhorse/agent/resources/JobResourceV1Test.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-agent\wh-agent.iml" afterPath="$PROJECT_DIR$/tioga-jobserver-agent/tioga-jobserver-agent.iml" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-client\wh-client.iml" afterPath="$PROJECT_DIR$/tioga-jobserver-client/tioga-jobserver-client.iml" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\src\main\java\org\tiogasolutions\workhorse\pub\ActionType.java" afterPath="$PROJECT_DIR$/tioga-jobserver-pub/src/main/java/org/tiogasolutions/workhorse/pub/ActionType.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobAction.java" afterPath="$PROJECT_DIR$/tioga-jobserver-pub/src/main/java/org/tiogasolutions/workhorse/pub/JobAction.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobActionResult.java" afterPath="$PROJECT_DIR$/tioga-jobserver-pub/src/main/java/org/tiogasolutions/workhorse/pub/JobActionResult.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobDefinition.java" afterPath="$PROJECT_DIR$/tioga-jobserver-pub/src/main/java/org/tiogasolutions/workhorse/pub/JobDefinition.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobExecution.java" afterPath="$PROJECT_DIR$/tioga-jobserver-pub/src/main/java/org/tiogasolutions/workhorse/pub/JobExecution.java" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\wh-pub\wh-pub.iml" afterPath="$PROJECT_DIR$/tioga-jobserver-pub/tioga-jobserver-pub.iml" />
-      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\job-server\workhorse.iml" afterPath="$PROJECT_DIR$/job-server.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/job_server__build_.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/job_server__clean_.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/job_server__uploadArchives_.xml" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\ivy.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\libs\tioga-jobserver-agent-1.0.0-javadoc.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\libs\tioga-jobserver-agent-1.0.0-sources.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\libs\tioga-jobserver-agent-1.0.0.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\poms\pom-default.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\poms\pom-default.xml.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\test-results\TEST-org.tiogasolutions.workhorse.agent.resources.JobResourceV1Test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-client\build\ivy.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-client\build\libs\tioga-jobserver-client-1.0.0-javadoc.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-client\build\libs\tioga-jobserver-client-1.0.0-sources.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-client\build\libs\tioga-jobserver-client-1.0.0.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-client\build\poms\pom-default.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-client\build\poms\pom-default.xml.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-pub\build\ivy.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-pub\build\libs\tioga-jobserver-pub-1.0.0-javadoc.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-pub\build\libs\tioga-jobserver-pub-1.0.0-sources.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-pub\build\libs\tioga-jobserver-pub-1.0.0.jar.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-pub\build\poms\pom-default.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-pub\build\poms\pom-default.xml.asc" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\allclasses-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\allclasses-noframe.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\constant-values.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\deprecated-list.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\help-doc.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\index-all.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\crazyyak\dev\common\exceptions\ApiConflictException.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\crazyyak\dev\common\exceptions\ApiNotFoundException.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\crazyyak\dev\common\exceptions\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\crazyyak\dev\common\exceptions\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\crazyyak\dev\common\exceptions\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\WhApplication.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\entities\DomainProfileEntity.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\entities\DomainStatus.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\entities\JobDefinitionEntity.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\entities\JobDefinitionStore.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\entities\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\entities\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\entities\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\grizzly\CpResourceConfig.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\grizzly\GrizzlyHorseServer.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\grizzly\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\grizzly\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\grizzly\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\ClientResourceV1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\JobResourceV1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\JobsResourceV1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\RootResourceSupport.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\RootResourceV1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\resources\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\ExecutionContext.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\ExecutionContextManager.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\WhCouchServer.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\WhException.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\WhFilter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\WhJaxRsExceptionMapper.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\WhReaderWriterProvider.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\support\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\ClassPathResourceResolver.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\ClassPathTemplateResolver.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\LocalResource.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\LocalResourceMessageBodyWriter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\Thymeleaf.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\ThymeleafMessageBodyWriter.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\ThymeleafViewFactory.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\org\tiogasolutions\workhorse\agent\view\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\overview-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\overview-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\overview-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\package-list" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\script.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\serialized-form.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\docs\javadoc\stylesheet.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\reports\tests\classes\org.tiogasolutions.workhorse.agent.resources.JobResourceV1Test.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\reports\tests\css\base-style.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\reports\tests\css\style.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\reports\tests\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\reports\tests\js\report.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\reports\tests\packages\org.tiogasolutions.workhorse.agent.resources.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\resources\main\wh-agent\design-docs\entity-design.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\resources\main\wh-agent\json-docs\jobDefinition-prod.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\resources\main\wh-agent\view\welcome.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\test-results\binary\test\output.bin" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\test-results\binary\test\output.bin.idx" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\test-results\binary\test\results.bin" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\tmp\jar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\tmp\javadocJar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\tmp\javadoc\javadoc.options" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build\tmp\sourcesJar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\crazyyak\dev\common\exceptions\ApiConflictException.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\crazyyak\dev\common\exceptions\ApiNotFoundException.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-client\build\tmp\jar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-client\build\tmp\javadocJar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-client\build\tmp\sourcesJar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\allclasses-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\allclasses-noframe.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\constant-values.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\deprecated-list.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\help-doc.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\index-all.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\ActionType.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\JobAction.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\JobActionResult.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\JobDefinition.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\JobExecution.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\org\tiogasolutions\workhorse\pub\package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\overview-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\package-list" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\script.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\docs\javadoc\stylesheet.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\tmp\jar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\tmp\javadocJar\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\tmp\javadoc\javadoc.options" afterPath="" />
+      <change type="DELETED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build\tmp\sourcesJar\MANIFEST.MF" afterPath="" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\job-server.iml" afterPath="$PROJECT_DIR$/Jobs.iml" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\build.gradle" afterPath="$PROJECT_DIR$/tioga-jobs-agent/build.gradle" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\WhApplication.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/WhApplication.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\DomainProfileEntity.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/entities/DomainProfileEntity.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\DomainStatus.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/entities/DomainStatus.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\JobDefinitionEntity.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/entities/JobDefinitionEntity.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\entities\JobDefinitionStore.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/entities/JobDefinitionStore.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\grizzly\CpResourceConfig.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/grizzly/CpResourceConfig.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\grizzly\GrizzlyHorseServer.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/grizzly/GrizzlyHorseServer.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\ClientResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/ClientResourceV1.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\JobResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/JobResourceV1.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\JobsResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/JobsResourceV1.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\RootResourceSupport.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/RootResourceSupport.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\resources\RootResourceV1.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/RootResourceV1.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\ExecutionContext.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/ExecutionContext.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\ExecutionContextManager.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/ExecutionContextManager.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhCouchServer.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhCouchServer.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhException.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhException.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhFilter.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhFilter.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhJaxRsExceptionMapper.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhJaxRsExceptionMapper.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\support\WhReaderWriterProvider.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhReaderWriterProvider.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ClassPathResourceResolver.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ClassPathResourceResolver.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ClassPathTemplateResolver.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ClassPathTemplateResolver.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\LocalResource.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/LocalResource.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\LocalResourceMessageBodyWriter.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/LocalResourceMessageBodyWriter.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\Thymeleaf.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/Thymeleaf.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ThymeleafMessageBodyWriter.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ThymeleafMessageBodyWriter.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\java\org\tiogasolutions\workhorse\agent\view\ThymeleafViewFactory.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ThymeleafViewFactory.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\resources\wh-agent\design-docs\entity-design.json" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/resources/jobs-agent/design-docs/entity-design.json" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\resources\wh-agent\json-docs\jobDefinition-prod.json" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/resources/jobs-agent/json-docs/jobDefinition-prod.json" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\main\resources\wh-agent\view\welcome.html" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/main/resources/jobs-agent/view/welcome.html" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\src\test\java\org\tiogasolutions\workhorse\agent\resources\JobResourceV1Test.java" afterPath="$PROJECT_DIR$/tioga-jobs-agent/src/test/java/org/tiogasolutions/jobs/agent/resources/JobResourceV1Test.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-agent\tioga-jobserver-agent.iml" afterPath="$PROJECT_DIR$/tioga-jobs-agent/tioga-jobs-agent.iml" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-client\build.gradle" afterPath="$PROJECT_DIR$/tioga-jobs-client/build.gradle" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-client\tioga-jobserver-client.iml" afterPath="$PROJECT_DIR$/tioga-jobs-client/tioga-jobs-client.iml" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\build.gradle" afterPath="$PROJECT_DIR$/tioga-jobs-pub/build.gradle" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\src\main\java\org\tiogasolutions\workhorse\pub\ActionType.java" afterPath="$PROJECT_DIR$/tioga-jobs-pub/src/main/java/org/tiogasolutions/jobs/pub/ActionType.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobAction.java" afterPath="$PROJECT_DIR$/tioga-jobs-pub/src/main/java/org/tiogasolutions/jobs/pub/JobAction.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobActionResult.java" afterPath="$PROJECT_DIR$/tioga-jobs-pub/src/main/java/org/tiogasolutions/jobs/pub/JobActionResult.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobDefinition.java" afterPath="$PROJECT_DIR$/tioga-jobs-pub/src/main/java/org/tiogasolutions/jobs/pub/JobDefinition.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\src\main\java\org\tiogasolutions\workhorse\pub\JobExecution.java" afterPath="$PROJECT_DIR$/tioga-jobs-pub/src/main/java/org/tiogasolutions/jobs/pub/JobExecution.java" />
+      <change type="MOVED" beforePath="C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobserver-pub\tioga-jobserver-pub.iml" afterPath="$PROJECT_DIR$/tioga-jobs-pub/tioga-jobs-pub.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="workhorse.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,6 +200,12 @@
     <ignored path="$PROJECT_DIR$/tioga-job-pub/build/" />
     <ignored path="$PROJECT_DIR$/tioga-job-client/.gradle/" />
     <ignored path="$PROJECT_DIR$/tioga-job-client/build/" />
+    <ignored path="$PROJECT_DIR$/tioga-jobs-pub/.gradle/" />
+    <ignored path="$PROJECT_DIR$/tioga-jobs-pub/build/" />
+    <ignored path="$PROJECT_DIR$/tioga-jobs-agent/.gradle/" />
+    <ignored path="$PROJECT_DIR$/tioga-jobs-agent/build/" />
+    <ignored path="$PROJECT_DIR$/tioga-jobs-client/.gradle/" />
+    <ignored path="$PROJECT_DIR$/tioga-jobs-client/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +232,7 @@
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
               </PATH_ELEMENT>
               <PATH_ELEMENT>
-                <option name="myItemId" value="job-server" />
+                <option name="myItemId" value="Jobs" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
               </PATH_ELEMENT>
             </PATH>
@@ -162,27 +256,27 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="job-server" />
+              <option name="name" value="Jobs" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="job-server" />
+                <option name="name" value=":tioga-jobs-client" />
+                <option name="path" value="$PROJECT_DIR$/tioga-jobs-client" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="Jobs" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value=":tioga-job-agent" />
-                <option name="path" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="name" value=":tioga-jobs-agent" />
+                <option name="path" value="$PROJECT_DIR$/tioga-jobs-agent" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value=":tioga-job-pub" />
-                <option name="path" value="$PROJECT_DIR$/tioga-job-pub" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value=":tioga-job-client" />
-                <option name="path" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="name" value=":tioga-jobs-pub" />
+                <option name="path" value="$PROJECT_DIR$/tioga-jobs-pub" />
               </ExternalProjectPojo>
             </list>
           </value>
@@ -195,9 +289,8 @@
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-job-agent:archives'" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="uploadArchives" />
+                <option name="name" value="signArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare files for the fat JAR" />
@@ -205,10 +298,6 @@
                 <option name="name" value="fatJarPrepareFiles" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="signArchives" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Generates Javadoc API documentation for the main source code." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="javadoc" />
@@ -232,11 +321,6 @@
                 <option name="description" value="Generates a report about your properties." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="propertyReport" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-job-pub:archives'" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="uploadArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
@@ -263,6 +347,11 @@
                 <option name="name" value="compileJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-jobs-pub:archives'" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="uploadArchives" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles the outputs of this project." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="assemble" />
@@ -278,14 +367,19 @@
                 <option name="name" value="htmlDependencyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Processes JVM resources 'main:resources'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles the fat JAR" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="fatJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Processes JVM resources 'main:resources'." />
+                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-jobs-agent:archives'" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processResources" />
+                <option name="name" value="uploadArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the dependency updates for the project." />
@@ -311,6 +405,11 @@
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-jobs-client:archives'" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="uploadArchives" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'test:resources'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processTestResources" />
@@ -319,11 +418,6 @@
                 <option name="description" value="Generates a report about your tasks." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="taskReport" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-job-client:archives'" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="uploadArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects it depends on." />
@@ -352,444 +446,439 @@
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/tioga-job-agent">
+        <entry key="$PROJECT_DIR$/tioga-jobs-agent">
           <value>
             <list>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="assemble" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="build" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="buildDependents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="buildNeeded" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="check" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles classes 'main'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="classes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="clean" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Compiles Java source 'main:java'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="compileJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Compiles Java source 'test:java'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your library dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="dependencyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the dependency updates for the project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="dependencyUpdates" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles the fat JAR" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="fatJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare files for the fat JAR" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="fatJarPrepareFiles" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates an HTML report about your library dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="htmlDependencyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Installs the 'archives' artifacts into the local Maven repository." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="install" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="jar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="javadoc" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="javadocJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'main:resources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="processResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'test:resources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="processTestResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="projectReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your properties." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="propertyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="signArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="sourcesJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your tasks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="taskReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="test" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles classes 'test'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="testClasses" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="testJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-job-agent:archives'" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-jobs-agent:archives'" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="uploadArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-agent" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-agent" />
                 <option name="name" value="uploadArchivesTest" />
               </ExternalTaskPojo>
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/tioga-job-client">
+        <entry key="$PROJECT_DIR$/tioga-jobs-client">
           <value>
             <list>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="assemble" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="build" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="buildDependents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="buildNeeded" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="check" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles classes 'main'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="classes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="clean" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Compiles Java source 'main:java'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="compileJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Compiles Java source 'test:java'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your library dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="dependencyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the dependency updates for the project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="dependencyUpdates" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates an HTML report about your library dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="htmlDependencyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Installs the 'archives' artifacts into the local Maven repository." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="install" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="jar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="javadoc" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="javadocJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'main:resources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="processResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'test:resources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="processTestResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="projectReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your properties." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="propertyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="signArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="sourcesJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your tasks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="taskReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="test" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles classes 'test'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="testClasses" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="testJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-job-client:archives'" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-jobs-client:archives'" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="uploadArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-client" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-client" />
                 <option name="name" value="uploadArchivesTest" />
               </ExternalTaskPojo>
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/tioga-job-pub">
+        <entry key="$PROJECT_DIR$/tioga-jobs-pub">
           <value>
             <list>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="assemble" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="build" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="buildDependents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="buildNeeded" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="check" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles classes 'main'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="classes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="clean" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Compiles Java source 'main:java'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="compileJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Compiles Java source 'test:java'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your library dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="dependencyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the dependency updates for the project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="dependencyUpdates" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates an HTML report about your library dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="htmlDependencyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Installs the 'archives' artifacts into the local Maven repository." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="install" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="jar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="javadoc" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="javadocJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'main:resources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="processResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'test:resources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="processTestResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="projectReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your properties." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="propertyReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="signArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="sourcesJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Generates a report about your tasks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="taskReport" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="test" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles classes 'test'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="testClasses" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="testJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-job-pub:archives'" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="description" value="Uploads all artifacts belonging to configuration ':tioga-jobs-pub:archives'" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="uploadArchives" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-job-pub" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/tioga-jobs-pub" />
                 <option name="name" value="uploadArchivesTest" />
               </ExternalTaskPojo>
             </list>
           </value>
         </entry>
-      </map>
-    </option>
-    <option name="modificationStamps">
-      <map>
-        <entry key="$PROJECT_DIR$" value="7142615210518" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -845,7 +934,7 @@
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
-                  <entry key="$PROJECT_DIR$/tioga-job-agent">
+                  <entry key="$PROJECT_DIR$/tioga-jobs-agent">
                     <value>
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
@@ -898,8 +987,8 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.thymeleaf.extras/thymeleaf-extras-java8time/2.1.0.RELEASE/e04e378cad4db60acca478954da6a48388201cc1/thymeleaf-extras-java8time-2.1.0.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.containers/jersey-container-grizzly2-http/2.16/6afec79193ede21fe1a5dfedd2ba894d6844a2c0/jersey-container-grizzly2-http-2.16.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.1/71c1992c0cf5e0ce62574e96009572062ba0f4d9/jackson-annotations-2.5.1.jar" />
-                            <option value="$MAVEN_REPOSITORY$/org/tiogasolutions/dev/tioga-dev-common/4.1.4/tioga-dev-common-4.1.4.jar" />
                             <option value="$MAVEN_REPOSITORY$/org/tiogasolutions/dev/tioga-dev-domain/4.1.2/tioga-dev-domain-4.1.2.jar" />
+                            <option value="$MAVEN_REPOSITORY$/org/tiogasolutions/dev/tioga-dev-common/4.1.4/tioga-dev-common-4.1.4.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.1/5e57baebad3898aca8a825adaf2be6fd189442f2/jackson-databind-2.5.1.jar" />
                             <option value="$MAVEN_REPOSITORY$/org/tiogasolutions/lib/tioga-lib-jaxrs/4.1.4/tioga-lib-jaxrs-4.1.4.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
@@ -931,11 +1020,11 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar" />
                           </list>
                         </option>
-                        <option name="path" value="$PROJECT_DIR$/tioga-job-agent" />
+                        <option name="path" value="$PROJECT_DIR$/tioga-jobs-agent" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
-                  <entry key="$PROJECT_DIR$/tioga-job-client">
+                  <entry key="$PROJECT_DIR$/tioga-jobs-client">
                     <value>
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
@@ -978,11 +1067,11 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.1/71c1992c0cf5e0ce62574e96009572062ba0f4d9/jackson-annotations-2.5.1.jar" />
                           </list>
                         </option>
-                        <option name="path" value="$PROJECT_DIR$/tioga-job-client" />
+                        <option name="path" value="$PROJECT_DIR$/tioga-jobs-client" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
-                  <entry key="$PROJECT_DIR$/tioga-job-pub">
+                  <entry key="$PROJECT_DIR$/tioga-jobs-pub">
                     <value>
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
@@ -1025,13 +1114,13 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.1/71c1992c0cf5e0ce62574e96009572062ba0f4d9/jackson-annotations-2.5.1.jar" />
                           </list>
                         </option>
-                        <option name="path" value="$PROJECT_DIR$/tioga-job-pub" />
+                        <option name="path" value="$PROJECT_DIR$/tioga-jobs-pub" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
                 </map>
               </option>
-              <option name="name" value="job-server" />
+              <option name="name" value="tioga-jobs-client" />
               <option name="projectBuildClasspath">
                 <list>
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/announce" />
@@ -1175,10 +1264,17 @@
         <option value="$PROJECT_DIR$/tioga-job-agent/src/main/java/org/crazyyak/dev/common/exceptions/ApiConflictException.java" />
         <option value="$PROJECT_DIR$/tioga-job-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ThymeleafMessageBodyWriter.java" />
         <option value="$PROJECT_DIR$/tioga-job-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ClassPathResourceResolver.java" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/tioga-jobserver-pub/build.gradle" />
         <option value="$PROJECT_DIR$/tioga-jobserver-client/build.gradle" />
         <option value="$PROJECT_DIR$/tioga-jobserver-agent/build.gradle" />
+        <option value="$PROJECT_DIR$/settings.gradle" />
+        <option value="$PROJECT_DIR$/tioga-jobs-pub/build.gradle" />
+        <option value="$PROJECT_DIR$/tioga-jobs-client/build.gradle" />
+        <option value="$PROJECT_DIR$/tioga-jobs-agent/build.gradle" />
+        <option value="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/entities/JobDefinitionStore.java" />
+        <option value="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ThymeleafViewFactory.java" />
+        <option value="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/JobsResourceV1.java" />
+        <option value="$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/JobResourceV1.java" />
       </list>
     </option>
   </component>
@@ -1225,7 +1321,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
@@ -1242,7 +1337,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
+              <option name="myItemId" value="Jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1252,11 +1347,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
+              <option name="myItemId" value="Jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-pub" />
+              <option name="myItemId" value="tioga-jobs-pub" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1266,11 +1361,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
+              <option name="myItemId" value="Jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-pub" />
+              <option name="myItemId" value="tioga-jobs-pub" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1285,10 +1380,6 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1296,148 +1387,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
+              <option name="myItemId" value="Jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tioga (Job Server)" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-agent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tioga (Job Server)" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-agent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tioga (Job Server)" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-agent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tioga (Job Server)" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-agent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="agent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tioga (Job Server)" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="job-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tioga-jobserver-agent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exceptions" />
+              <option name="myItemId" value="tioga-jobs-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../couch-ace" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1445,60 +1416,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.job-server [uploadArchives]">
-    <configuration default="false" name="job-server [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="false" name="job-server [uploadArchives]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--quiet" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="uploadArchives" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="false" name="job-server [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -1661,6 +1578,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <configuration default="false" name="job-server [dependencyUpdates]" type="GradleRunConfiguration" factoryName="Gradle">
@@ -1700,19 +1623,12 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Gradle.job-server [build]" />
-      <item index="1" class="java.lang.String" itemvalue="Gradle.job-server [dependencyUpdates]" />
-      <item index="2" class="java.lang.String" itemvalue="Gradle.job-server [uploadArchivesTest]" />
-      <item index="3" class="java.lang.String" itemvalue="Gradle.job-server [uploadArchives]" />
-      <item index="4" class="java.lang.String" itemvalue="Gradle.job-server [clean]" />
+      <item index="0" class="java.lang.String" itemvalue="Gradle.job-server [clean]" />
+      <item index="1" class="java.lang.String" itemvalue="Gradle.job-server [build]" />
+      <item index="2" class="java.lang.String" itemvalue="Gradle.job-server [dependencyUpdates]" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.job-server [uploadArchivesTest]" />
+      <item index="4" class="java.lang.String" itemvalue="Gradle.job-server [uploadArchives]" />
     </list>
-    <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.job-server [uploadArchives]" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.job-server [clean]" />
-        <item index="2" class="java.lang.String" itemvalue="Gradle.job-server [build]" />
-      </list>
-    </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
@@ -1726,33 +1642,34 @@
       <updated>1428522506826</updated>
       <workItem from="1428522507313" duration="10000" />
       <workItem from="1428522518510" duration="1832000" />
+      <workItem from="1428629323517" duration="288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1842000" />
+    <option name="totallyTimeSpent" value="2130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282532" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32942554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1283" y="1" width="1275" height="1020" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32942554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1283" y="1" width="1275" height="1020" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33009708" sideWeight="0.6940211" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18689321" sideWeight="0.68229777" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Dilbert" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33009708" sideWeight="0.3059789" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18689321" sideWeight="0.31770223" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1780,39 +1697,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/entities/JobDefinitionStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5">
-          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/crazyyak/dev/common/exceptions/ApiNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27941176">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/JobsResourceV1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625">
-          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhCouchServer.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhCouchServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1875">
           <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
@@ -1822,7 +1707,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhJaxRsExceptionMapper.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhJaxRsExceptionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.375">
           <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
@@ -1832,7 +1717,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhFilter.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7977941">
           <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
@@ -1842,7 +1727,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/WhApplication.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/WhApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.78125">
           <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
@@ -1852,7 +1737,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/ExecutionContext.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/ExecutionContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
@@ -1862,7 +1747,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/grizzly/GrizzlyHorseServer.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/grizzly/GrizzlyHorseServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0625">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
@@ -1870,17 +1755,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/JobResourceV1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3125">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/entities/JobDefinitionEntity.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/entities/JobDefinitionEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0477941">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
@@ -1890,7 +1765,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/LocalResourceMessageBodyWriter.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/LocalResourceMessageBodyWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0625">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
@@ -1898,7 +1773,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ClassPathResourceResolver.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ClassPathResourceResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0625">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
@@ -1906,7 +1781,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/view/ThymeleafMessageBodyWriter.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ThymeleafMessageBodyWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18545455">
           <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
@@ -1914,15 +1789,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/crazyyak/dev/common/exceptions/ApiConflictException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.082424246">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/support/WhReaderWriterProvider.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/support/WhReaderWriterProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4739394">
           <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
@@ -1932,47 +1799,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/src/main/java/org/tiogasolutions/workhorse/agent/resources/RootResourceSupport.java">
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/RootResourceSupport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.041212123">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041212123">
-          <caret line="6" column="72" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-pub/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1030303">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-client/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.020606061">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tioga-jobserver-agent/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22666667">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1981,6 +1812,80 @@
         <state vertical-scroll-proportion="0.45333335">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55636364">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-client/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.061818182">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-pub/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1030303">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.041212123">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/view/ThymeleafViewFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1875">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/entities/JobDefinitionStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59375">
+          <caret line="49" column="71" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/JobResourceV1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63878787">
+          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tioga-jobs-agent/src/main/java/org/tiogasolutions/jobs/agent/resources/JobsResourceV1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60848486">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

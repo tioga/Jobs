@@ -1,0 +1,10 @@
+-classpath 'C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\build\\classes\\main;C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\build\\resources\\main;C:\\Users\\jacobp\\.gradle\\caches\\modules-2\\files-2.1\\com.fasterxml.jackson.core\\jackson-annotations\\2.5.1\\71c1992c0cf5e0ce62574e96009572062ba0f4d9\\jackson-annotations-2.5.1.jar'
+-d 'C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\build\\docs\\javadoc'
+-doctitle 'tioga-jobs-pub 1.0.0 API'
+-quiet 
+-windowtitle 'tioga-jobs-pub 1.0.0 API'
+'C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\src\\main\\java\\org\\tiogasolutions\\jobs\\pub\\ActionType.java'
+'C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\src\\main\\java\\org\\tiogasolutions\\jobs\\pub\\JobAction.java'
+'C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\src\\main\\java\\org\\tiogasolutions\\jobs\\pub\\JobActionResult.java'
+'C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\src\\main\\java\\org\\tiogasolutions\\jobs\\pub\\JobDefinition.java'
+'C:\\dvlp\\3rd-party\\tioga-solutions\\Jobs\\tioga-jobs-pub\\src\\main\\java\\org\\tiogasolutions\\jobs\\pub\\JobExecution.java'

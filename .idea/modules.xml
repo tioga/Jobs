@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/job-server.iml" filepath="$PROJECT_DIR$/job-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobserver-agent/tioga-jobserver-agent.iml" filepath="$PROJECT_DIR$/tioga-jobserver-agent/tioga-jobserver-agent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobserver-client/tioga-jobserver-client.iml" filepath="$PROJECT_DIR$/tioga-jobserver-client/tioga-jobserver-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobserver-pub/tioga-jobserver-pub.iml" filepath="$PROJECT_DIR$/tioga-jobserver-pub/tioga-jobserver-pub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jobs.iml" filepath="$PROJECT_DIR$/Jobs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-agent/tioga-jobs-agent.iml" filepath="$PROJECT_DIR$/tioga-jobs-agent/tioga-jobs-agent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-client/tioga-jobs-client.iml" filepath="$PROJECT_DIR$/tioga-jobs-client/tioga-jobs-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-pub/tioga-jobs-pub.iml" filepath="$PROJECT_DIR$/tioga-jobs-pub/tioga-jobs-pub.iml" />
     </modules>
   </component>
 </project>
