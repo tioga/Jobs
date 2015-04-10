@@ -1,6 +1,8 @@
 package org.tiogasolutions.jobs.pub;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,34 +14,18 @@ import java.util.List;
  */
 public class JobExecution {
 
-  private final boolean completed;
-  private final List<JobActionResult> results = new ArrayList<>();
+  private final String callbackUrl;
 
-  private JobExecution(boolean completed, Collection<? extends JobActionResult> results) {
-    this.completed = completed;
-    if (results != null) {
-      this.results.addAll(results);
-    }
+  @JsonCreator
+  private JobExecution(@JsonProperty("callbackUrl") String callbackUrl) {
+    this.callbackUrl = callbackUrl;
   }
 
-  @JsonIgnore
-  public boolean isPending() {
-    return completed == false;
+  public String getCallbackUrl() {
+    return callbackUrl;
   }
 
-  public boolean isCompleted() {
-    return completed;
-  }
-
-  public List<JobActionResult> getResults() {
-    return results;
-  }
-
-  public static JobExecution pending() {
-    return new JobExecution(false, Collections.emptyList());
-  }
-
-  public static JobExecution completed(Collection<? extends JobActionResult> results) {
-    return new JobExecution(true, results);
+  public static JobExecution create(String callbackUrl) {
+    return new JobExecution(callbackUrl);
   }
 }

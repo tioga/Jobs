@@ -12,16 +12,16 @@ import java.util.List;
  */
 public class JobDefinition {
 
-  private final String jobId;
+  private final String jobDefinitionId;
   private final String revision;
   private final List<JobAction> jobActions = new ArrayList<>();
 
   @JsonCreator
-  public JobDefinition(@JsonProperty("jobId") String jobId,
+  public JobDefinition(@JsonProperty("jobDefinitionId") String jobDefinitionId,
                        @JsonProperty("revision") String revision,
                        @JsonProperty("actions") Collection<? extends JobAction> actions) {
 
-    this.jobId = jobId;
+    this.jobDefinitionId = jobDefinitionId;
     this.revision = revision;
 
     if (actions != null) {
@@ -29,8 +29,8 @@ public class JobDefinition {
     }
   }
 
-  public String getJobId() {
-    return jobId;
+  public String getJobDefinitionId() {
+    return jobDefinitionId;
   }
 
   public String getRevision() {
@@ -48,13 +48,13 @@ public class JobDefinition {
 
     JobDefinition jobDefinition = (JobDefinition) o;
 
-    if (!jobId.equals(jobDefinition.jobId)) return false;
+    if (!jobDefinitionId.equals(jobDefinition.jobDefinitionId)) return false;
     return getClass().equals(jobDefinition.getClass());
   }
 
   @Override
   public int hashCode() {
-    int result = jobId.hashCode();
+    int result = jobDefinitionId.hashCode();
     result = 31 * result + getClass().hashCode();
     return result;
   }

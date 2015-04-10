@@ -3,6 +3,9 @@ package org.tiogasolutions.jobs.agent.resources;
 import org.tiogasolutions.dev.common.IoUtils;
 import org.tiogasolutions.dev.common.ReflectUtils;
 import org.tiogasolutions.dev.common.StringUtils;
+import org.tiogasolutions.jobs.agent.entities.JobDefinitionStore;
+import org.tiogasolutions.jobs.agent.entities.JobExecutionRequestEntity;
+import org.tiogasolutions.jobs.agent.entities.JobExecutionRequestStore;
 import org.tiogasolutions.jobs.agent.support.ExecutionContextManager;
 import org.tiogasolutions.jobs.agent.entities.JobDefinitionEntity;
 import org.tiogasolutions.jobs.pub.*;
@@ -20,12 +23,14 @@ public class JobResourceV1 {
 
   private final ExecutionContextManager ecm;
   private final JobDefinitionEntity jobDefinitionEntity;
+  private final JobExecutionRequestStore jobExecutionRequestStore;
 
   private static final ExecutorService executor = Executors.newCachedThreadPool();
 
-  public JobResourceV1(ExecutionContextManager ecm, JobDefinitionEntity jobDefinitionEntity) {
+  public JobResourceV1(ExecutionContextManager ecm, JobDefinitionEntity jobDefinitionEntity, JobExecutionRequestStore jobExecutionRequestStore) {
     this.ecm = ecm;
     this.jobDefinitionEntity = jobDefinitionEntity;
+    this.jobExecutionRequestStore = jobExecutionRequestStore;
   }
 
   @GET
@@ -36,20 +41,22 @@ public class JobResourceV1 {
 
 
   @POST
-  @Path("/execute")
   @Produces(MediaType.APPLICATION_JSON)
-  public JobExecution execute(@QueryParam("callbackUrl") String callbackUrl) throws Exception {
+  public JobExecutionRequest execute(JobExecution jobExecution) throws Exception {
 
-    if (StringUtils.isNotBlank(callbackUrl)) {
-      executor.submit( () -> executeJob(callbackUrl) );
-      return JobExecution.pending();
+    JobExecutionRequestEntity request = JobExecutionRequestEntity.newEntity(jobExecution);
+    jobExecutionRequestStore.create(request);
+
+    if (StringUtils.isNotBlank(jobExecution.getCallbackUrl())) {
+      executor.submit( () -> executeJob(request) );
+      return request.toJobExecutionRequestEntity();
 
     } else {
-      return executeJob(callbackUrl);
+      return executeJob(request);
     }
   }
 
-  private JobExecution executeJob(String callbackUrl) throws Exception {
+  private JobExecution executeJob(JobExecutionRequestEntity request) throws Exception {
     List<JobActionResult> results = new ArrayList<>();
 
     for (JobAction jobAction : jobDefinitionEntity.getJobActions()) {
@@ -63,7 +70,6 @@ public class JobResourceV1 {
         throw new UnsupportedOperationException(msg);
       }
     }
-
     return JobExecution.completed(results);
   }
 

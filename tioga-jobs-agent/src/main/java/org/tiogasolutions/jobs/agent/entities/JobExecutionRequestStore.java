@@ -7,22 +7,21 @@ import org.tiogasolutions.jobs.agent.support.WhCouchServer;
 import org.tiogasolutions.lib.couchace.DefaultCouchStore;
 import org.tiogasolutions.lib.couchace.support.CouchUtils;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-import static java.util.Collections.*;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
 
-public class JobDefinitionStore extends DefaultCouchStore<JobDefinitionEntity> {
+public class JobExecutionRequestStore extends DefaultCouchStore<JobExecutionRequestEntity> {
 
-  public static final String JOB_DEFINITION_DESIGN_NAME = "jobDefinition";
+  public static final String JOB_EXECUTION_REQUEST_DESIGN_NAME = "jobExecutionRequest";
 
   private final ExecutionContextManager ecm;
   private final String dbNamePrefix;
   private final String dbNameSuffix;
 
-  public JobDefinitionStore(WhCouchServer couchServer, ExecutionContextManager ecm, String dbNamePrefix, String dbNameSuffix) throws Exception {
-    super(couchServer, JobDefinitionEntity.class);
+  public JobExecutionRequestStore(WhCouchServer couchServer, ExecutionContextManager ecm, String dbNamePrefix, String dbNameSuffix) throws Exception {
+    super(couchServer, JobExecutionRequestEntity.class);
 
     this.ecm = ecm;
     this.dbNamePrefix = (dbNamePrefix == null) ? "" : dbNamePrefix;
@@ -31,7 +30,7 @@ public class JobDefinitionStore extends DefaultCouchStore<JobDefinitionEntity> {
 
   @Override
   public String getDesignName() {
-    return JOB_DEFINITION_DESIGN_NAME;
+    return JOB_EXECUTION_REQUEST_DESIGN_NAME;
   }
 
   @Override
@@ -47,12 +46,11 @@ public class JobDefinitionStore extends DefaultCouchStore<JobDefinitionEntity> {
 
   @Override
   public void createDatabase(CouchDatabase database) {
-    CouchUtils.createDatabase(database, new TimeUuidIdGenerator(),
-      "/jobs-agent/json-docs/jobDefinition-prod.json");
-    CouchUtils.validateDesign(database, singletonList("entity"), "/jobs-agent/design-docs/", "-design.json");
+    CouchUtils.createDatabase(database, new TimeUuidIdGenerator());
+    // CouchUtils.validateDesign(database, singletonList("entity"), "/jobs-agent/design-docs/", "-design.json");
   }
 
-  public List<JobDefinitionEntity> getAll() {
-    return getEntityResponse("entity", "byEntityType", singletonList(JOB_DEFINITION_DESIGN_NAME)).getEntityList();
+  public List<JobExecutionRequestEntity> getAll() {
+    return getEntityResponse("entity", "byEntityType", singletonList(JOB_EXECUTION_REQUEST_DESIGN_NAME)).getEntityList();
   }
 }

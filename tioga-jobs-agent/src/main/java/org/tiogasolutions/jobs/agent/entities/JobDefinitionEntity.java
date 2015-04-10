@@ -14,19 +14,19 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-@CouchEntity(JobDefinitionStore.JOB_DESIGN_NAME)
+@CouchEntity(JobDefinitionStore.JOB_DEFINITION_DESIGN_NAME)
 public class JobDefinitionEntity {
 
-  private final String jobId;
+  private final String jobDefinitionId;
   private final String revision;
   private final List<JobAction> jobActions = new ArrayList<>();
 
   @JsonCreator
-  public JobDefinitionEntity(@JsonProperty("jobId") String jobId,
+  public JobDefinitionEntity(@JsonProperty("jobDefinitionId") String jobDefinitionId,
                              @JsonProperty("revision") String revision,
                              @JsonProperty("actions") Collection<? extends JobAction> actions) {
 
-    this.jobId = jobId;
+    this.jobDefinitionId = jobDefinitionId;
     this.revision = revision;
 
     if (actions != null) {
@@ -35,8 +35,8 @@ public class JobDefinitionEntity {
   }
 
   @CouchId
-  public String getJobId() {
-    return jobId;
+  public String getJobDefinitionId() {
+    return jobDefinitionId;
   }
 
   @CouchRevision
@@ -49,7 +49,7 @@ public class JobDefinitionEntity {
   }
 
   public JobDefinition toJobDefinition() {
-    return new JobDefinition(jobId, revision, jobActions);
+    return new JobDefinition(jobDefinitionId, revision, jobActions);
   }
 
   @Override
@@ -59,14 +59,14 @@ public class JobDefinitionEntity {
 
     JobDefinitionEntity jobDefinitionEntity = (JobDefinitionEntity) o;
 
-    if (!jobId.equals(jobDefinitionEntity.jobId)) return false;
+    if (!jobDefinitionId.equals(jobDefinitionEntity.jobDefinitionId)) return false;
     return getClass().equals(jobDefinitionEntity.getClass());
 
   }
 
   @Override
   public int hashCode() {
-    int result = jobId.hashCode();
+    int result = jobDefinitionId.hashCode();
     result = 31 * result + getClass().hashCode();
     return result;
   }

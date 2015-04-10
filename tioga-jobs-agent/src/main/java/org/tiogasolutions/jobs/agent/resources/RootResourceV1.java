@@ -8,6 +8,7 @@ package org.tiogasolutions.jobs.agent.resources;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.tiogasolutions.jobs.agent.WhApplication;
+import org.tiogasolutions.jobs.agent.entities.JobExecutionRequestStore;
 import org.tiogasolutions.jobs.agent.support.ExecutionContextManager;
 import org.tiogasolutions.jobs.agent.support.WhCouchServer;
 import org.tiogasolutions.jobs.agent.view.Thymeleaf;
@@ -56,7 +57,9 @@ public class RootResourceV1 extends RootResourceSupport {
   @Path("/api/v1/client")
   public ClientResourceV1 getClientResource() throws Exception {
     WhCouchServer couchServer = new WhCouchServer();
-    JobDefinitionStore jobDefinitionStore = new JobDefinitionStore(couchServer, ecm, "workhorse-", null);
+    String dbPrefix = "jobs-";
+    JobDefinitionStore jobDefinitionStore = new JobDefinitionStore(couchServer, ecm, dbPrefix, null);
+    JobExecutionRequestStore jobExecutionRequestStore = new JobExecutionRequestStore(couchServer, ecm, dbPrefix, null);
     return new ClientResourceV1(ecm, jobDefinitionStore);
   }
 }
