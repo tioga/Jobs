@@ -1,14 +1,14 @@
-*.class
+*.iws
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+#For Linux machines
+**/.gradle/
+**/target/
+**/build/
+**/out/
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-workhorse.iws
+#And for windows
+**\.gradle/
+**\target/
+**\build/
+**\out/
 .idea/workspace.xml
