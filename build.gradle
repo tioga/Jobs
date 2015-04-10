@@ -33,10 +33,8 @@ subprojects {
     resolutionStrategy({
       failOnVersionConflict()
       force(
-        // jackson-xxx has a bad dependency on jackson-annotations:2.5.0
         "com.fasterxml.jackson.core:jackson-annotations:2.5.1",
 
-        // Various libraries using different versions
         "org.slf4j:slf4j:1.7.10",
         "org.slf4j:slf4j-api:1.7.10",
         "org.javassist:javassist:3.18.1-GA",
