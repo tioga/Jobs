@@ -7,10 +7,10 @@ package org.tiogasolutions.jobs.agent.resources;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tiogasolutions.jobs.agent.WhApplication;
+import org.tiogasolutions.jobs.agent.JobsApplication;
 import org.tiogasolutions.jobs.agent.entities.JobExecutionRequestStore;
 import org.tiogasolutions.jobs.agent.support.ExecutionContextManager;
-import org.tiogasolutions.jobs.agent.support.WhCouchServer;
+import org.tiogasolutions.jobs.agent.support.JobsCouchServer;
 import org.tiogasolutions.jobs.agent.view.Thymeleaf;
 import org.tiogasolutions.jobs.agent.entities.JobDefinitionStore;
 import org.tiogasolutions.jobs.agent.view.ThymeleafViewFactory;
@@ -29,9 +29,6 @@ public class RootResourceV1 extends RootResourceSupport {
   private static final Log log = LogFactory.getLog(RootResourceV1.class);
 
   private @Context UriInfo uriInfo;
-
-  // TODO inject this resource
-  private final ExecutionContextManager ecm = WhApplication.executionContextManager;
 
   public RootResourceV1() throws Exception {
     log.info("Created ");
@@ -56,11 +53,7 @@ public class RootResourceV1 extends RootResourceSupport {
 
   @Path("/api/v1/client")
   public ClientResourceV1 getClientResource() throws Exception {
-    WhCouchServer couchServer = new WhCouchServer();
-    String dbPrefix = "jobs-";
-    JobDefinitionStore jobDefinitionStore = new JobDefinitionStore(couchServer, ecm, dbPrefix, null);
-    JobExecutionRequestStore jobExecutionRequestStore = new JobExecutionRequestStore(couchServer, ecm, dbPrefix, null);
-    return new ClientResourceV1(ecm, jobDefinitionStore);
+    return new ClientResourceV1();
   }
 }
 

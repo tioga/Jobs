@@ -2,7 +2,7 @@ package org.tiogasolutions.jobs.agent.grizzly;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
-import org.tiogasolutions.jobs.agent.WhApplication;
+import org.tiogasolutions.jobs.agent.JobsApplication;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,13 +13,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class GrizzlyHorseServer {
+public class JobsAgent {
 
   public String serverName = "www.localhost";
   private boolean shutDown = false;
-  private int port = 8080;
-  private int shutdownPort = 8005;
-  private String context = "push-server";
+  private int port = 39007;
+  private int shutdownPort = 39008;
+  private String context = "jobs-server";
   private boolean openBrowser;
 
   public URI baseUri;
@@ -31,7 +31,7 @@ public class GrizzlyHorseServer {
   private final ReentrantLock handlerLock = new ReentrantLock();
   private static final int socketAcceptTimeoutMilli = 5000;
 
-  public GrizzlyHorseServer() {
+  public JobsAgent() {
   }
 
   /**
@@ -72,8 +72,8 @@ public class GrizzlyHorseServer {
       return null;
     }
 
-    WhApplication application = new WhApplication();
-    CpResourceConfig rc = new CpResourceConfig(application);
+    JobsApplication application = new JobsApplication("jobs", "jobs-", "");
+    JobsResourceConfig rc = new JobsResourceConfig(application);
     httpServer = GrizzlyHttpServerFactory.createHttpServer(baseUri, rc);
 
 
@@ -101,7 +101,7 @@ public class GrizzlyHorseServer {
       Thread shutdownThread = new Thread(httpServer::shutdown, "shutdownHook");
       Runtime.getRuntime().addShutdownHook(shutdownThread);
 
-      Runnable acceptRun = GrizzlyHorseServer.this::socketAcceptLoop;
+      Runnable acceptRun = JobsAgent.this::socketAcceptLoop;
       acceptThread = new Thread(acceptRun);
       acceptThread.start();
 
@@ -199,7 +199,7 @@ public class GrizzlyHorseServer {
    */
   public static void main(String[] args) {
     try {
-      GrizzlyHorseServer horseServer = new GrizzlyHorseServer();
+      JobsAgent horseServer = new JobsAgent();
       HttpServer server = horseServer.startServer(args);
 
       if (server == null) {

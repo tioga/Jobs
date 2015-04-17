@@ -4,8 +4,8 @@ import org.tiogasolutions.lib.couchace.DefaultCouchServer;
 
 import java.io.IOException;
 
-public class WhCouchServer extends DefaultCouchServer {
+public class JobsCouchServer extends DefaultCouchServer {
 
-  public WhCouchServer() throws IOException {
+  public JobsCouchServer() {
   }
 }

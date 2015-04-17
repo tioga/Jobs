@@ -8,9 +8,16 @@ project(":tioga-jobs-client") {
   version = "1.0.0"
 
   dependencies {
-    compile("com.fasterxml.jackson.core:jackson-annotations:2.5.1")
+    compile(project(":tioga-jobs-pub"))
+    compile(project(":tioga-jobs-jackson"))
 
-    testCompile ("org.testng:testng:6.8.21")
+    compile("org.tiogasolutions.lib:tioga-lib-jaxrs-jackson:5.1.0")
+
+    testCompile(project(":tioga-jobs-agent"))
+    testCompile("org.testng:testng:6.8.21")
+    testCompile("org.tiogasolutions.runners:tioga-runners-jersey-spring:1.0.0")
+    testCompile("org.glassfish.jersey.test-framework:jersey-test-framework-core:2.16")
+    testCompile("org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2:2.16")
   }
 
   apply(from: "https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle")

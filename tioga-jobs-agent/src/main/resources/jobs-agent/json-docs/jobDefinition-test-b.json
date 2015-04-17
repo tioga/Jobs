@@ -1,0 +1,15 @@
+{
+  "_id": "08f20270-be1b-11e4-af58-b8ca3a8e2d05",
+  "entityType": "jobDefinition",
+  "entity": {
+    "jobActions": [
+      {
+        "actionType": "osCommand",
+        "command": "fail-doing-this-and-that",
+        "workingDirectory": "c:\\",
+        "timeout": 60,
+        "timeoutUnit": "SECONDS"
+      }
+    ]
+  }
+}

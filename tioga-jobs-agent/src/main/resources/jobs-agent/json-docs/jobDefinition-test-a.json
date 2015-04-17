@@ -5,8 +5,8 @@
     "jobActions": [
       {
         "actionType": "osCommand",
-        "command": "C:\\Windows\\system32\\cmd.exe /c echo I love you too > test.txt",
-        "workingDirectory": "c:\\tmp",
+        "command": "C:\\Windows\\system32\\cmd.exe /c dir",
+        "workingDirectory": "c:\\",
         "timeout": 60,
         "timeoutUnit": "SECONDS"
       }

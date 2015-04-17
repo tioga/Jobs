@@ -2,10 +2,11 @@ package org.tiogasolutions.jobs.agent.entities;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.tiogasolutions.couchace.annotations.CouchEntity;
+import org.tiogasolutions.couchace.annotations.CouchId;
+import org.tiogasolutions.couchace.annotations.CouchRevision;
 
-/**
- * Created by jacobp on 4/1/2015.
- */
+@CouchEntity
 public class DomainProfileEntity {
 
   private final String domainProfileId;
@@ -14,7 +15,7 @@ public class DomainProfileEntity {
   private final DomainStatus domainStatus;
   private final String apiUsername;
   private final String apiPassword;
-  private final String jobDbName;
+  private final String jobsDbName;
 
   @JsonCreator
   public DomainProfileEntity(@JsonProperty("domainProfileId") String domainProfileId,
@@ -23,7 +24,7 @@ public class DomainProfileEntity {
                              @JsonProperty("domainStatus") DomainStatus domainStatus,
                              @JsonProperty("apiUsername") String apiUsername,
                              @JsonProperty("apiPassword") String apiPassword,
-                             @JsonProperty("jobDbName") String jobDbName) {
+                             @JsonProperty("jobsDbName") String jobsDbName) {
 
     this.domainProfileId = domainProfileId;
     this.revision = revision;
@@ -31,13 +32,15 @@ public class DomainProfileEntity {
     this.domainStatus = domainStatus;
     this.apiUsername = apiUsername;
     this.apiPassword = apiPassword;
-    this.jobDbName = jobDbName;
+    this.jobsDbName = jobsDbName;
   }
 
+  @CouchId
   public String getDomainProfileId() {
     return domainProfileId;
   }
 
+  @CouchRevision
   public String getRevision() {
     return revision;
   }
@@ -58,8 +61,8 @@ public class DomainProfileEntity {
     return apiPassword;
   }
 
-  public String getJobDbName() {
-    return jobDbName;
+  public String getJobsDbName() {
+    return jobsDbName;
   }
 
   @Override

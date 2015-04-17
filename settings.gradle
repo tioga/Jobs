@@ -4,5 +4,5 @@
  * This software may not be used without permission.
  */
 
-include "tioga-jobs-agent", "tioga-jobs-pub", "tioga-jobs-client"
+include "tioga-jobs-agent", "tioga-jobs-pub", "tioga-jobs-client", "tioga-jobs-jackson"
 

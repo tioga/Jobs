@@ -1,0 +1,10 @@
+{
+  "entityType": "DomainProfile",
+  "entity": {
+    "domainName": "Testing",
+    "domainStatus": "ACTIVE",
+    "apiKey": "9999",
+    "apiPassword": "unittest",
+    "jobsDbName": "testjobs-testing"
+  }
+}

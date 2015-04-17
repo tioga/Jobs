@@ -3,12 +3,10 @@ package org.tiogasolutions.jobs.agent.entities;
 import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.dev.common.id.TimeUuidIdGenerator;
 import org.tiogasolutions.jobs.agent.support.ExecutionContextManager;
-import org.tiogasolutions.jobs.agent.support.WhCouchServer;
+import org.tiogasolutions.jobs.agent.support.JobsCouchServer;
 import org.tiogasolutions.lib.couchace.DefaultCouchStore;
 import org.tiogasolutions.lib.couchace.support.CouchUtils;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.*;
@@ -17,16 +15,11 @@ public class JobDefinitionStore extends DefaultCouchStore<JobDefinitionEntity> {
 
   public static final String JOB_DEFINITION_DESIGN_NAME = "jobDefinition";
 
-  private final ExecutionContextManager ecm;
-  private final String dbNamePrefix;
-  private final String dbNameSuffix;
+  private final DomainDatabaseConfig config;
 
-  public JobDefinitionStore(WhCouchServer couchServer, ExecutionContextManager ecm, String dbNamePrefix, String dbNameSuffix) throws Exception {
-    super(couchServer, JobDefinitionEntity.class);
-
-    this.ecm = ecm;
-    this.dbNamePrefix = (dbNamePrefix == null) ? "" : dbNamePrefix;
-    this.dbNameSuffix = (dbNameSuffix == null) ? "" : dbNameSuffix;
+  public JobDefinitionStore(DomainDatabaseConfig config) {
+    super(config.getCouchServer(), JobDefinitionEntity.class);
+    this.config = config;
   }
 
   @Override
@@ -36,20 +29,18 @@ public class JobDefinitionStore extends DefaultCouchStore<JobDefinitionEntity> {
 
   @Override
   public String getDatabaseName() {
-    DomainProfileEntity domainProfile = ecm.getExecutionContext().getDomainProfileEntity();
-    return dbNamePrefix + domainProfile.getDomainName().toLowerCase() + dbNameSuffix;
+    DomainProfileEntity domainProfile = config.getEcm().getExecutionContext().getDomainProfileEntity();
+    return config.getDbNamePrefix() + domainProfile.getDomainName().toLowerCase() + config.getDbNameSuffix();
   }
 
   @Override
-  public WhCouchServer getCouchServer() {
-    return (WhCouchServer)super.getCouchServer();
+  public JobsCouchServer getCouchServer() {
+    return (JobsCouchServer)super.getCouchServer();
   }
 
   @Override
   public void createDatabase(CouchDatabase database) {
-    CouchUtils.createDatabase(database, new TimeUuidIdGenerator(),
-      "/jobs-agent/json-docs/jobDefinition-prod.json");
-    CouchUtils.validateDesign(database, singletonList("entity"), "/jobs-agent/design-docs/", "-design.json");
+    config.createDatabase(database);
   }
 
   public List<JobDefinitionEntity> getAll() {

@@ -1,9 +1,9 @@
 package org.tiogasolutions.jobs.agent.support;
 
 import org.tiogasolutions.dev.common.StringUtils;
-import org.tiogasolutions.jobs.agent.WhApplication;
+import org.tiogasolutions.jobs.agent.JobsApplication;
 import org.tiogasolutions.jobs.agent.entities.DomainProfileEntity;
-import org.tiogasolutions.jobs.agent.entities.DomainStatus;
+import org.tiogasolutions.jobs.agent.entities.DomainProfileStore;
 
 import javax.annotation.Priority;
 import javax.ws.rs.NotAuthorizedException;
@@ -29,16 +29,18 @@ import static org.tiogasolutions.dev.common.exceptions.ExceptionUtils.assertNotZ
  */
 @PreMatching
 @Priority(Priorities.AUTHENTICATION)
-public class WhFilter implements ContainerRequestFilter, ContainerResponseFilter {
+public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilter {
 
-  @Context
   private UriInfo uriInfo;
-  @Context
-  private HttpHeaders headers;
-  @Context
-  Application application;
+  private Application app;
 
-  public WhFilter() {
+  public JobsFilter() {
+  }
+
+  @Context
+  private void init(Application app, UriInfo uriInfo) {
+    this.app = app;
+    this.uriInfo = uriInfo;
   }
 
   @Override
@@ -48,7 +50,7 @@ public class WhFilter implements ContainerRequestFilter, ContainerResponseFilter
     String requestUri = uriInfo.getRequestUri().toString();
     String path = requestUri.substring(baseUri.length() - 1);
 
-    Map<String,Object> properties = application.getProperties();
+    Map<String,Object> properties = app.getProperties();
     String clientContext = assertNotZeroLength((String) properties.get("app.client.context"), "app.client.context");
     String adminContext = assertNotZeroLength((String) properties.get("app.admin.context"), "app.admin.context");
 
@@ -61,7 +63,7 @@ public class WhFilter implements ContainerRequestFilter, ContainerResponseFilter
 
   @Override
   public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
-    WhApplication.executionContextManager.clearContext();
+    JobsApplication.get(app, ExecutionContextManager.class).clearContext();
   }
 
   private void authenticateClientRequest(ContainerRequestContext requestContext) {
@@ -92,16 +94,16 @@ public class WhFilter implements ContainerRequestFilter, ContainerResponseFilter
       throw new NotAuthorizedException("API");
     }
 
-    Object sysUsername = application.getProperties().get("system.username");
-    Object sysPassword = application.getProperties().get("system.password");
+    DomainProfileStore store = (DomainProfileStore) app.getProperties().get(DomainProfileStore.class.getName());
+    DomainProfileEntity domainProfile = store.getByApiKey(apiUsername);
 
-    if (objectsNotEqual(apiUsername, sysUsername) || objectsNotEqual(apiPassword, sysPassword)) {
+    if (domainProfile == null) {
+      throw new NotAuthorizedException("API");
+
+    } else if (objectsNotEqual(apiPassword, domainProfile.getApiPassword())) {
       throw new NotAuthorizedException("API");
     }
 
-    DomainProfileEntity domainProfileEntity = new DomainProfileEntity(
-      "id-123", null, "Prod", DomainStatus.ACTIVE, apiUsername, apiPassword, "workhorse-prod");
-
-    WhApplication.executionContextManager.create(application, uriInfo, headers, domainProfileEntity);
+    JobsApplication.get(app, ExecutionContextManager.class).create(domainProfile);
   }
 }

@@ -1,11 +1,11 @@
 package org.tiogasolutions.jobs.agent.grizzly;
 
 import org.glassfish.jersey.server.ResourceConfig;
-import org.tiogasolutions.jobs.agent.WhApplication;
+import org.tiogasolutions.jobs.agent.JobsApplication;
 
-public class CpResourceConfig extends ResourceConfig {
+public class JobsResourceConfig extends ResourceConfig {
 
-  public CpResourceConfig(WhApplication application) {
+  public JobsResourceConfig(JobsApplication application) {
 
     application.getClasses().forEach(this::register);
 

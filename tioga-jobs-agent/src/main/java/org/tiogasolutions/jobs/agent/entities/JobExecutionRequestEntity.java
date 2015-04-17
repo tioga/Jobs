@@ -6,24 +6,41 @@ import org.tiogasolutions.couchace.annotations.CouchEntity;
 import org.tiogasolutions.couchace.annotations.CouchId;
 import org.tiogasolutions.couchace.annotations.CouchRevision;
 import org.tiogasolutions.dev.common.id.uuid.TimeUuid;
-import org.tiogasolutions.jobs.pub.JobExecution;
+import org.tiogasolutions.jobs.pub.JobDefinition;
+import org.tiogasolutions.jobs.pub.JobParameters;
+import org.tiogasolutions.jobs.pub.JobActionResult;
 import org.tiogasolutions.jobs.pub.JobExecutionRequest;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @CouchEntity(JobExecutionRequestStore.JOB_EXECUTION_REQUEST_DESIGN_NAME)
 public class JobExecutionRequestEntity {
 
   private final String jobExecutionRequestId;
   private final String revision;
-  private final JobExecution jobExecution;
+
+  private final String jobDefinitionId;
+
+  private final JobParameters jobParameters;
+  private final List<JobActionResult> results = new ArrayList<>();
 
   @JsonCreator
   public JobExecutionRequestEntity(@JsonProperty("jobExecutionRequestId") String jobExecutionRequestId,
                                    @JsonProperty("revision") String revision,
-                                   @JsonProperty("jobExecution") JobExecution jobExecution) {
+                                   @JsonProperty("jobDefinitionId") String jobDefinitionId,
+                                   @JsonProperty("jobExecution") JobParameters jobParameters,
+                                   @JsonProperty("results") List<JobActionResult> results) {
 
     this.jobExecutionRequestId = jobExecutionRequestId;
     this.revision = revision;
-    this.jobExecution = jobExecution;
+    this.jobDefinitionId = jobDefinitionId;
+    this.jobParameters = jobParameters;
+
+    if (results != null) {
+      this.results.addAll(results);
+    }
   }
 
   @CouchId
@@ -36,19 +53,38 @@ public class JobExecutionRequestEntity {
     return revision;
   }
 
-  public JobExecution getJobExecution() {
-    return jobExecution;
+  public JobParameters getJobParameters() {
+    return jobParameters;
   }
 
-  public static JobExecutionRequestEntity newEntity(JobExecution jobExecution) {
-    return new JobExecutionRequestEntity(TimeUuid.randomUUID().toString(), null, jobExecution);
+  public List<JobActionResult> getResults() {
+    return Collections.unmodifiableList(results);
+  }
+
+  public String getJobDefinitionId() {
+    return jobDefinitionId;
+  }
+
+  public void completed(List<JobActionResult> results) {
+    this.results.clear();
+    this.results.addAll(results);
   }
 
   public JobExecutionRequest toJobExecutionRequestEntity() {
     return new JobExecutionRequest(
       jobExecutionRequestId,
       revision,
-      jobExecution
+      jobDefinitionId,
+      jobParameters,
+      results
     );
+  }
+
+  public static JobExecutionRequestEntity newEntity(JobDefinitionEntity jobDefinition, JobParameters jobParameters) {
+    return new JobExecutionRequestEntity(
+      TimeUuid.randomUUID().toString(), null,
+      jobDefinition.getJobDefinitionId(),
+      jobParameters,
+      Collections.emptyList());
   }
 }

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Jobs.iml" filepath="$PROJECT_DIR$/Jobs.iml" />
       <module fileurl="file://$PROJECT_DIR$/tioga-jobs-agent/tioga-jobs-agent.iml" filepath="$PROJECT_DIR$/tioga-jobs-agent/tioga-jobs-agent.iml" />
       <module fileurl="file://$PROJECT_DIR$/tioga-jobs-client/tioga-jobs-client.iml" filepath="$PROJECT_DIR$/tioga-jobs-client/tioga-jobs-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-jackson/tioga-jobs-jackson.iml" filepath="$PROJECT_DIR$/tioga-jobs-jackson/tioga-jobs-jackson.iml" />
       <module fileurl="file://$PROJECT_DIR$/tioga-jobs-pub/tioga-jobs-pub.iml" filepath="$PROJECT_DIR$/tioga-jobs-pub/tioga-jobs-pub.iml" />
     </modules>
   </component>
