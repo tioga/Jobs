@@ -75,7 +75,7 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
 
     assertNotNull(result.getOutput());
     String out = result.getOutput().trim();
-    assertTrue(out.startsWith("Volume in drive C is Local Disk"));
+    assertTrue(out.startsWith("Volume in drive "));
     assertTrue(out.contains("Directory of c:\\"));
     assertTrue(out.endsWith("bytes free"));
   }
