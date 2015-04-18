@@ -23,14 +23,16 @@ subprojects {
   sourceCompatibility = "1.8"
 
   configurations.all({
-    resolutionStrategy({
-      // failOnVersionConflict()
+    resolutionStrategy {
+      if (System.getProperty("no-fail-version-conflict") != "true") {
+        failOnVersionConflict()
+      }
       force(
-        "org.slf4j:slf4j:1.7.10",
-        "org.slf4j:slf4j-api:1.7.10",
+        "org.slf4j:slf4j:1.7.12",
+        "org.slf4j:slf4j-api:1.7.12",
         "org.javassist:javassist:3.18.1-GA",
       )
-    })
+    }
   })
 
   ext {
