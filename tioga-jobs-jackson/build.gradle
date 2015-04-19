@@ -10,7 +10,7 @@ project(":tioga-jobs-jackson") {
 
     compile project(":tioga-jobs-pub")
 
-  	compile("org.tiogasolutions.dev:tioga-dev-jackson:4.+")
+  	compile("org.tiogasolutions.dev:tioga-dev-jackson:+")
 
     testCompile("org.testng:testng:6.8.21")
   }
