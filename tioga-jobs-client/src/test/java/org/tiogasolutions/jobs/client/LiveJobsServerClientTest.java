@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.*;
 
-@Test
+@Test(enabled = false)
 public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest {
 
   private final String jobAId = "deac9600-d96e-11e4-adce-b8ca3a8e2d05";
