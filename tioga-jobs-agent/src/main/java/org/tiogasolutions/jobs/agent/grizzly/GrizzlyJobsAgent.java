@@ -72,7 +72,7 @@ public class GrizzlyJobsAgent {
       return null;
     }
 
-    JobsApplication application = new JobsApplication("jobs", "jobs-", "");
+    JobsApplication application = new JobsApplication("tioga-sys-jobs", "tioga-usr-", "-jobs");
     JobsResourceConfig rc = new JobsResourceConfig(application);
     httpServer = GrizzlyHttpServerFactory.createHttpServer(baseUri, rc);
 
@@ -89,7 +89,7 @@ public class GrizzlyJobsAgent {
         socket = new ServerSocket(shutdownPort);
         socket.setSoTimeout(socketAcceptTimeoutMilli);
 
-        String msg = String.format("%s is accepting connections on port %s from %s.", getClass().getSimpleName(), shutdownPort, socket.getInetAddress().getHostAddress());
+        String msg = String.format("%s is accepting connections on port %s from %s.", getClass().getSimpleName(), port, socket.getInetAddress().getHostAddress());
         System.out.println(msg);
 
       } catch(IOException ex) {
