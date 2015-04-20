@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class JobsAgent {
+public class GrizzlyJobsAgent {
 
-  public String serverName = "www.localhost";
+  public String serverName = "localhost";
   private boolean shutDown = false;
   private int port = 39007;
   private int shutdownPort = 39008;
@@ -31,7 +31,7 @@ public class JobsAgent {
   private final ReentrantLock handlerLock = new ReentrantLock();
   private static final int socketAcceptTimeoutMilli = 5000;
 
-  public JobsAgent() {
+  public GrizzlyJobsAgent() {
   }
 
   /**
@@ -101,7 +101,7 @@ public class JobsAgent {
       Thread shutdownThread = new Thread(httpServer::shutdown, "shutdownHook");
       Runtime.getRuntime().addShutdownHook(shutdownThread);
 
-      Runnable acceptRun = JobsAgent.this::socketAcceptLoop;
+      Runnable acceptRun = GrizzlyJobsAgent.this::socketAcceptLoop;
       acceptThread = new Thread(acceptRun);
       acceptThread.start();
 
@@ -199,7 +199,7 @@ public class JobsAgent {
    */
   public static void main(String[] args) {
     try {
-      JobsAgent horseServer = new JobsAgent();
+      GrizzlyJobsAgent horseServer = new GrizzlyJobsAgent();
       HttpServer server = horseServer.startServer(args);
 
       if (server == null) {
