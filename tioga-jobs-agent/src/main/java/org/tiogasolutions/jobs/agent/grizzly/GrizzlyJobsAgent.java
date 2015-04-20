@@ -19,7 +19,7 @@ public class GrizzlyJobsAgent {
   private boolean shutDown = false;
   private int port = 39007;
   private int shutdownPort = 39008;
-  private String context = "jobs-server";
+  private String context = "jobs-agent";
   private boolean openBrowser;
 
   public URI baseUri;
