@@ -15,35 +15,40 @@ import org.tiogasolutions.lib.couchace.DefaultCouchServer;
 import javax.ws.rs.core.Application;
 import javax.xml.bind.DatatypeConverter;
 import java.time.ZoneId;
+import java.util.Arrays;
 
 public class TestFactory {
 
   public static final String API_KEY = "9999";
   public static final String API_PASSWORD = "unittest";
 
-  public static final String DB_NAME = "testjobs";
-  public static final String DB_PREFIX = "testjobs-";
+  private static final String SYS_DB_NAME = "test-jobs";
+  private static final String SYS_DB_PREFIX = "test-jobs-";
+  private static final String SYS_DB_SUFFIX = "-domain";
 
   public static JobsApplication newApplication() {
-    return new JobsApplication(DB_NAME, DB_PREFIX, "");
+    return new JobsApplication(SYS_DB_NAME, SYS_DB_PREFIX, SYS_DB_SUFFIX);
   }
 
   private final JobsApplication app;
 
   public TestFactory(JobsApplication app) throws Exception {
 
+    String sysDatabase = "";
+    String usrDatabase = "";
+
     this.app = app;
 
     CouchServer server = new DefaultCouchServer();
 
-    CouchDatabase database = server.database(app.getDatabaseName(), CouchFeatureSet.builder().add(CouchFeature.ALLOW_DB_DELETE, true).build());
-    if (database.exists()) {
-      database.deleteDatabase();
-    }
+    for (String dbName : Arrays.asList(sysDatabase, usrDatabase)) {
+      CouchDatabase database = server.database(dbName, CouchFeatureSet.builder()
+        .add(CouchFeature.ALLOW_DB_DELETE, true)
+        .build());
 
-    database = server.database("testjobs-testing", CouchFeatureSet.builder().add(CouchFeature.ALLOW_DB_DELETE, true).build());
-    if (database.exists()) {
-      database.deleteDatabase();
+      if (database.exists()) {
+        database.deleteDatabase();
+      }
     }
   }
 

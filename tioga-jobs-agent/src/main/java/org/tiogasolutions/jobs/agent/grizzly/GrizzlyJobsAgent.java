@@ -72,10 +72,9 @@ public class GrizzlyJobsAgent {
       return null;
     }
 
-    JobsApplication application = new JobsApplication("tioga-sys-jobs", "tioga-usr-", "-jobs");
+    JobsApplication application = new JobsApplication("tioga-jobs", "tioga-jobs-", "-domain");
     JobsResourceConfig rc = new JobsResourceConfig(application);
     httpServer = GrizzlyHttpServerFactory.createHttpServer(baseUri, rc);
-
 
     // Lock the handler, IllegalStateException thrown if we fail.
     lockHandler();
