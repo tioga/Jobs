@@ -4,20 +4,31 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * Created by jacobp on 4/1/2015.
- */
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 public class JobParameters {
 
   private final boolean synchronous;
   private final String callbackUrl;
+  private final Map<String,String> substitutions = new HashMap<>();
 
   @JsonCreator
   private JobParameters(@JsonProperty("synchronous") boolean synchronous,
-                        @JsonProperty("callbackUrl") String callbackUrl) {
+                        @JsonProperty("callbackUrl") String callbackUrl,
+                        @JsonProperty("substitutions") Map<String,String> substitutions) {
 
     this.synchronous = synchronous;
     this.callbackUrl = callbackUrl;
+
+    if (substitutions != null) {
+      this.substitutions.putAll(substitutions);
+    }
+  }
+
+  public Map<String, String> getSubstitutions() {
+    return substitutions;
   }
 
   public boolean isSynchronous() {
@@ -34,10 +45,18 @@ public class JobParameters {
   }
 
   public static JobParameters createSynchronous() {
-    return new JobParameters(true, null);
+    return new JobParameters(true, null, Collections.emptyMap());
+  }
+
+  public static JobParameters createSynchronous(Map<String,String> substitutionsMap) {
+    return new JobParameters(true, null, substitutionsMap);
   }
 
   public static JobParameters createAsynchronous(String callbackUrl) {
-    return new JobParameters(false, callbackUrl);
+    return new JobParameters(false, callbackUrl, Collections.emptyMap());
+  }
+
+  public static JobParameters createAsynchronous(String callbackUrl, Map<String,String> substitutionsMap) {
+    return new JobParameters(false, callbackUrl, substitutionsMap);
   }
 }

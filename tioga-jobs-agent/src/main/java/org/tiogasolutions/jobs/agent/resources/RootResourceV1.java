@@ -55,5 +55,10 @@ public class RootResourceV1 extends RootResourceSupport {
   public ClientResourceV1 getClientResource() throws Exception {
     return new ClientResourceV1();
   }
+
+  @Path("/api/v1/admin")
+  public AdminResourceV1 getAdminResource() throws Exception {
+    return new AdminResourceV1();
+  }
 }
 

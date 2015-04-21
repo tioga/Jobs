@@ -1,6 +1,7 @@
 package org.tiogasolutions.jobs.agent.entities;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.tiogasolutions.couchace.annotations.CouchEntity;
 import org.tiogasolutions.couchace.annotations.CouchId;
@@ -14,6 +15,7 @@ import org.tiogasolutions.jobs.pub.JobExecutionRequest;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @CouchEntity(JobExecutionRequestStore.JOB_EXECUTION_REQUEST_DESIGN_NAME)
 public class JobExecutionRequestEntity {
@@ -30,7 +32,7 @@ public class JobExecutionRequestEntity {
   public JobExecutionRequestEntity(@JsonProperty("jobExecutionRequestId") String jobExecutionRequestId,
                                    @JsonProperty("revision") String revision,
                                    @JsonProperty("jobDefinitionId") String jobDefinitionId,
-                                   @JsonProperty("jobExecution") JobParameters jobParameters,
+                                   @JsonProperty("jobParameters") JobParameters jobParameters,
                                    @JsonProperty("results") List<JobActionResult> results) {
 
     this.jobExecutionRequestId = jobExecutionRequestId;
@@ -70,7 +72,12 @@ public class JobExecutionRequestEntity {
     this.results.addAll(results);
   }
 
-  public JobExecutionRequest toJobExecutionRequestEntity() {
+  @JsonIgnore
+  public Map<String, String> getSubstitutions() {
+    return jobParameters.getSubstitutions();
+  }
+
+  public JobExecutionRequest toJobExecutionRequest() {
     return new JobExecutionRequest(
       jobExecutionRequestId,
       revision,

@@ -17,12 +17,14 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.UriInfo;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static java.util.Collections.*;
 
 public class JobsResourceV1 {
 
@@ -66,7 +68,21 @@ public class JobsResourceV1 {
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
   public JobExecutionRequest execute(@Context Application app,
+                                     @Context UriInfo uriInfo,
                                      @PathParam("jobDefinitionId") String jobDefinitionId,
+                                     JobParameters jobParameters) throws Exception {
+
+    return execute(app, uriInfo, jobDefinitionId, -1, jobParameters);
+  }
+
+  @POST
+  @Path("/{jobDefinitionId}/commands/{commandIndex}")
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.APPLICATION_JSON)
+  public JobExecutionRequest execute(@Context Application app,
+                                     @Context UriInfo uriInfo,
+                                     @PathParam("jobDefinitionId") String jobDefinitionId,
+                                     @PathParam("commandIndex") int commandIndex,
                                      JobParameters jobParameters) throws Exception {
 
     if (jobParameters == null) {
@@ -78,66 +94,103 @@ public class JobsResourceV1 {
     JobsApplication.get(app, JobExecutionRequestStore.class).create(request);
 
     if (jobParameters.isSynchronous()) {
-      return executeJob(app, request, jobDefinitionEntity);
+      return executeJob(app, request, jobDefinitionEntity, commandIndex);
 
     } else {
-      executor.submit(() -> executeJob(app, request, jobDefinitionEntity));
-      return request.toJobExecutionRequestEntity();
+      executor.submit(() -> executeJob(app, request, jobDefinitionEntity, commandIndex));
+      return request.toJobExecutionRequest();
     }
   }
 
-  private JobExecutionRequest executeJob(Application app, JobExecutionRequestEntity request, JobDefinitionEntity jobDefinitionEntity) throws Exception {
+  private JobExecutionRequest executeJob(Application app, JobExecutionRequestEntity request, JobDefinitionEntity jobDefinitionEntity, int commandIndex) throws Exception {
     List<JobActionResult> results = new ArrayList<>();
 
-    for (JobAction jobAction : jobDefinitionEntity.getJobActions()) {
-      processAction(results, jobAction);
+    List<JobAction> actions = jobDefinitionEntity.getJobActions();
+    if (commandIndex >= 0) {
+      actions = singletonList(actions.get(commandIndex));
+    }
+
+    for (JobAction jobAction : actions) {
+      if (processAction(request, jobAction, results).isFailure()) {
+        break;
+      }
     }
 
     request.completed(results);
     JobsApplication.get(app, JobExecutionRequestStore.class).update(request);
 
-    return request.toJobExecutionRequestEntity();
+    return request.toJobExecutionRequest();
   }
 
-  private void processAction(List<JobActionResult> results, JobAction jobAction) throws Exception {
-    try {
-      ActionType actionType = jobAction.getActionType();
-      if (actionType.isOsCommand()) {
-        JobActionResult result = processOsCommand(jobAction);
-        results.add(result);
+  private JobActionResult processAction(JobExecutionRequestEntity request, JobAction jobAction, List<JobActionResult> results) throws Exception {
+    ActionType actionType = jobAction.getActionType();
+    if (actionType.isOsCommand()) {
+      return processOsCommand(request, jobAction, results);
 
-      } else {
-        String msg = String.format("The action type \"%s\" is not supported.", actionType);
-        throw new UnsupportedOperationException(msg);
-      }
-    } catch (Exception ex) {
-      results.add(JobActionResult.fail(ex));
+
+
+    } else {
+      String msg = String.format("The action type \"%s\" is not supported.", actionType);
+      throw new UnsupportedOperationException(msg);
     }
   }
 
-  private JobActionResult processOsCommand(JobAction jobAction) throws Exception {
+  private JobActionResult processOsCommand(JobExecutionRequestEntity request, JobAction jobAction, List<JobActionResult> results) {
+
+    JobActionResult result;
     String command = jobAction.getCommand();
-    List<String> commands = splitCommand(command);
-    String[] commandArray = ReflectUtils.toArray(String.class, commands);
 
-    File workingDir = jobAction.getWorkingDirectory();
-    if (workingDir.exists() == false) {
-      String msg = "The specified working directory does not exist: " + workingDir.getAbsolutePath();
-      throw new FileNotFoundException(msg);
+    try {
+      JobVariable variable = JobVariable.findFirst(command);
+      while (variable != null) {
+        command = variable.replace(request.getSubstitutions(), command);
+        variable = JobVariable.findFirst(command);
+      }
+
+      List<String> commands = splitCommand(command);
+      String[] commandArray = ReflectUtils.toArray(String.class, commands);
+
+      File workingDir = jobAction.getWorkingDirectory();
+      if (workingDir.exists() == false) {
+        String msg = "The specified working directory does not exist: " + workingDir.getAbsolutePath();
+        throw new FileNotFoundException(msg);
+      }
+
+      File outFile = File.createTempFile("process-out-", ".txt");
+      outFile.deleteOnExit();
+
+      File errFile = File.createTempFile("process-err-", ".txt");
+      errFile.deleteOnExit();
+
+      Process process = new ProcessBuilder()
+        .command(commandArray)
+        .directory(workingDir)
+        .redirectOutput(ProcessBuilder.Redirect.to(outFile))
+        .redirectError(ProcessBuilder.Redirect.to(errFile))
+        .start();
+
+      process.waitFor(jobAction.getTimeout(), jobAction.getTimeoutUnit());
+
+      if (process.isAlive()) {
+        process.destroyForcibly();
+      }
+
+      int exitValue = process.exitValue();
+
+      String out = IoUtils.toString(outFile);
+      IoUtils.deleteFile(outFile);
+
+      String err = IoUtils.toString(errFile);
+      IoUtils.deleteFile(errFile);
+
+      result = JobActionResult.finished(command, exitValue, out, err);
+
+    } catch (Exception ex) {
+      result = JobActionResult.fail(command, ex);
     }
 
-    Process process = new ProcessBuilder()
-      .command(commandArray)
-      .directory(workingDir)
-      .redirectErrorStream(true)
-      .start();
-
-    process.waitFor(jobAction.getTimeout(), jobAction.getTimeoutUnit());
-
-    int exitValue = process.exitValue();
-    String output = IoUtils.toString(process.getInputStream());
-
-    return JobActionResult.finished(exitValue, output);
+    results.add(result);
+    return result;
   }
 
   public static List<String> splitCommand(String command) {

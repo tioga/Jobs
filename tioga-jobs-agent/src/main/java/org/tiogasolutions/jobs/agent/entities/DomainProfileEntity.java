@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.tiogasolutions.couchace.annotations.CouchEntity;
 import org.tiogasolutions.couchace.annotations.CouchId;
 import org.tiogasolutions.couchace.annotations.CouchRevision;
+import org.tiogasolutions.jobs.pub.DomainProfile;
 
 @CouchEntity
 public class DomainProfileEntity {
@@ -78,5 +79,9 @@ public class DomainProfileEntity {
   @Override
   public int hashCode() {
     return domainProfileId.hashCode();
+  }
+
+  public DomainProfile toDomainProfile() {
+    return new DomainProfile(domainName);
   }
 }

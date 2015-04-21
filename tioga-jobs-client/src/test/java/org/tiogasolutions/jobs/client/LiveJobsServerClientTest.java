@@ -73,11 +73,14 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
     assertNotNull(result);
     assertEquals(result.getExitValue(), 0);
 
-    assertNotNull(result.getOutput());
-    String out = result.getOutput().trim();
+    assertNotNull(result.getOut());
+    String out = result.getOut().trim();
+
     assertTrue(out.startsWith("Volume in drive "));
     assertTrue(out.contains("Directory of c:\\"));
     assertTrue(out.endsWith("bytes free"));
+
+    assertEquals(result.getErr(), "");
   }
 
   public void testExecuteJobB() throws Exception {
@@ -102,11 +105,14 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
     assertNotNull(result);
     assertEquals(result.getExitValue(), Integer.MIN_VALUE);
 
-    assertNotNull(result.getOutput());
-    String out = result.getOutput().trim();
+    assertNotNull(result.getOut());
+    String out = result.getOut().trim();
+
     assertTrue(out.startsWith("java.io.IOException: Cannot run program \"fail-doing-this-and-that\""));
     assertTrue(out.contains("Caused by: java.io.IOException"));
     assertTrue(out.endsWith("... 30 more"));
+
+    assertEquals(result.getErr(), "");
   }
 
   public void testGetJobA() throws Exception {

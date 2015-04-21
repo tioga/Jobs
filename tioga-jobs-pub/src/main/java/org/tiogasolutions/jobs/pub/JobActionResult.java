@@ -9,32 +9,51 @@ import java.io.StringWriter;
 public class JobActionResult {
 
   private final int exitValue;
-  private final String output;
+  private final String out;
+  private final String err;
+  private final String command;
 
   @JsonCreator
-  private JobActionResult(@JsonProperty("exitValue") int exitValue,
-                          @JsonProperty("output") String output) {
+  private JobActionResult(@JsonProperty("command") String command,
+                          @JsonProperty("exitValue") int exitValue,
+                          @JsonProperty("out") String out,
+                          @JsonProperty("err") String err) {
 
     this.exitValue = exitValue;
-    this.output = output;
+    this.command = command;
+
+    this.out = (out == null) ? null : out.replace("\r", "");
+    this.err = (err == null) ? null : err.replace("\r", "");
+  }
+
+  public String getCommand() {
+    return command;
   }
 
   public int getExitValue() {
     return exitValue;
   }
 
-  public String getOutput() {
-    return output;
+  public String getOut() {
+    return out;
   }
 
-  public static JobActionResult finished(int exitValue, String output) {
-    return new JobActionResult(exitValue, output);
+  public String getErr() {
+    return err;
   }
 
-  public static JobActionResult fail(Exception ex) {
+  public static JobActionResult finished(String command, int exitValue, String out, String err) {
+    return new JobActionResult(command, exitValue, out, err);
+  }
+
+  public static JobActionResult fail(String command, Exception ex) {
     StringWriter writer = new StringWriter();
     ex.printStackTrace(new PrintWriter(writer));
-    String output = writer.toString();
-    return new JobActionResult(Integer.MIN_VALUE, output);
+    String stackTrace = writer.toString();
+    return new JobActionResult(command, Integer.MIN_VALUE, null, stackTrace);
+  }
+
+  public boolean isFailure() {
+    return exitValue != 0;
   }
 }

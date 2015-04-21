@@ -4,18 +4,17 @@ import org.tiogasolutions.dev.common.StringUtils;
 import org.tiogasolutions.jobs.agent.JobsApplication;
 import org.tiogasolutions.jobs.agent.entities.DomainProfileEntity;
 import org.tiogasolutions.jobs.agent.entities.DomainProfileStore;
+import org.tiogasolutions.jobs.pub.DomainProfile;
 
 import javax.annotation.Priority;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.*;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.Principal;
 import java.util.Map;
 
 import static org.tiogasolutions.dev.common.EqualsUtils.objectsNotEqual;
@@ -57,7 +56,7 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
     if (path.equals(clientContext) || path.startsWith(clientContext+"/")) {
       authenticateClientRequest(requestContext);
     } else if (path.equals(adminContext) || path.startsWith(adminContext+"/")) {
-      throw new UnsupportedOperationException("Not yet implemented.");
+      authenticateAdminRequest(requestContext);
     }
   }
 
@@ -104,6 +103,88 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
       throw new NotAuthorizedException("API");
     }
 
+    final SecurityContext securityContext = requestContext.getSecurityContext();
+    requestContext.setSecurityContext(new ClientSecurityContext(securityContext, domainProfile.toDomainProfile()));
+
     JobsApplication.get(app, ExecutionContextManager.class).create(domainProfile);
+  }
+
+  private void authenticateAdminRequest(ContainerRequestContext requestContext) {
+    String authHeader = requestContext.getHeaderString("Authorization");
+
+    if (authHeader == null) {
+      throw new NotAuthorizedException("API");
+    } else if (authHeader.startsWith("Basic ") == false) {
+      throw new NotAuthorizedException("API");
+    } else {
+      authHeader = authHeader.substring(6);
+    }
+
+    byte[] bytes = DatatypeConverter.parseBase64Binary(authHeader);
+    String basicAuth = new String(bytes, StandardCharsets.UTF_8);
+
+    int pos = basicAuth.indexOf(":");
+
+    String username;
+    String password;
+
+    if (pos < 0) {
+      username = basicAuth;
+      password = null;
+
+    } else {
+      username = basicAuth.substring(0, pos);
+      password = basicAuth.substring(pos+1);
+    }
+
+    // throws NotAuthorizedException if not a valid username and password
+    authorize(username, password);
+
+    final SecurityContext securityContext = requestContext.getSecurityContext();
+    requestContext.setSecurityContext(new AdminSecurityContext(securityContext, username));
+  }
+
+  private void authorize(String username, String password) {
+    if ("admin".equals(username) == false ||  password.equals("North2South!") == false) {
+      throw new NotAuthorizedException("ADMIN");
+    }
+  }
+
+  private class AdminSecurityContext implements SecurityContext {
+    private final boolean secure;
+    private final String username;
+    public AdminSecurityContext(SecurityContext securityContext, String username) {
+      this.username = username;
+      this.secure = securityContext.isSecure();
+    }
+    public String getUsername() { return username; }
+    @Override public boolean isUserInRole(String role) { return false; }
+    @Override public boolean isSecure() { return secure; }
+    @Override public String getAuthenticationScheme() { return "BASIC_AUTH"; }
+    @Override public Principal getUserPrincipal() { return this::getUsername; }
+  }
+
+  private class ClientSecurityContext implements SecurityContext {
+    private final boolean secure;
+    private final String domainName;
+    private final Principal principal;
+    public ClientSecurityContext(SecurityContext securityContext, DomainProfile domain) {
+      this.secure = securityContext.isSecure();
+      this.domainName = domain.getDomainName();
+      this.principal = this::getDomainName;
+    }
+    public String getDomainName() {
+      return domainName;
+    }
+    @Override public boolean isUserInRole(String role) {
+      return false;
+    }
+    @Override public boolean isSecure() {
+      return secure;
+    }
+    @Override public String getAuthenticationScheme() {
+      return "BASIC_AUTH";
+    }
+    @Override public Principal getUserPrincipal() { return principal;}
   }
 }
