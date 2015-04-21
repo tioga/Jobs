@@ -72,7 +72,7 @@ public class GrizzlyJobsAgent {
       return null;
     }
 
-    JobsApplication application = new JobsApplication("tioga-jobs", "tioga-jobs-", "-domain");
+    JobsApplication application = new JobsApplication("tioga-jobs", "tioga-jobs-", "");
     JobsResourceConfig rc = new JobsResourceConfig(application);
     httpServer = GrizzlyHttpServerFactory.createHttpServer(baseUri, rc);
 
