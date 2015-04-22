@@ -5,7 +5,7 @@
  */
 project(":tioga-jobs-agent") {
 
-  version = "1.0.4"
+  version = "1.0.5"
 
   dependencies {
     compile(project(":tioga-jobs-pub"))
@@ -36,7 +36,7 @@ project(":tioga-jobs-agent") {
     FileWriter writer = new FileWriter(serverStartFile);
     writer.write("@echo off\r\ncls\r\n");
     writer.write("echo Starting Tioga Solution's Jobs Agent\r\n");
-    writer.write("%JAVA_HOME%\\bin\\java.exe -jar ./lib/tioga-jobs-agent-${project.version}.jar");
+    writer.write("%JAVA_HOME%\\bin\\javaw.exe -jar ./lib/tioga-jobs-agent-${project.version}.jar");
     writer.close()
   }
 
