@@ -12,6 +12,7 @@ import org.tiogasolutions.jobs.pub.JobParameters;
 import org.tiogasolutions.jobs.pub.JobActionResult;
 import org.tiogasolutions.jobs.pub.JobExecutionRequest;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,15 +29,31 @@ public class JobExecutionRequestEntity {
   private final JobParameters jobParameters;
   private final List<JobActionResult> results = new ArrayList<>();
 
+  private String summary;
+  private final int actionCount;
+
+  private final ZonedDateTime createdAt;
+  private ZonedDateTime updatedAt;
+
   @JsonCreator
   public JobExecutionRequestEntity(@JsonProperty("jobExecutionRequestId") String jobExecutionRequestId,
                                    @JsonProperty("revision") String revision,
                                    @JsonProperty("jobDefinitionId") String jobDefinitionId,
+                                   @JsonProperty("summary") String summary,
+                                   @JsonProperty("actionCount") int actionCount,
                                    @JsonProperty("jobParameters") JobParameters jobParameters,
-                                   @JsonProperty("results") List<JobActionResult> results) {
+                                   @JsonProperty("results") List<JobActionResult> results,
+                                   @JsonProperty("createdAt") ZonedDateTime createdAt,
+                                   @JsonProperty("updatedAt") ZonedDateTime updatedAt) {
 
     this.jobExecutionRequestId = jobExecutionRequestId;
     this.revision = revision;
+
+    this.summary = summary;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+
+    this.actionCount = actionCount;
     this.jobDefinitionId = jobDefinitionId;
     this.jobParameters = jobParameters;
 
@@ -55,6 +72,14 @@ public class JobExecutionRequestEntity {
     return revision;
   }
 
+  public ZonedDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public ZonedDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
   public JobParameters getJobParameters() {
     return jobParameters;
   }
@@ -67,9 +92,24 @@ public class JobExecutionRequestEntity {
     return jobDefinitionId;
   }
 
-  public void completed(List<JobActionResult> results) {
-    this.results.clear();
-    this.results.addAll(results);
+  public String getSummary() {
+    return summary;
+  }
+
+  public int getActionCount() {
+    return actionCount;
+  }
+
+  public void addResult(JobActionResult result) {
+    
+    this.results.add(result);
+    this.updatedAt = ZonedDateTime.now();
+
+    if (result.isFailure()) {
+      this.summary = String.format("Action %s of %s failed", this.results.size(), actionCount);
+    } else {
+      this.summary = String.format("Processed %s of %s actions", this.results.size(), actionCount);
+    }
   }
 
   @JsonIgnore
@@ -91,7 +131,10 @@ public class JobExecutionRequestEntity {
     return new JobExecutionRequestEntity(
       TimeUuid.randomUUID().toString(), null,
       jobDefinition.getJobDefinitionId(),
+      String.format("Processing %s commands", jobDefinition.getJobActions().size()),
+      jobDefinition.getJobActions().size(),
       jobParameters,
-      Collections.emptyList());
+      Collections.emptyList(),
+      ZonedDateTime.now(), ZonedDateTime.now());
   }
 }

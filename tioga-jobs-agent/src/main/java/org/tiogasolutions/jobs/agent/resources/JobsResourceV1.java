@@ -106,7 +106,6 @@ public class JobsResourceV1 {
   }
 
   private JobExecutionRequest executeJob(Application app, JobExecutionRequestEntity request, JobDefinitionEntity jobDefinitionEntity, int commandIndex) throws Exception {
-    List<JobActionResult> results = new ArrayList<>();
 
     List<JobAction> actions = jobDefinitionEntity.getJobActions();
     if (commandIndex >= 0) {
@@ -114,23 +113,21 @@ public class JobsResourceV1 {
     }
 
     for (JobAction jobAction : actions) {
-      if (processAction(request, jobAction, results).isFailure()) {
+      if (processAction(app, request, jobAction).isFailure()) {
         break;
       }
     }
 
-    request.completed(results);
+    // One last update to make sure everything is current.
     JobsApplication.get(app, JobExecutionRequestStore.class).update(request);
 
     return request.toJobExecutionRequest();
   }
 
-  private JobActionResult processAction(JobExecutionRequestEntity request, JobAction jobAction, List<JobActionResult> results) throws Exception {
+  private JobActionResult processAction(Application app, JobExecutionRequestEntity request, JobAction jobAction) throws Exception {
     ActionType actionType = jobAction.getActionType();
     if (actionType.isOsCommand()) {
-      return processOsCommand(request, jobAction, results);
-
-
+      return processOsCommand(app, request, jobAction);
 
     } else {
       String msg = String.format("The action type \"%s\" is not supported.", actionType);
@@ -138,7 +135,7 @@ public class JobsResourceV1 {
     }
   }
 
-  private JobActionResult processOsCommand(JobExecutionRequestEntity request, JobAction jobAction, List<JobActionResult> results) {
+  private JobActionResult processOsCommand(Application app, JobExecutionRequestEntity request, JobAction jobAction) {
 
     JobActionResult result;
     String command = jobAction.getCommand();
@@ -196,7 +193,9 @@ public class JobsResourceV1 {
       result = JobActionResult.fail(command, ex);
     }
 
-    results.add(result);
+    request.addResult(result);
+    JobsApplication.get(app, JobExecutionRequestStore.class).update(request);
+
     return result;
   }
 

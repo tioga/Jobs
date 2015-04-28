@@ -5,7 +5,7 @@
  */
 project(":tioga-jobs-agent") {
 
-  version = "1.0.6"
+  version = "1.0.7"
 
   dependencies {
     compile(project(":tioga-jobs-pub"))
