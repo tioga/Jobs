@@ -1,5 +1,7 @@
 package org.tiogasolutions.jobs.agent.resources;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.tiogasolutions.dev.common.IoUtils;
 import org.tiogasolutions.dev.common.ReflectUtils;
 import org.tiogasolutions.dev.common.exceptions.ApiException;
@@ -28,6 +30,7 @@ import static java.util.Collections.*;
 
 public class JobsResourceV1 {
 
+  private static final Log log = LogFactory.getLog(JobsResourceV1.class);
   private static final ExecutorService executor = Executors.newCachedThreadPool();
 
   public JobsResourceV1() {
@@ -178,10 +181,14 @@ public class JobsResourceV1 {
       int exitValue = process.exitValue();
 
       String out = IoUtils.toString(outFile);
-      IoUtils.deleteFile(outFile);
+      if (outFile.delete() == false) {
+        log.warn("Unable to delete temp file: " + outFile.getAbsolutePath());
+      }
 
       String err = IoUtils.toString(errFile);
-      IoUtils.deleteFile(errFile);
+      if (errFile.delete() == false) {
+        log.warn("Unable to delete temp file: " + errFile.getAbsolutePath());
+      }
 
       result = JobActionResult.finished(command, exitValue, out, err);
 
