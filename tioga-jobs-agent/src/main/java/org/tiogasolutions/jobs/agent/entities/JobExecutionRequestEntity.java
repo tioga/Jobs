@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.tiogasolutions.couchace.annotations.CouchEntity;
 import org.tiogasolutions.couchace.annotations.CouchId;
 import org.tiogasolutions.couchace.annotations.CouchRevision;
+import org.tiogasolutions.dev.common.DateUtils;
 import org.tiogasolutions.dev.common.id.uuid.TimeUuid;
 import org.tiogasolutions.jobs.pub.JobDefinition;
 import org.tiogasolutions.jobs.pub.JobParameters;
@@ -101,14 +102,16 @@ public class JobExecutionRequestEntity {
   }
 
   public void addResult(JobActionResult result) {
-    
+
     this.results.add(result);
     this.updatedAt = ZonedDateTime.now();
 
+    long duration = getUpdatedAt().toInstant().getEpochSecond() - getCreatedAt().toInstant().getEpochSecond();
+
     if (result.isFailure()) {
-      this.summary = String.format("Action %s of %s failed", this.results.size(), actionCount);
+      this.summary = String.format("Action %s of %s failed (%s seconds)", this.results.size(), actionCount, duration);
     } else {
-      this.summary = String.format("Processed %s of %s actions", this.results.size(), actionCount);
+      this.summary = String.format("Processed %s of %s actions (%s seconds)", this.results.size(), actionCount, duration);
     }
   }
 

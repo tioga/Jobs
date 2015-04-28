@@ -22,6 +22,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -139,6 +140,7 @@ public class JobsResourceV1 {
 
     JobActionResult result;
     String command = jobAction.getCommand();
+    ZonedDateTime startedAt = ZonedDateTime.now();
 
     try {
       JobVariable variable = JobVariable.findFirst(command);
@@ -187,10 +189,10 @@ public class JobsResourceV1 {
         log.warn("Unable to delete temp file: " + errFile.getAbsolutePath());
       }
 
-      result = JobActionResult.finished(command, exitValue, out, err);
+      result = JobActionResult.finished(command, startedAt, exitValue, out, err);
 
     } catch (Exception ex) {
-      result = JobActionResult.fail(command, ex);
+      result = JobActionResult.fail(command, startedAt, ex);
     }
 
     request.addResult(result);
