@@ -9,30 +9,35 @@ import java.time.ZonedDateTime;
 
 public class JobActionResult {
 
-  private final int exitValue;
   private final String out;
   private final String err;
+
   private final String command;
+  private final String failure;
 
   private final ZonedDateTime createdAt;
   private final ZonedDateTime completedAt;
 
     @JsonCreator
   private JobActionResult(@JsonProperty("command") String command,
-                          @JsonProperty("exitValue") int exitValue,
                           @JsonProperty("out") String out,
                           @JsonProperty("err") String err,
                           @JsonProperty("createdAt") ZonedDateTime createdAt,
-                          @JsonProperty("completedAt") ZonedDateTime completedAt) {
+                          @JsonProperty("completedAt") ZonedDateTime completedAt,
+                          @JsonProperty("failure") String failure) {
 
-    this.exitValue = exitValue;
     this.command = command;
+    this.failure = failure;
 
     this.createdAt = createdAt;
     this.completedAt = completedAt;
 
     this.out = (out == null) ? null : out.replace("\r", "");
     this.err = (err == null) ? null : err.replace("\r", "");
+  }
+
+  public boolean hasFailure() {
+    return failure != null;
   }
 
   public ZonedDateTime getCreatedAt() {
@@ -47,8 +52,8 @@ public class JobActionResult {
     return command;
   }
 
-  public int getExitValue() {
-    return exitValue;
+  public String getFailure() {
+    return failure;
   }
 
   public String getOut() {
@@ -60,17 +65,13 @@ public class JobActionResult {
   }
 
   public static JobActionResult finished(String command, ZonedDateTime createdAt, int exitValue, String out, String err) {
-    return new JobActionResult(command, exitValue, out, err, createdAt, ZonedDateTime.now());
+    return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), String.valueOf(exitValue));
   }
 
   public static JobActionResult fail(String command, ZonedDateTime createdAt, Exception ex) {
     StringWriter writer = new StringWriter();
     ex.printStackTrace(new PrintWriter(writer));
     String stackTrace = writer.toString();
-    return new JobActionResult(command, Integer.MIN_VALUE, null, stackTrace, createdAt, ZonedDateTime.now());
-  }
-
-  public boolean isFailure() {
-    return exitValue != 0;
+    return new JobActionResult(command, null, null, createdAt, ZonedDateTime.now(), stackTrace);
   }
 }

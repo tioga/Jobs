@@ -16,10 +16,7 @@ import org.tiogasolutions.jobs.kernel.entities.JobDefinitionStore;
 import org.tiogasolutions.jobs.pub.*;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.ZonedDateTime;
@@ -71,7 +68,7 @@ public class JobsResourceV1 {
   @Path("/{jobDefinitionId}")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  public JobExecutionRequest execute(@Context Application app,
+  public Response execute(@Context Application app,
                                      @Context UriInfo uriInfo,
                                      @PathParam("jobDefinitionId") String jobDefinitionId,
                                      JobParameters jobParameters) throws Exception {
@@ -83,7 +80,7 @@ public class JobsResourceV1 {
   @Path("/{jobDefinitionId}/actions/{actionIndex}")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  public JobExecutionRequest execute(@Context Application app,
+  public Response execute(@Context Application app,
                                      @Context UriInfo uriInfo,
                                      @PathParam("jobDefinitionId") String jobDefinitionId,
                                      @PathParam("actionIndex") int actionIndex,
@@ -94,15 +91,24 @@ public class JobsResourceV1 {
     }
 
     JobDefinitionEntity jobDefinitionEntity = loadJob(app, jobDefinitionId);
-    JobExecutionRequestEntity request = JobExecutionRequestEntity.newEntity(jobDefinitionEntity, jobParameters);
-    JobsApplication.get(app, JobExecutionRequestStore.class).create(request);
+    JobExecutionRequestEntity requestEntity = JobExecutionRequestEntity.newEntity(jobDefinitionEntity, jobParameters);
+    JobsApplication.get(app, JobExecutionRequestStore.class).create(requestEntity);
 
+    JobExecutionRequest request;
     if (jobParameters.isSynchronous()) {
-      return executeJob(app, request, jobDefinitionEntity, actionIndex);
+      request = executeJob(app, requestEntity, jobDefinitionEntity, actionIndex);
 
     } else {
-      executor.submit(() -> executeJob(app, request, jobDefinitionEntity, actionIndex));
-      return request.toJobExecutionRequest();
+      executor.submit(() -> executeJob(app, requestEntity, jobDefinitionEntity, actionIndex));
+      request = requestEntity.toJobExecutionRequest();
+    }
+
+    if (requestEntity.hasFailure()) {
+      return Response.status(500).entity(request).build();
+    } else if (jobParameters.isSynchronous()) {
+      return Response.status(200).entity(request).build();
+    } else {
+      return Response.status(202).entity(request).build();
     }
   }
 
@@ -114,7 +120,7 @@ public class JobsResourceV1 {
     }
 
     for (JobAction jobAction : actions) {
-      if (processAction(app, request, jobAction).isFailure()) {
+      if (processAction(app, request, jobAction).hasFailure()) {
         break;
       }
     }

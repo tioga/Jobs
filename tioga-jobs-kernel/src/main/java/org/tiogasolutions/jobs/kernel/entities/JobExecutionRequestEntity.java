@@ -106,7 +106,7 @@ public class JobExecutionRequestEntity {
 
     long duration = getUpdatedAt().toInstant().getEpochSecond() - getCreatedAt().toInstant().getEpochSecond();
 
-    if (result.isFailure()) {
+    if (result.hasFailure()) {
       this.summary = String.format("Action %s of %s failed (%s seconds)", this.results.size(), actionCount, duration);
     } else {
       this.summary = String.format("Processed %s of %s actions (%s seconds)", this.results.size(), actionCount, duration);
@@ -123,8 +123,12 @@ public class JobExecutionRequestEntity {
       jobExecutionRequestId,
       revision,
       jobDefinitionId,
+      summary,
+      actionCount,
       jobParameters,
-      results
+      results,
+      createdAt,
+      updatedAt
     );
   }
 
@@ -137,5 +141,14 @@ public class JobExecutionRequestEntity {
       jobParameters,
       Collections.emptyList(),
       ZonedDateTime.now(), ZonedDateTime.now());
+  }
+
+  public boolean hasFailure() {
+    for (JobActionResult result : results) {
+      if (result.hasFailure()) {
+        return true;
+      }
+    }
+    return false;
   }
 }
