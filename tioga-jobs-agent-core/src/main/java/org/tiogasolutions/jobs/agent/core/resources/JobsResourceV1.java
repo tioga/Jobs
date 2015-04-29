@@ -148,6 +148,9 @@ public class JobsResourceV1 {
     String command = jobAction.getCommand();
     ZonedDateTime startedAt = ZonedDateTime.now();
 
+    String out = null;
+    String err = null;
+
     try {
       JobVariable variable = JobVariable.findFirst(command);
       while (variable != null) {
@@ -185,12 +188,12 @@ public class JobsResourceV1 {
 
       int exitValue = process.exitValue();
 
-      String out = IoUtils.toString(outFile);
+      out = IoUtils.toString(outFile);
       if (outFile.delete() == false) {
         log.warn("Unable to delete temp file: " + outFile.getAbsolutePath());
       }
 
-      String err = IoUtils.toString(errFile);
+      err = IoUtils.toString(errFile);
       if (errFile.delete() == false) {
         log.warn("Unable to delete temp file: " + errFile.getAbsolutePath());
       }
@@ -198,7 +201,7 @@ public class JobsResourceV1 {
       result = JobActionResult.finished(command, startedAt, exitValue, out, err);
 
     } catch (Exception ex) {
-      result = JobActionResult.fail(command, startedAt, ex);
+      result = JobActionResult.fail(command, startedAt, ex, out, err);
     }
 
     request.addResult(result);

@@ -71,7 +71,7 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
 
     JobActionResult result = results.get(0);
     assertNotNull(result);
-    assertEquals(result.getExitValue(), 0);
+    assertEquals(result.hasFailure(), false);
 
     assertNotNull(result.getOut());
     String out = result.getOut().trim();
@@ -103,7 +103,7 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
 
     JobActionResult result = results.get(0);
     assertNotNull(result);
-    assertEquals(result.getExitValue(), Integer.MIN_VALUE);
+    assertEquals(result.getFailure(), String.valueOf(Integer.MIN_VALUE));
 
     assertNotNull(result.getOut());
     String out = result.getOut().trim();

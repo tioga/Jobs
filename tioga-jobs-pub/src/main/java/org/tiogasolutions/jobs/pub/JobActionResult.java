@@ -65,13 +65,14 @@ public class JobActionResult {
   }
 
   public static JobActionResult finished(String command, ZonedDateTime createdAt, int exitValue, String out, String err) {
-    return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), String.valueOf(exitValue));
+    String failure = (exitValue == 0) ? null : String.valueOf(exitValue);
+    return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), failure);
   }
 
-  public static JobActionResult fail(String command, ZonedDateTime createdAt, Exception ex) {
+  public static JobActionResult fail(String command, ZonedDateTime createdAt, Exception ex, String out, String err) {
     StringWriter writer = new StringWriter();
     ex.printStackTrace(new PrintWriter(writer));
     String stackTrace = writer.toString();
-    return new JobActionResult(command, null, null, createdAt, ZonedDateTime.now(), stackTrace);
+    return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), stackTrace);
   }
 }
