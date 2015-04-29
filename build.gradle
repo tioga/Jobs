@@ -36,6 +36,8 @@ subprojects {
   })
 
   ext {
+    tiogaAppVersion = "1.0.8"
+
     pomProjectDescription = "Tioga Solutions' Job Server"
     pomUrl = 'https://www.tiogasolutions.org'
     pomScmUrl = "https://github.com/tioga"

@@ -4,8 +4,8 @@ import org.glassfish.jersey.test.JerseyTestNg;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tiogasolutions.dev.domain.query.QueryResult;
-import org.tiogasolutions.jobs.agent.JobsApplication;
-import org.tiogasolutions.jobs.agent.TestFactory;
+import org.tiogasolutions.jobs.agent.core.JobsApplication;
+import org.tiogasolutions.jobs.agent.core.TestFactory;
 import org.tiogasolutions.jobs.pub.*;
 
 import javax.ws.rs.client.Invocation;

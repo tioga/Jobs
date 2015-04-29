@@ -13,7 +13,7 @@ project(":tioga-jobs-client") {
 
     compile("org.tiogasolutions.lib:tioga-lib-jaxrs-jackson:+")
 
-    testCompile(project(":tioga-jobs-agent"))
+    testCompile(project(":tioga-jobs-agent-core"))
     testCompile("org.testng:testng:6.8.21")
     testCompile("org.tiogasolutions.runners:tioga-runners-jersey-spring:+")
     testCompile("org.glassfish.jersey.test-framework:jersey-test-framework-core:2.17")

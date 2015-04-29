@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2014 Jacob D. Parr
+ *
+ * This software may not be used without permission.
+ */
+project(":tioga-jobs-kernel") {
+
+  version = tiogaAppVersion
+
+  dependencies {
+    compile(project(":tioga-jobs-pub"))
+    compile(project(":tioga-jobs-jackson"))
+
+    compile("org.tiogasolutions.dev:tioga-dev-jackson:+")
+    compile("org.tiogasolutions.lib:tioga-lib-couchace:+")
+
+    compile ("org.slf4j:slf4j-simple:1.7.10")
+
+    testCompile ("org.testng:testng:6.8.21")
+  }
+
+  apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
+}
