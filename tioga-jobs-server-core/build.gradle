@@ -1,0 +1,11 @@
+project(":tioga-jobs-server-core") {
+
+  version = tiogaAppVersion
+
+  dependencies {
+    compile("org.tiogasolutions.lib:tioga-lib-jaxrs-jackson:+")
+    compile("org.tiogasolutions.lib:tioga-lib-spring-jaxrs:+")
+  }
+
+  apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
+}

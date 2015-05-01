@@ -1,4 +1,4 @@
-package org.tiogasolutions.jobs.pub;
+package .pub;
 
 /**
  * Created by jacobp on 4/1/2015.
