@@ -1,6 +1,7 @@
 package org.tiogasolutions.jobs.kernel.entities;
 
 import org.tiogasolutions.couchace.core.api.CouchDatabase;
+import org.tiogasolutions.jobs.kernel.support.ExecutionContextManager;
 import org.tiogasolutions.jobs.kernel.support.JobsCouchServer;
 import org.tiogasolutions.lib.couchace.DefaultCouchStore;
 
@@ -15,11 +16,13 @@ public class JobExecutionRequestStore extends DefaultCouchStore<JobExecutionRequ
 
   public static final String JOB_EXECUTION_REQUEST_DESIGN_NAME = "jobExecutionRequest";
 
-  private final DomainDatabaseConfig config;
+  private final CouchServersConfig config;
+  private final ExecutionContextManager ecm;
 
   @Inject
-  public JobExecutionRequestStore(DomainDatabaseConfig config) {
-    super(config.getCouchServer(), JobExecutionRequestEntity.class);
+  public JobExecutionRequestStore(CouchServersConfig config, ExecutionContextManager ecm) {
+    super(JobsCouchServer.newDomainDb(config), JobExecutionRequestEntity.class);
+    this.ecm = ecm;
     this.config = config;
   }
 
@@ -30,8 +33,8 @@ public class JobExecutionRequestStore extends DefaultCouchStore<JobExecutionRequ
 
   @Override
   public String getDatabaseName() {
-    DomainProfileEntity domainProfile = config.getEcm().getExecutionContext().getDomainProfileEntity();
-    return config.getDbNamePrefix() + domainProfile.getDomainName().toLowerCase() + config.getDbNameSuffix();
+    DomainProfileEntity domainProfile = ecm.getExecutionContext().getDomainProfileEntity();
+    return config.getDomainDatabasePrefix() + domainProfile.getDomainName().toLowerCase() + config.getDomainDatabaseSuffix();
   }
 
   @Override

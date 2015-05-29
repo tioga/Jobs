@@ -6,20 +6,24 @@ import org.tiogasolutions.jobs.kernel.support.JobsCouchServer;
 import org.tiogasolutions.lib.couchace.DefaultCouchStore;
 import org.tiogasolutions.lib.couchace.support.CouchUtils;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
 
+@Named
 public class DomainProfileStore extends DefaultCouchStore<DomainProfileEntity> {
 
   public static final String DOMAIN_PROFILE_DESIGN_NAME = "domainProfile";
 
   private final String databaseName;
 
-  public DomainProfileStore(JobsCouchServer couchServer, String databaseName) {
-    super(couchServer, DomainProfileEntity.class);
-    this.databaseName = databaseName;
+  @Inject
+  public DomainProfileStore(CouchServersConfig config) {
+    super(JobsCouchServer.newMasterDb(config), DomainProfileEntity.class);
+    this.databaseName = config.getMasterDatabaseName();
   }
 
   @Override

@@ -27,7 +27,7 @@
     password "app-user".
   -->
   <bean class="org.tiogasolutions.lib.spring.couchace.CouchPropertyPlaceholderConfigurer">
-    <constructor-arg value="notify-server"/>
+    <constructor-arg value="jobs-agent"/>
     <constructor-arg ref="defaultProperties"/>
   </bean>
 
@@ -42,8 +42,16 @@
     <prop key="agent.server.shutdownPort">39008</prop>
     <prop key="agent.server.context">jobs-agent</prop>
 
-    <prop key="couchdb.agent.dbNamePrefix">tioga-notify-</prop>
-    <prop key="couchdb.agent.dbNameSuffix">-notification</prop>
+    <prop key="couchdb.master.url">http://localhost:5984</prop>
+    <prop key="couchdb.master.username">app-user</prop>
+    <prop key="couchdb.master.password">app-user</prop>
+    <prop key="couchdb.master.dbName">tioga-jobs</prop>
+
+    <prop key="couchdb.jobs.url">http://localhost:5984</prop>
+    <prop key="couchdb.jobs.username">app-user</prop>
+    <prop key="couchdb.jobs.password">app-user</prop>
+    <prop key="couchdb.jobs.dbNamePrefix">tioga-jobs-</prop>
+    <prop key="couchdb.jobs.dbNameSuffix"/>
   </util:properties>
 
   <bean class="org.tiogasolutions.runners.grizzly.GrizzlyServerConfig"
@@ -53,11 +61,17 @@
         p:context="${agent.server.context}"
         p:toOpenBrowser="false"/>
 
-  <bean class="org.tiogasolutions.jobs.kernel.entities.DomainDatabaseConfig">
-    <constructor-arg ref="jobsCouchServer"/>
-    <constructor-arg ref="executionContextManager"/>
-    <constructor-arg value="${couchdb.agent.dbNamePrefix}"/>
-    <constructor-arg value="${couchdb.agent.dbNameSuffix}"/>
-  </bean>
+  <bean class="org.tiogasolutions.jobs.kernel.entities.CouchServersConfig"
+        p:masterUrl="${couchdb.master.url}"
+        p:masterUserName="${couchdb.master.username}"
+        p:masterPassword="${couchdb.master.password}"
+        p:masterDatabaseName="${couchdb.master.dbName}"
+
+        p:domainUrl="${couchdb.jobs.url}"
+        p:domainUserName="${couchdb.jobs.username}"
+        p:domainPassword="${couchdb.jobs.password}"
+        p:domainDatabasePrefix="${couchdb.jobs.dbNamePrefix}"
+        p:domainDatabaseSuffix="${couchdb.jobs.dbNameSuffix}"
+  />
 
 </beans>

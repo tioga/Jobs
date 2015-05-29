@@ -9,7 +9,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.tiogasolutions.jobs.agent.core.view.Thymeleaf;
 import org.tiogasolutions.jobs.agent.core.view.ThymeleafViewFactory;
+import org.tiogasolutions.jobs.kernel.entities.DomainProfileStore;
+import org.tiogasolutions.jobs.kernel.entities.JobDefinitionStore;
+import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestStore;
+import org.tiogasolutions.jobs.kernel.support.ExecutionContextManager;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -22,6 +27,18 @@ import javax.ws.rs.core.UriInfo;
 public class RootResourceV1 extends RootResourceSupport {
 
   private static final Log log = LogFactory.getLog(RootResourceV1.class);
+
+  @Inject
+  private ExecutionContextManager executionContextManager;
+
+  @Inject
+  private DomainProfileStore domainProfileStore;
+
+  @Inject
+  private JobExecutionRequestStore jobExecutionRequestStore;
+
+  @Inject
+  private JobDefinitionStore jobDefinitionStore;
 
   private @Context UriInfo uriInfo;
 
@@ -48,12 +65,12 @@ public class RootResourceV1 extends RootResourceSupport {
 
   @Path("/api/v1/client")
   public ClientResourceV1 getClientResource() throws Exception {
-    return new ClientResourceV1();
+    return new ClientResourceV1(jobExecutionRequestStore, jobDefinitionStore);
   }
 
   @Path("/api/v1/admin")
   public AdminResourceV1 getAdminResource() throws Exception {
-    return new AdminResourceV1();
+    return new AdminResourceV1(executionContextManager, domainProfileStore, jobExecutionRequestStore);
   }
 }
 

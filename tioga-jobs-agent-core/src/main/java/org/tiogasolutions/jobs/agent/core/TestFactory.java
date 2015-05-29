@@ -5,7 +5,7 @@ import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.couchace.core.api.CouchServer;
 import org.tiogasolutions.couchace.core.api.request.CouchFeature;
 import org.tiogasolutions.couchace.core.api.request.CouchFeatureSet;
-import org.tiogasolutions.jobs.kernel.entities.DomainDatabaseConfig;
+import org.tiogasolutions.jobs.kernel.entities.CouchServersConfig;
 import org.tiogasolutions.lib.couchace.DefaultCouchServer;
 
 import javax.inject.Inject;
@@ -21,10 +21,10 @@ public class TestFactory {
   public static final String API_PASSWORD = "unittest";
 
   @Inject
-  public TestFactory(DomainDatabaseConfig domainDbConfig) throws Exception {
+  public TestFactory(CouchServersConfig domainDbConfig) throws Exception {
 
     String sysDatabase = "test-jobs";
-    String usrDatabase = domainDbConfig.getDbNamePrefix() + "testing" + domainDbConfig.getDbNameSuffix();
+    String usrDatabase = domainDbConfig.getDomainDatabasePrefix() + "testing" + domainDbConfig.getDomainDatabaseSuffix();
 
     CouchServer server = new DefaultCouchServer();
 

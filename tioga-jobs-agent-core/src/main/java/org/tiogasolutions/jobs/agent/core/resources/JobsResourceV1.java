@@ -32,13 +32,12 @@ public class JobsResourceV1 {
   private static final Log log = LogFactory.getLog(JobsResourceV1.class);
   private static final ExecutorService executor = Executors.newCachedThreadPool();
 
-  @Inject
-  private JobDefinitionStore jobDefinitionStore;
+  private final JobDefinitionStore jobDefinitionStore;
+  private final JobExecutionRequestStore jobExecutionRequestStore;
 
-  @Inject
-  JobExecutionRequestStore jobExecutionRequestStore;
-
-  public JobsResourceV1() {
+  public JobsResourceV1(JobExecutionRequestStore jobExecutionRequestStore, JobDefinitionStore jobDefinitionStore) {
+    this.jobDefinitionStore = jobDefinitionStore;
+    this.jobExecutionRequestStore = jobExecutionRequestStore;
   }
 
   @GET

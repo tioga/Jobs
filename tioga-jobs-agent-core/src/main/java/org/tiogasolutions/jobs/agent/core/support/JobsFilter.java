@@ -38,6 +38,9 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
   @Inject
   private ExecutionContextManager executionContextManager;
 
+  @Inject
+  private DomainProfileStore domainProfileStore;
+
   public JobsFilter() {
   }
 
@@ -98,8 +101,7 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
       throw new NotAuthorizedException("API");
     }
 
-    DomainProfileStore store = (DomainProfileStore) app.getProperties().get(DomainProfileStore.class.getName());
-    DomainProfileEntity domainProfile = store.getByApiKey(apiUsername);
+    DomainProfileEntity domainProfile = domainProfileStore.getByApiKey(apiUsername);
 
     if (domainProfile == null) {
       throw new NotAuthorizedException("API");

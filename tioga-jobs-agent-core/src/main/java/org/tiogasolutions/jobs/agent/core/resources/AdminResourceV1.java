@@ -2,6 +2,7 @@ package org.tiogasolutions.jobs.agent.core.resources;
 
 import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileEntity;
+import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestStore;
 import org.tiogasolutions.jobs.kernel.support.ExecutionContextManager;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileStore;
 
@@ -13,20 +14,23 @@ import javax.ws.rs.core.Context;
 
 public class AdminResourceV1 {
 
-  @Inject
-  private ExecutionContextManager executionContextManager;
+  private final ExecutionContextManager executionContextManager;
+  private final DomainProfileStore domainProfileStore;
+  private final JobExecutionRequestStore jobExecutionRequestStore;
 
-  public AdminResourceV1() {
+  public AdminResourceV1(ExecutionContextManager executionContextManager, DomainProfileStore domainProfileStore, JobExecutionRequestStore jobExecutionRequestStore) {
+    this.executionContextManager = executionContextManager;
+    this.domainProfileStore = domainProfileStore;
+    this.jobExecutionRequestStore = jobExecutionRequestStore;
   }
 
   @Path("/domains/{domainName}/request")
   public RequestResourceV1 getRequestResource(@Context Application app,
                                               @PathParam("domainName") String domainName) {
 
-    DomainProfileStore store = (DomainProfileStore) app.getProperties().get(DomainProfileStore.class.getName());
-    DomainProfileEntity domainProfile = store.getByDomainName(domainName);
+    DomainProfileEntity domainProfile = domainProfileStore.getByDomainName(domainName);
 
     executionContextManager.create(domainProfile);
-    return new RequestResourceV1(domainProfile);
+    return new RequestResourceV1(jobExecutionRequestStore, domainProfile);
   }
 }

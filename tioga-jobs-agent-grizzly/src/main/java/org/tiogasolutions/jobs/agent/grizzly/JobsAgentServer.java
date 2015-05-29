@@ -29,13 +29,13 @@ public class JobsAgentServer {
 
     // Load the resolver which gives us common tools for identifying the
     // runtime & config directories, logback.xml, etc.
-    AppPathResolver resolver = new AppPathResolver(getLogger(AppPathResolver.class)::info, "notify.");
+    AppPathResolver resolver = new AppPathResolver(getLogger(AppPathResolver.class)::info, "jobs.");
 
     Path runtimeDir = resolver.resolveRuntimePath();
     Path configDir = resolver.resolveConfigDir(runtimeDir);
 
     // Re-init logback if we can find the logback.xml
-    Path logbackFile = LogUtils.initLogback(configDir, "notify.log.config", "logback.xml");
+    Path logbackFile = LogUtils.initLogback(configDir, "jobs.log.config", "logback.xml");
 
     // Locate the spring file for this app or use DEFAULT_SPRING_FILE from the classpath if one is not found.
     String springConfigPath = resolver.resolveSpringPath(configDir, "classpath:" + DEFAULT_SPRING_FILE);
