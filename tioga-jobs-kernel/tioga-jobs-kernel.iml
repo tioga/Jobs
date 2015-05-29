@@ -18,17 +18,11 @@
     <orderEntry type="module" module-name="tioga-jobs-jackson" exported="" />
     <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.dev:tioga-dev-jackson:4.1.10" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.lib:tioga-lib-couchace:5.0.12" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.slf4j:slf4j-simple:1.7.10" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.dev:tioga-dev-common:5.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.dev:tioga-dev-domain:4.1.6" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-core:1.4.3" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-jackson:1.4.3" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-annotations:1.4.3" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-jersey:1.4.3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.slf4j:slf4j-api:1.7.12" level="project" />
     <orderEntry type="library" exported="" name="Gradle: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.5.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.5.2" level="project" />
@@ -52,5 +46,10 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.testng:testng:6.8.21" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.beanshell:bsh:2.0b4" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.beust:jcommander:1.27" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-core:1.5.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-jackson:1.5.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-annotations:1.5.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.tiogasolutions.couchace:tioga-couchace-jersey:1.5.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.slf4j:slf4j-api:1.7.7" level="project" />
   </component>
 </module>

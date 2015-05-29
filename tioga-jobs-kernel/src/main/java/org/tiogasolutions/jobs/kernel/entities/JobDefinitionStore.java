@@ -4,16 +4,20 @@ import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.jobs.kernel.support.JobsCouchServer;
 import org.tiogasolutions.lib.couchace.DefaultCouchStore;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
 import static java.util.Collections.*;
 
+@Named
 public class JobDefinitionStore extends DefaultCouchStore<JobDefinitionEntity> {
 
   public static final String JOB_DEFINITION_DESIGN_NAME = "jobDefinition";
 
   private final DomainDatabaseConfig config;
 
+  @Inject
   public JobDefinitionStore(DomainDatabaseConfig config) {
     super(config.getCouchServer(), JobDefinitionEntity.class);
     this.config = config;

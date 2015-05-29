@@ -1,13 +1,14 @@
 package org.tiogasolutions.jobs.agent.core.support;
 
 import org.tiogasolutions.dev.common.StringUtils;
-import org.tiogasolutions.jobs.agent.core.JobsApplication;
+import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileEntity;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileStore;
 import org.tiogasolutions.jobs.kernel.support.ExecutionContextManager;
 import org.tiogasolutions.jobs.pub.DomainProfile;
 
 import javax.annotation.Priority;
+import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.*;
@@ -33,6 +34,9 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
 
   private UriInfo uriInfo;
   private Application app;
+
+  @Inject
+  private ExecutionContextManager executionContextManager;
 
   public JobsFilter() {
   }
@@ -63,7 +67,7 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
 
   @Override
   public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
-    JobsApplication.get(app, ExecutionContextManager.class).clearContext();
+    executionContextManager.clearContext();
   }
 
   private void authenticateClientRequest(ContainerRequestContext requestContext) {
@@ -107,7 +111,7 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
     final SecurityContext securityContext = requestContext.getSecurityContext();
     requestContext.setSecurityContext(new ClientSecurityContext(securityContext, domainProfile.toDomainProfile()));
 
-    JobsApplication.get(app, ExecutionContextManager.class).create(domainProfile);
+    executionContextManager.create(domainProfile);
   }
 
   private void authenticateAdminRequest(ContainerRequestContext requestContext) {

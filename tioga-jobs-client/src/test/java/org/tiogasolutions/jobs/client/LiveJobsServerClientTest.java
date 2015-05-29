@@ -4,10 +4,11 @@ import org.glassfish.jersey.test.JerseyTestNg;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tiogasolutions.dev.domain.query.QueryResult;
-import org.tiogasolutions.jobs.agent.core.JobsApplication;
+import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
 import org.tiogasolutions.jobs.agent.core.TestFactory;
 import org.tiogasolutions.jobs.pub.*;
 
+import javax.inject.Inject;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.UriBuilder;
@@ -24,17 +25,16 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
   private final String jobAId = "deac9600-d96e-11e4-adce-b8ca3a8e2d05";
   private final String jobBId = "08f20270-be1b-11e4-af58-b8ca3a8e2d05";
 
-  private JobsApplication application;
+  @Inject
   private TestFactory testFactory;
 
   @Override
-  protected JobsApplication configure() {
-    return application = TestFactory.newApplication();
+  protected JobsAgentApplication configure() {
+    return new JobsAgentApplication("test", "classpath:/spring-test-jobs-client.xml");
   }
 
   @BeforeClass
   public void beforeClass() throws Exception {
-    testFactory = new TestFactory(application);
   }
 
   protected Invocation.Builder request(WebTarget webTarget) {

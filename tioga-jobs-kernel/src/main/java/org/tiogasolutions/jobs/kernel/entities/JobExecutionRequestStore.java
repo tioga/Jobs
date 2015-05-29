@@ -4,16 +4,20 @@ import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.jobs.kernel.support.JobsCouchServer;
 import org.tiogasolutions.lib.couchace.DefaultCouchStore;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
 
+@Named
 public class JobExecutionRequestStore extends DefaultCouchStore<JobExecutionRequestEntity> {
 
   public static final String JOB_EXECUTION_REQUEST_DESIGN_NAME = "jobExecutionRequest";
 
   private final DomainDatabaseConfig config;
 
+  @Inject
   public JobExecutionRequestStore(DomainDatabaseConfig config) {
     super(config.getCouchServer(), JobExecutionRequestEntity.class);
     this.config = config;

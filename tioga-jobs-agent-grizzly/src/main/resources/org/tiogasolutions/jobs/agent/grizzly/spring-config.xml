@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--suppress SpringFacetInspection -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/task
+           http://www.springframework.org/schema/task/spring-task.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <task:annotation-driven/>
+  <context:component-scan base-package="org.tiogasolutions.jobs"/>
+
+  <!--
+    The default configuration uses the couch property placeholder which loads
+    properties from a local CouchDB. The default configuration assumes CouchDB
+    is running at http://localhost:5984 with the username "app-user" and the
+    password "app-user".
+  -->
+  <bean class="org.tiogasolutions.lib.spring.couchace.CouchPropertyPlaceholderConfigurer">
+    <constructor-arg value="notify-server"/>
+    <constructor-arg ref="defaultProperties"/>
+  </bean>
+
+  <!--
+    Defines the list of default properties to be used by the couch property placeholder.
+    When not specified in couch, the defaults will be used. If specified in couch, the
+    values specified here will be overridden.
+  -->
+  <util:properties id="defaultProperties">
+    <prop key="agent.server.hostName">localhost</prop>
+    <prop key="agent.server.port">39007</prop>
+    <prop key="agent.server.shutdownPort">39008</prop>
+    <prop key="agent.server.context">jobs-agent</prop>
+
+    <prop key="couchdb.agent.dbNamePrefix">tioga-notify-</prop>
+    <prop key="couchdb.agent.dbNameSuffix">-notification</prop>
+  </util:properties>
+
+  <bean class="org.tiogasolutions.runners.grizzly.GrizzlyServerConfig"
+        p:hostName="${agent.server.hostName}"
+        p:port="${agent.server.port}"
+        p:shutdownPort="${agent.server.shutdownPort}"
+        p:context="${agent.server.context}"
+        p:toOpenBrowser="false"/>
+
+  <bean class="org.tiogasolutions.jobs.kernel.entities.DomainDatabaseConfig">
+    <constructor-arg ref="jobsCouchServer"/>
+    <constructor-arg ref="executionContextManager"/>
+    <constructor-arg value="${couchdb.agent.dbNamePrefix}"/>
+    <constructor-arg value="${couchdb.agent.dbNameSuffix}"/>
+  </bean>
+
+</beans>

@@ -8,13 +8,14 @@ import org.tiogasolutions.dev.common.exceptions.ApiException;
 import org.tiogasolutions.dev.common.exceptions.ApiNotFoundException;
 import org.tiogasolutions.dev.domain.query.ListQueryResult;
 import org.tiogasolutions.dev.domain.query.QueryResult;
-import org.tiogasolutions.jobs.agent.core.JobsApplication;
+import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
 import org.tiogasolutions.jobs.kernel.entities.JobDefinitionEntity;
 import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestEntity;
 import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestStore;
 import org.tiogasolutions.jobs.kernel.entities.JobDefinitionStore;
 import org.tiogasolutions.jobs.pub.*;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.io.File;
@@ -31,6 +32,12 @@ public class JobsResourceV1 {
   private static final Log log = LogFactory.getLog(JobsResourceV1.class);
   private static final ExecutorService executor = Executors.newCachedThreadPool();
 
+  @Inject
+  private JobDefinitionStore jobDefinitionStore;
+
+  @Inject
+  JobExecutionRequestStore jobExecutionRequestStore;
+
   public JobsResourceV1() {
   }
 
@@ -38,14 +45,13 @@ public class JobsResourceV1 {
   @Produces(MediaType.APPLICATION_JSON)
   public QueryResult<JobDefinition> getJobs(@Context Application app) {
     List<JobDefinition> jobDefinitions = new ArrayList<>();
-    JobsApplication.get(app, JobDefinitionStore.class).getAll().stream().forEach(jobEntity -> jobDefinitions.add(jobEntity.toJobDefinition()));
+    jobDefinitionStore.getAll().stream().forEach(jobEntity -> jobDefinitions.add(jobEntity.toJobDefinition()));
     return ListQueryResult.newComplete(JobDefinition.class, jobDefinitions);
   }
 
   private JobDefinitionEntity loadJob(Application app, String jobDefinitionId) {
 
-    JobDefinitionStore store = JobsApplication.get(app, JobDefinitionStore.class);
-    JobDefinitionEntity jobDefinitionEntity = store.getByDocumentId(jobDefinitionId);
+    JobDefinitionEntity jobDefinitionEntity = jobDefinitionStore.getByDocumentId(jobDefinitionId);
 
     if (jobDefinitionEntity == null) {
       String msg = String.format("The job definition \"%s\" does not exist.", jobDefinitionId);
@@ -92,7 +98,7 @@ public class JobsResourceV1 {
 
     JobDefinitionEntity jobDefinitionEntity = loadJob(app, jobDefinitionId);
     JobExecutionRequestEntity requestEntity = JobExecutionRequestEntity.newEntity(jobDefinitionEntity, jobParameters);
-    JobsApplication.get(app, JobExecutionRequestStore.class).create(requestEntity);
+    jobExecutionRequestStore.create(requestEntity);
 
     JobExecutionRequest request;
     if (jobParameters.isSynchronous()) {
@@ -126,7 +132,7 @@ public class JobsResourceV1 {
     }
 
     // One last update to make sure everything is current.
-    JobsApplication.get(app, JobExecutionRequestStore.class).update(request);
+    jobExecutionRequestStore.update(request);
 
     return request.toJobExecutionRequest();
   }
@@ -205,7 +211,7 @@ public class JobsResourceV1 {
     }
 
     request.addResult(result);
-    JobsApplication.get(app, JobExecutionRequestStore.class).update(request);
+    jobExecutionRequestStore.update(request);
 
     return result;
   }

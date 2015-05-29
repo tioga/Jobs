@@ -10,7 +10,11 @@ project(":tioga-jobs-agent-grizzly") {
   dependencies {
     compile(project(":tioga-jobs-agent-core"))
 
-    compile("org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.17")
+    compile("org.tiogasolutions.app:tioga-app-common:+")
+
+    compile("org.tiogasolutions.lib:tioga-lib-spring-jersey:+")
+    compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
+    compile("org.tiogasolutions.lib:tioga-lib-spring-couchace:+")
 
     testCompile ("org.testng:testng:6.8.21")
   }
