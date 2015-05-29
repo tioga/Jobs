@@ -52,7 +52,7 @@ project(":tioga-jobs-agent-grizzly") {
     manifest {
       attributes(
         "Implementation-Version" : "0.1",
-        "Main-Class"             : "org.tiogasolutions.jobs.agent.grizzly.GrizzlyJobsAgent",
+        "Main-Class"             : "org.tiogasolutions.jobs.agent.grizzly.JobsAgentServer",
         "Class-Path"             : configurations.compile.collect { it.getName() }.join(' ')
       )
     }

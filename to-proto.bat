@@ -1,4 +1,4 @@
 @echo off
-del \\parwinproto\d$\proto\tioga-jobs-agent\lib\*.jar
-copy C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\install\tioga-jobs-agent\lib\*.jar \\parwinproto\d$\proto\tioga-jobs-agent\lib
-copy C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent\build\install\tioga-jobs-agent\server-start.bat \\parwinproto\d$\proto\tioga-jobs-agent\
+del /f/q \\parwinproto\d$\is-apps\tioga-jobs-agent-grizzly\lib\*.jar
+copy /Y C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent-grizzly\build\install\tioga-jobs-agent-grizzly\lib\*.jar \\parwinproto\d$\is-apps\tioga-jobs-agent-grizzly\lib
+copy /Y C:\dvlp\3rd-party\tioga-solutions\Jobs\tioga-jobs-agent-grizzly\build\install\tioga-jobs-agent-grizzly\server-start.bat \\parwinproto\d$\is-apps\tioga-jobs-agent-grizzly\
