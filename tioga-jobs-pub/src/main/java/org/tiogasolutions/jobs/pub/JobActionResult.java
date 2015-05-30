@@ -69,6 +69,10 @@ public class JobActionResult {
     return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), failure);
   }
 
+  public static JobActionResult timeoutFailure(String command, ZonedDateTime createdAt) {
+    return new JobActionResult(command, null, null, createdAt, ZonedDateTime.now(), "Timed out");
+  }
+
   public static JobActionResult fail(String command, ZonedDateTime createdAt, Exception ex, String out, String err) {
     StringWriter writer = new StringWriter();
     ex.printStackTrace(new PrintWriter(writer));

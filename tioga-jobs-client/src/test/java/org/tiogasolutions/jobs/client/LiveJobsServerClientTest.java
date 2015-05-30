@@ -7,6 +7,9 @@ import org.tiogasolutions.dev.domain.query.QueryResult;
 import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
 import org.tiogasolutions.jobs.agent.core.TestFactory;
 import org.tiogasolutions.jobs.pub.*;
+import org.tiogasolutions.jobs.pub.JobAction;
+import org.tiogasolutions.jobs.pub.JobActionResult;
+import org.tiogasolutions.jobs.pub.OsAction;
 
 import javax.inject.Inject;
 import javax.ws.rs.client.Invocation;
@@ -150,7 +153,7 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
     assertNotNull(actions);
     assertEquals(actions.size(), 1);
 
-    JobAction action = actions.get(0);
+    OsAction action = (OsAction)actions.get(0);
     assertNotNull(action);
     assertTrue(action.getActionType().isOsCommand());
     assertEquals(action.getCommand(), "C:\\Windows\\system32\\cmd.exe /c dir");
@@ -168,7 +171,7 @@ public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest
     assertNotNull(actions);
     assertEquals(actions.size(), 1);
 
-    JobAction action = actions.get(0);
+    OsAction action = (OsAction)actions.get(0);
     assertNotNull(action);
     assertTrue(action.getActionType().isOsCommand());
     assertEquals(action.getCommand(), "fail-doing-this-and-that");

@@ -1,13 +1,17 @@
 package org.tiogasolutions.jobs.pub;
 
-/**
- * Created by jacobp on 4/1/2015.
- */
 public enum ActionType {
 
-  osCommand;
+  osCommand("org.tiogasolutions.jobs.pub.actions.OsAction");
 
-  private ActionType() {
+  private final String typeName;
+
+  private ActionType(String typeName) {
+    this.typeName = typeName;
+  }
+
+  public String getTypeName() {
+    return typeName;
   }
 
   public boolean isOsCommand() {

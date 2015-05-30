@@ -2,24 +2,22 @@ package org.tiogasolutions.jobs.agent.core.resources;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.tiogasolutions.dev.common.IoUtils;
-import org.tiogasolutions.dev.common.ReflectUtils;
 import org.tiogasolutions.dev.common.exceptions.ApiException;
 import org.tiogasolutions.dev.common.exceptions.ApiNotFoundException;
 import org.tiogasolutions.dev.domain.query.ListQueryResult;
 import org.tiogasolutions.dev.domain.query.QueryResult;
-import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
+import org.tiogasolutions.jobs.agent.core.actions.JobActionExecutor;
+import org.tiogasolutions.jobs.agent.core.actions.OsActionExecutor;
 import org.tiogasolutions.jobs.kernel.entities.JobDefinitionEntity;
 import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestEntity;
 import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestStore;
 import org.tiogasolutions.jobs.kernel.entities.JobDefinitionStore;
 import org.tiogasolutions.jobs.pub.*;
+import org.tiogasolutions.jobs.pub.JobAction;
+import org.tiogasolutions.jobs.pub.JobActionResult;
 
-import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -35,9 +33,13 @@ public class JobsResourceV1 {
   private final JobDefinitionStore jobDefinitionStore;
   private final JobExecutionRequestStore jobExecutionRequestStore;
 
+  private final Map<ActionType,JobActionExecutor> executors = new HashMap<>();
+
   public JobsResourceV1(JobExecutionRequestStore jobExecutionRequestStore, JobDefinitionStore jobDefinitionStore) {
     this.jobDefinitionStore = jobDefinitionStore;
     this.jobExecutionRequestStore = jobExecutionRequestStore;
+
+    executors.put(ActionType.osCommand, new OsActionExecutor(jobExecutionRequestStore));
   }
 
   @GET
@@ -124,8 +126,21 @@ public class JobsResourceV1 {
       actions = singletonList(actions.get(actionIndex));
     }
 
-    for (JobAction jobAction : actions) {
-      if (processAction(app, request, jobAction).hasFailure()) {
+    for (JobAction action : actions) {
+
+      JobActionResult result;
+
+      if (action.getLock() == null) {
+        result = processAction(app, request, action);
+
+      } else {
+        log.warn(String.format("Locking action %s for request %s", action.getLabel(), request.getJobExecutionRequestId()));
+        synchronized (action.getLock().intern()) {
+          result = processAction(app, request, action);
+        }
+      }
+
+      if (result.hasFailure()) {
         break;
       }
     }
@@ -136,121 +151,25 @@ public class JobsResourceV1 {
     return request.toJobExecutionRequest();
   }
 
-  private JobActionResult processAction(Application app, JobExecutionRequestEntity request, JobAction jobAction) throws Exception {
-    ActionType actionType = jobAction.getActionType();
-    if (actionType.isOsCommand()) {
-      return processOsCommand(app, request, jobAction);
+  private JobActionResult processAction(Application app, JobExecutionRequestEntity request, JobAction action) throws Exception {
+    log.warn(String.format("Executing action %s for request %s", action.getLabel(), request.getJobExecutionRequestId()));
 
-    } else {
+    ActionType actionType = action.getActionType();
+    JobActionExecutor executor = executors.get(actionType);
+
+    if (executor == null) {
       String msg = String.format("The action type \"%s\" is not supported.", actionType);
       throw new UnsupportedOperationException(msg);
     }
-  }
 
-  private JobActionResult processOsCommand(Application app, JobExecutionRequestEntity request, JobAction jobAction) {
-
-    JobActionResult result;
-    String command = jobAction.getCommand();
     ZonedDateTime startedAt = ZonedDateTime.now();
 
-    String out = null;
-    String err = null;
-
     try {
-      JobVariable variable = JobVariable.findFirst(command);
-      while (variable != null) {
-        command = variable.replace(request.getSubstitutions(), command);
-        variable = JobVariable.findFirst(command);
-      }
-
-      List<String> commands = splitCommand(command);
-      String[] commandArray = ReflectUtils.toArray(String.class, commands);
-
-      File workingDir = jobAction.getWorkingDirectory();
-      if (workingDir.exists() == false) {
-        String msg = "The specified working directory does not exist: " + workingDir.getAbsolutePath();
-        throw new FileNotFoundException(msg);
-      }
-
-      File outFile = File.createTempFile("process-out-", ".txt");
-      outFile.deleteOnExit();
-
-      File errFile = File.createTempFile("process-err-", ".txt");
-      errFile.deleteOnExit();
-
-      Process process = new ProcessBuilder()
-        .command(commandArray)
-        .directory(workingDir)
-        .redirectOutput(ProcessBuilder.Redirect.to(outFile))
-        .redirectError(ProcessBuilder.Redirect.to(errFile))
-        .start();
-
-      process.waitFor(jobAction.getTimeout(), jobAction.getTimeoutUnit());
-
-      if (process.isAlive()) {
-        process.destroyForcibly();
-      }
-
-      int exitValue = process.exitValue();
-
-      out = IoUtils.toString(outFile);
-      if (outFile.delete() == false) {
-        log.warn("Unable to delete temp file: " + outFile.getAbsolutePath());
-      }
-
-      err = IoUtils.toString(errFile);
-      if (errFile.delete() == false) {
-        log.warn("Unable to delete temp file: " + errFile.getAbsolutePath());
-      }
-
-      result = JobActionResult.finished(command, startedAt, exitValue, out, err);
+      return executor.execute(app, request, action, startedAt);
 
     } catch (Exception ex) {
-      result = JobActionResult.fail(command, startedAt, ex, out, err);
+      log.error("Unhandled exception while processing action", ex);
+      return JobActionResult.fail(action.getLabel(), startedAt, ex, "", "");
     }
-
-    request.addResult(result);
-    jobExecutionRequestStore.update(request);
-
-    return result;
-  }
-
-  public static List<String> splitCommand(String command) {
-
-    boolean inString = false;
-    List<String> commands = new ArrayList<>();
-    StringBuilder builder = new StringBuilder();
-
-    for (char chr : command.toCharArray()) {
-      if (inString) {
-        if (chr != '"') {
-          builder.append(chr);
-        } else {
-          // we are closing a string.
-          inString = false;
-          finish(builder, commands);
-        }
-      } else if (chr == '"') {
-        // We are starting a string
-        inString = true;
-
-      } else if (Character.isWhitespace(chr)) {
-        finish(builder, commands);
-
-      } else {
-        builder.append(chr);
-      }
-    }
-
-    finish(builder, commands);
-
-    return commands;
-  }
-
-  private static void finish(StringBuilder builder, List<String> commands) {
-    if (builder.length() > 0) {
-      commands.add(builder.toString());
-    }
-    builder.delete(0, builder.length());
   }
 }
