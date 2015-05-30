@@ -2,7 +2,7 @@ package org.tiogasolutions.jobs.pub;
 
 public enum ActionType {
 
-  osCommand("org.tiogasolutions.jobs.pub.actions.OsAction");
+  osCommand("org.tiogasolutions.jobs.pub.OsAction");
 
   private final String typeName;
 
