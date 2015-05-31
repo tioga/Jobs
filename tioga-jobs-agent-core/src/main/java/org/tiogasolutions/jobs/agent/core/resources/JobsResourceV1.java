@@ -6,6 +6,7 @@ import org.tiogasolutions.dev.common.exceptions.ApiException;
 import org.tiogasolutions.dev.common.exceptions.ApiNotFoundException;
 import org.tiogasolutions.dev.domain.query.ListQueryResult;
 import org.tiogasolutions.dev.domain.query.QueryResult;
+import org.tiogasolutions.jobs.agent.core.actions.InternalActionExecutor;
 import org.tiogasolutions.jobs.agent.core.actions.JobActionExecutor;
 import org.tiogasolutions.jobs.agent.core.actions.OsActionExecutor;
 import org.tiogasolutions.jobs.kernel.entities.JobDefinitionEntity;
@@ -39,7 +40,10 @@ public class JobsResourceV1 {
     this.jobDefinitionStore = jobDefinitionStore;
     this.jobExecutionRequestStore = jobExecutionRequestStore;
 
-    executors.put(ActionType.osCommand, new OsActionExecutor(jobExecutionRequestStore));
+    executors.put(ActionType.OS_COMMAND, new OsActionExecutor());
+
+    InternalActionExecutor internalExecutor = new InternalActionExecutor();
+    executors.put(ActionType.WAIT_FOR_HTTP, internalExecutor);
   }
 
   @GET
@@ -162,14 +166,19 @@ public class JobsResourceV1 {
       throw new UnsupportedOperationException(msg);
     }
 
+    JobActionResult result;
     ZonedDateTime startedAt = ZonedDateTime.now();
 
     try {
-      return executor.execute(app, request, action, startedAt);
+      result = executor.execute(request, action, startedAt);
 
     } catch (Exception ex) {
       log.error("Unhandled exception while processing action", ex);
-      return JobActionResult.fail(action.getLabel(), startedAt, ex, "", "");
+      result = JobActionResult.fail(action.getLabel(), startedAt, ex, null, null);
     }
+
+    request.addResult(result);
+    jobExecutionRequestStore.update(request);
+    return result;
   }
 }

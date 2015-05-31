@@ -6,29 +6,24 @@ import org.tiogasolutions.dev.common.IoUtils;
 import org.tiogasolutions.dev.common.ReflectUtils;
 import org.tiogasolutions.jobs.agent.core.resources.JobVariable;
 import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestEntity;
-import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestStore;
 import org.tiogasolutions.jobs.pub.JobAction;
 import org.tiogasolutions.jobs.pub.JobActionResult;
-import org.tiogasolutions.jobs.pub.OsAction;
+import org.tiogasolutions.jobs.pub.actions.OsAction;
 
-import javax.ws.rs.core.Application;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OsActionExecutor implements JobActionExecutor {
+public class OsActionExecutor extends JobActionExecutorSupport {
 
   private static final Log log = LogFactory.getLog(OsActionExecutor.class);
 
-  private final JobExecutionRequestStore jobExecutionRequestStore;
-
-  public OsActionExecutor(JobExecutionRequestStore jobExecutionRequestStore) {
-    this.jobExecutionRequestStore = jobExecutionRequestStore;
+  public OsActionExecutor() {
   }
 
-  public JobActionResult execute(Application app, JobExecutionRequestEntity request, JobAction jobAction, ZonedDateTime startedAt) throws Exception {
+  public JobActionResult execute(JobExecutionRequestEntity request, JobAction jobAction, ZonedDateTime startedAt) throws Exception {
 
     if (jobAction instanceof OsAction == false) {
       String msg = String.format("The action %s cannot be processed by %s", jobAction.getClass().getName(), getClass().getName());
@@ -38,18 +33,14 @@ public class OsActionExecutor implements JobActionExecutor {
     OsAction action = (OsAction)jobAction;
 
     JobActionResult result;
+
     String command = action.getCommand();
+    command = super.substitute(request, command);
 
     String out = null;
     String err = null;
 
     try {
-      JobVariable variable = JobVariable.findFirst(command);
-      while (variable != null) {
-        command = variable.replace(request.getSubstitutions(), command);
-        variable = JobVariable.findFirst(command);
-      }
-
       List<String> commands = splitCommand(command);
       String[] commandArray = ReflectUtils.toArray(String.class, commands);
 
@@ -98,9 +89,6 @@ public class OsActionExecutor implements JobActionExecutor {
     } catch (Exception ex) {
       result = JobActionResult.fail(command, startedAt, ex, out, err);
     }
-
-    request.addResult(result);
-    jobExecutionRequestStore.update(request);
 
     return result;
   }

@@ -2,7 +2,8 @@ package org.tiogasolutions.jobs.pub;
 
 public enum ActionType {
 
-  osCommand("org.tiogasolutions.jobs.pub.OsAction");
+  OS_COMMAND("org.tiogasolutions.jobs.pub.actions.OsAction"),
+  WAIT_FOR_HTTP("org.tiogasolutions.jobs.pub.actions.WaitForHttpAction");
 
   private final String typeName;
 
@@ -14,7 +15,13 @@ public enum ActionType {
     return typeName;
   }
 
-  public boolean isOsCommand() {
-    return this == osCommand;
+  public Class getType() {
+    try {
+      return Class.forName(typeName);
+
+    } catch (ClassNotFoundException e) {
+      String msg = String.format("The action type %s's implementing type %s was not found", name(), typeName);
+      throw new UnsupportedOperationException(msg);
+    }
   }
 }

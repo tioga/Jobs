@@ -1,8 +1,10 @@
-package org.tiogasolutions.jobs.pub;
+package org.tiogasolutions.jobs.pub.actions;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.tiogasolutions.jobs.pub.ActionType;
+import org.tiogasolutions.jobs.pub.JobAction;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -36,7 +38,7 @@ public class OsAction implements JobAction {
 
   @JsonIgnore
   public ActionType getActionType() {
-    return ActionType.osCommand;
+    return ActionType.OS_COMMAND;
   }
 
   public String getCommand() {
@@ -64,11 +66,11 @@ public class OsAction implements JobAction {
     return timeoutUnit;
   }
 
-  public static OsAction newAction(String command, File workingDirectory, String lock, long timeout, TimeUnit timeoutUnit) {
+  public static OsAction create(String command, File workingDirectory, String lock, long timeout, TimeUnit timeoutUnit) {
     return new OsAction(command, workingDirectory.getAbsolutePath(), lock, timeout, timeoutUnit);
   }
 
-  public static OsAction newAction(String command, Path workingDirectory, String lock, long timeout, TimeUnit timeoutUnit) {
+  public static OsAction create(String command, Path workingDirectory, String lock, long timeout, TimeUnit timeoutUnit) {
     return new OsAction(command, workingDirectory.toFile().getAbsolutePath(), lock, timeout, timeoutUnit);
   }
 }

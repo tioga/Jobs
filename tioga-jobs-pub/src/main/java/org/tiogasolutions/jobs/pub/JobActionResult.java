@@ -64,6 +64,10 @@ public class JobActionResult {
     return err;
   }
 
+  public static JobActionResult finished(String command, ZonedDateTime createdAt, String out) {
+    return new JobActionResult(command, out, null, createdAt, ZonedDateTime.now(), null);
+  }
+
   public static JobActionResult finished(String command, ZonedDateTime createdAt, int exitValue, String out, String err) {
     String failure = (exitValue == 0) ? null : String.valueOf(exitValue);
     return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), failure);
@@ -71,6 +75,14 @@ public class JobActionResult {
 
   public static JobActionResult timeoutFailure(String command, ZonedDateTime createdAt) {
     return new JobActionResult(command, null, null, createdAt, ZonedDateTime.now(), "Timed out");
+  }
+
+  public static JobActionResult timeoutFailure(String command, ZonedDateTime createdAt, String out, String err) {
+    return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), "Timed out");
+  }
+
+  public static JobActionResult fail(String command, ZonedDateTime createdAt, String failure, String out, String err) {
+    return new JobActionResult(command, out, err, createdAt, ZonedDateTime.now(), failure);
   }
 
   public static JobActionResult fail(String command, ZonedDateTime createdAt, Exception ex, String out, String err) {
