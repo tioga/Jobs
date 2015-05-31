@@ -80,22 +80,9 @@ public class JobsResourceV1 {
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
   public Response execute(@Context Application app,
-                                     @Context UriInfo uriInfo,
-                                     @PathParam("jobDefinitionId") String jobDefinitionId,
-                                     JobParameters jobParameters) throws Exception {
-
-    return execute(app, uriInfo, jobDefinitionId, -1, jobParameters);
-  }
-
-  @POST
-  @Path("/{jobDefinitionId}/actions/{actionIndex}")
-  @Consumes(MediaType.APPLICATION_JSON)
-  @Produces(MediaType.APPLICATION_JSON)
-  public Response execute(@Context Application app,
-                                     @Context UriInfo uriInfo,
-                                     @PathParam("jobDefinitionId") String jobDefinitionId,
-                                     @PathParam("actionIndex") int actionIndex,
-                                     JobParameters jobParameters) throws Exception {
+                          @Context UriInfo uriInfo,
+                          @PathParam("jobDefinitionId") String jobDefinitionId,
+                          JobParameters jobParameters) throws Exception {
 
     if (jobParameters == null) {
       throw ApiException.badRequest("The job parameters must be specified.");
@@ -107,10 +94,10 @@ public class JobsResourceV1 {
 
     JobExecutionRequest request;
     if (jobParameters.isSynchronous()) {
-      request = executeJob(app, requestEntity, jobDefinitionEntity, actionIndex);
+      request = executeJob(app, requestEntity, jobDefinitionEntity);
 
     } else {
-      executor.submit(() -> executeJob(app, requestEntity, jobDefinitionEntity, actionIndex));
+      executor.submit(() -> executeJob(app, requestEntity, jobDefinitionEntity));
       request = requestEntity.toJobExecutionRequest();
     }
 
@@ -123,14 +110,9 @@ public class JobsResourceV1 {
     }
   }
 
-  private JobExecutionRequest executeJob(Application app, JobExecutionRequestEntity request, JobDefinitionEntity jobDefinitionEntity, int actionIndex) throws Exception {
+  private JobExecutionRequest executeJob(Application app, JobExecutionRequestEntity request, JobDefinitionEntity jobDefinitionEntity) throws Exception {
 
-    List<JobAction> actions = jobDefinitionEntity.getJobActions();
-    if (actionIndex >= 0) {
-      actions = singletonList(actions.get(actionIndex));
-    }
-
-    for (JobAction action : actions) {
+    for (JobAction action : jobDefinitionEntity.getJobActions()) {
 
       JobActionResult result;
 
@@ -138,7 +120,7 @@ public class JobsResourceV1 {
         result = processAction(app, request, action);
 
       } else {
-        log.warn(String.format("Locking action %s for request %s", action.getLabel(), request.getJobExecutionRequestId()));
+        log.info(String.format("Locking action %s for request %s", action.getLabel(), request.getJobExecutionRequestId()));
         synchronized (action.getLock().intern()) {
           result = processAction(app, request, action);
         }
@@ -156,7 +138,7 @@ public class JobsResourceV1 {
   }
 
   private JobActionResult processAction(Application app, JobExecutionRequestEntity request, JobAction action) throws Exception {
-    log.warn(String.format("Executing action %s for request %s", action.getLabel(), request.getJobExecutionRequestId()));
+    log.info(String.format("Executing action %s for request %s", action.getLabel(), request.getJobExecutionRequestId()));
 
     ActionType actionType = action.getActionType();
     JobActionExecutor executor = executors.get(actionType);

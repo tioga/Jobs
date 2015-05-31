@@ -9,10 +9,7 @@ import org.tiogasolutions.dev.common.id.uuid.TimeUuid;
 import org.tiogasolutions.jobs.pub.JobDefinition;
 import org.tiogasolutions.jobs.pub.JobAction;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @CouchEntity(JobDefinitionStore.JOB_DEFINITION_DESIGN_NAME)
 public class JobDefinitionEntity {
