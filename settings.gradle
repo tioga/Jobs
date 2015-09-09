@@ -4,5 +4,8 @@
  * This software may not be used without permission.
  */
 
-include "tioga-jobs-agent-core", "tioga-jobs-agent-grizzly", "tioga-jobs-pub", "tioga-jobs-client", "tioga-jobs-jackson", "tioga-jobs-kernel", "tioga-jobs-server-core", "tioga-jobs-server-grizzly"
+include "tioga-jobs-agent-engine", "tioga-jobs-agent-server-grizzly",
+        "tioga-jobs-coordinator-engine", "tioga-jobs-coordinator-server-grizzly",
+        "tioga-jobs-common-engine",
+        "tioga-jobs-pub", "tioga-jobs-client", "tioga-jobs-jackson", "tioga-jobs-kernel";
 

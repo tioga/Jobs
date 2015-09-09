@@ -1,0 +1,20 @@
+project(":tioga-jobs-coordinator-server-grizzly") {
+
+  version = tiogaAppVersion
+
+  dependencies {
+    compile(project(":tioga-jobs-coordinator-engine"))
+
+    compile("org.tiogasolutions.runners:tioga-runners-jersey-spring:+")
+
+    compile("org.tiogasolutions.app:tioga-app-common:+")
+
+    compile("org.tiogasolutions.lib:tioga-lib-spring-jersey:+")
+    compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
+    compile("org.tiogasolutions.lib:tioga-lib-spring-couchace:+")
+
+    testCompile ("org.testng:testng:6.8.21")
+  }
+
+  apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
+}

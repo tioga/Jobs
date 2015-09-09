@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2014 Jacob D. Parr
+ *
+ * This software may not be used without permission.
+ */
+project(":tioga-jobs-agent-server-grizzly") {
+
+  version = tiogaAppVersion
+
+  dependencies {
+    compile(project(":tioga-jobs-agent-engine"))
+
+    compile("org.tiogasolutions.app:tioga-app-common:+")
+
+    compile("org.tiogasolutions.lib:tioga-lib-spring-jersey:+")
+    compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
+    compile("org.tiogasolutions.lib:tioga-lib-spring-couchace:+")
+
+    testCompile ("org.testng:testng:6.8.21")
+  }
+
+  File serverStartFile = file("$buildDir/scripts/server-start.bat");
+
+  task createStartScript << {
+    serverStartFile.parentFile.mkdirs()
+    FileWriter writer = new FileWriter(serverStartFile);
+    writer.write("@echo off\r\ncls\r\n");
+    writer.write("echo Starting application\r\n");
+    writer.write("%JAVA_HOME%\\bin\\javaw.exe -jar ./lib/${project.name}-${project.version}.jar");
+    writer.close()
+  }
+
+  apply plugin:'distribution'
+
+  artifacts {
+    archives distZip
+  }
+
+  distributions {
+    main {
+      contents {
+        into("lib") {
+          from(jar)
+          from(project.configurations.runtime)
+        }
+        from(serverStartFile, createStartScript)
+      }
+    }
+  }
+
+  jar {
+    manifest {
+      attributes(
+        "Implementation-Version" : "0.1",
+        "Main-Class"             : "org.tiogasolutions.jobs.agent.grizzly.JobsAgentServer",
+        "Class-Path"             : configurations.compile.collect { it.getName() }.join(' ')
+      )
+    }
+  }
+
+  apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
+}

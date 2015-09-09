@@ -1,0 +1,78 @@
+/*
+ * Copyright (c) 2014 Jacob D. Parr
+ *
+ * This software may not be used without permission.
+ */
+package org.tiogasolutions.jobs.agent.engine.resources;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.tiogasolutions.jobs.common.engine.resources.AbstractRootResource;
+import org.tiogasolutions.jobs.common.engine.view.Thymeleaf;
+import org.tiogasolutions.jobs.common.engine.view.ThymeleafViewFactory;
+import org.tiogasolutions.jobs.kernel.entities.DomainProfileStore;
+import org.tiogasolutions.jobs.kernel.entities.JobDefinitionStore;
+import org.tiogasolutions.jobs.kernel.entities.JobExecutionRequestStore;
+import org.tiogasolutions.jobs.kernel.support.ExecutionContextManager;
+
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+
+@Path("/")
+public class AgentRootResourceV1 extends AbstractRootResource {
+
+  private static final Log log = LogFactory.getLog(AgentRootResourceV1.class);
+
+  @Inject
+  private ExecutionContextManager executionContextManager;
+
+  @Inject
+  private DomainProfileStore domainProfileStore;
+
+  @Inject
+  private JobExecutionRequestStore jobExecutionRequestStore;
+
+  @Inject
+  private JobDefinitionStore jobDefinitionStore;
+
+  @Context
+  private UriInfo uriInfo;
+
+  public AgentRootResourceV1() throws Exception {
+    log.info("Created ");
+  }
+
+  @Override
+  public UriInfo getUriInfo() {
+    return uriInfo;
+  }
+
+  @GET
+  @Produces(MediaType.TEXT_HTML)
+  public Thymeleaf getWelcome() throws Exception {
+    return new Thymeleaf(ThymeleafViewFactory.WELCOME);
+  }
+
+  @GET @Path("/ping")
+  @Produces(MediaType.TEXT_HTML)
+  public Response healthCheck$GET() {
+    return Response.status(Response.Status.OK).build();
+  }
+
+  @Path("/api/v1/client")
+  public ClientResourceV1 getClientResource() throws Exception {
+    return new ClientResourceV1(jobExecutionRequestStore, jobDefinitionStore);
+  }
+
+  @Path("/api/v1/admin")
+  public AdminResourceV1 getAdminResource() throws Exception {
+    return new AdminResourceV1(executionContextManager, domainProfileStore, jobExecutionRequestStore);
+  }
+}
+
