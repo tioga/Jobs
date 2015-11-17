@@ -8,7 +8,6 @@ import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
 import org.tiogasolutions.lib.spring.jersey.JerseySpringBridge;
 import org.tiogasolutions.runners.grizzly.GrizzlyServer;
 import org.tiogasolutions.runners.grizzly.GrizzlyServerConfig;
-import org.tiogasolutions.runners.grizzly.LoggerFacade;
 import java.nio.file.Path;
 import static org.slf4j.LoggerFactory.*;
 
@@ -53,15 +52,8 @@ public class JobsAgentServer {
     // Get from the app an instance of the grizzly server config.
     GrizzlyServerConfig serverConfig = application.getBeanFactory().getBean(GrizzlyServerConfig.class);
 
-    // Create a facade around Slf4j for the server's initialization routines.
-    LoggerFacade loggerFacade = new LoggerFacade() {
-      @Override public void info(String message) { getLogger(GrizzlyServer.class).info(message); }
-      @Override public void warn(String message) { getLogger(GrizzlyServer.class).warn(message); }
-      @Override public void error(String message, Throwable e) { getLogger(GrizzlyServer.class).error(message, e); }
-    };
-
     // Create an instance of the grizzly server.
-    GrizzlyServer grizzlyServer = new GrizzlyServer(application, serverConfig, loggerFacade);
+    GrizzlyServer grizzlyServer = new GrizzlyServer(serverConfig, application);
 
     // Before we start it, register a hook for our jersey-spring bridge.
     JerseySpringBridge jerseySpringBridge = new JerseySpringBridge(application.getBeanFactory());
