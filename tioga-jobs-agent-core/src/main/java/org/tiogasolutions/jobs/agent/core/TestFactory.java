@@ -5,7 +5,7 @@ import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.couchace.core.api.CouchServer;
 import org.tiogasolutions.couchace.core.api.request.CouchFeature;
 import org.tiogasolutions.couchace.core.api.request.CouchFeatureSet;
-import org.tiogasolutions.jobs.kernel.entities.CouchServersConfig;
+import org.tiogasolutions.jobs.kernel.config.CouchServersConfig;
 import org.tiogasolutions.lib.couchace.DefaultCouchServer;
 
 import javax.inject.Inject;

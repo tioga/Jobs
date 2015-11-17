@@ -7,6 +7,7 @@ package org.tiogasolutions.jobs.agent.core.support;
 
 import org.tiogasolutions.dev.domain.query.ListQueryResult;
 import org.tiogasolutions.jobs.jackson.JobsObjectMapper;
+import org.tiogasolutions.jobs.pub.DomainProfile;
 import org.tiogasolutions.jobs.pub.JobExecutionRequest;
 import org.tiogasolutions.lib.jaxrs.jackson.JacksonReaderWriterProvider;
 import org.tiogasolutions.jobs.agent.core.view.LocalResource;
@@ -27,6 +28,8 @@ public class JobsReaderWriterProvider extends JacksonReaderWriterProvider {
 
   public JobsReaderWriterProvider(@Context Application application) {
     super(new JobsObjectMapper(), Collections.singletonList(MediaType.APPLICATION_JSON_TYPE));
+    addSupportedType(DomainProfile.class);
+
     addSupportedType(JobDefinition.class);
     addSupportedType(JobParameters.class);
     addSupportedType(JobExecutionRequest.class);

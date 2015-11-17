@@ -1,17 +1,12 @@
 package org.tiogasolutions.jobs.kernel.support;
 
 import org.tiogasolutions.couchace.core.api.CouchSetup;
-import org.tiogasolutions.couchace.core.spi.http.CouchHttpClient;
-import org.tiogasolutions.couchace.core.spi.json.CouchJsonStrategy;
 import org.tiogasolutions.couchace.jackson.JacksonCouchJsonStrategy;
 import org.tiogasolutions.couchace.jersey.JerseyCouchHttpClient;
 import org.tiogasolutions.dev.jackson.TiogaJacksonModule;
 import org.tiogasolutions.jobs.jackson.JobsJacksonModule;
-import org.tiogasolutions.jobs.kernel.entities.CouchServersConfig;
+import org.tiogasolutions.jobs.kernel.config.CouchServersConfig;
 import org.tiogasolutions.lib.couchace.DefaultCouchServer;
-
-import javax.inject.Named;
-import java.io.IOException;
 
 public class JobsCouchServer extends DefaultCouchServer {
 

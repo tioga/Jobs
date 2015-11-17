@@ -54,6 +54,10 @@
     <prop key="couchdb.jobs.dbNameSuffix"/>
   </util:properties>
 
+  <bean class="org.tiogasolutions.jobs.kernel.config.SystemConfiguration">
+    <property name="accessControlAllowOrigin" value="${system.config.accessControlAllowOrigin}"/>
+  </bean>
+
   <bean class="org.tiogasolutions.runners.grizzly.GrizzlyServerConfig"
         p:hostName="${agent.server.hostName}"
         p:port="${agent.server.port}"
@@ -61,7 +65,7 @@
         p:context="${agent.server.context}"
         p:toOpenBrowser="false"/>
 
-  <bean class="org.tiogasolutions.jobs.kernel.entities.CouchServersConfig"
+  <bean class="org.tiogasolutions.jobs.kernel.config.CouchServersConfig"
         p:masterUrl="${couchdb.master.url}"
         p:masterUserName="${couchdb.master.username}"
         p:masterPassword="${couchdb.master.password}"

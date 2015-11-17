@@ -2,6 +2,7 @@ package org.tiogasolutions.jobs.kernel.entities;
 
 import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.dev.common.id.TimeUuidIdGenerator;
+import org.tiogasolutions.jobs.kernel.config.CouchServersConfig;
 import org.tiogasolutions.jobs.kernel.support.JobsCouchServer;
 import org.tiogasolutions.lib.couchace.DefaultCouchStore;
 import org.tiogasolutions.lib.couchace.support.CouchUtils;

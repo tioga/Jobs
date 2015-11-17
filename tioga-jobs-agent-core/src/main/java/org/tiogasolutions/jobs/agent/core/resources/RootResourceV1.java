@@ -65,7 +65,7 @@ public class RootResourceV1 extends RootResourceSupport {
 
   @Path("/api/v1/client")
   public ClientResourceV1 getClientResource() throws Exception {
-    return new ClientResourceV1(jobExecutionRequestStore, jobDefinitionStore);
+    return new ClientResourceV1(executionContextManager, jobExecutionRequestStore, jobDefinitionStore);
   }
 
   @Path("/api/v1/admin")

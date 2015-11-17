@@ -1,7 +1,7 @@
 package org.tiogasolutions.jobs.agent.core.support;
 
 import org.tiogasolutions.dev.common.StringUtils;
-import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
+import org.tiogasolutions.jobs.kernel.config.SystemConfiguration;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileEntity;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileStore;
 import org.tiogasolutions.jobs.kernel.support.ExecutionContextManager;
@@ -36,10 +36,13 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
   private Application app;
 
   @Inject
-  private ExecutionContextManager executionContextManager;
+  private ExecutionContextManager executionManager;
 
   @Inject
   private DomainProfileStore domainProfileStore;
+
+  @Inject
+  private SystemConfiguration systemConfiguration;
 
   public JobsFilter() {
   }
@@ -63,6 +66,7 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
 
     if (path.equals(clientContext) || path.startsWith(clientContext+"/")) {
       authenticateClientRequest(requestContext);
+
     } else if (path.equals(adminContext) || path.startsWith(adminContext+"/")) {
       authenticateAdminRequest(requestContext);
     }
@@ -70,10 +74,18 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
 
   @Override
   public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
-    executionContextManager.clearContext();
+    executionManager.clearContext();
+    responseContext.getHeaders().add("Access-Control-Allow-Origin", systemConfiguration.getAccessControlAllowOrigin());
+    responseContext.getHeaders().add("Access-Control-Allow-Headers", "Accept, Content-Type, Authorization");
+    responseContext.getHeaders().add("Access-Control-Allow-Methods", "GET");
+    responseContext.getHeaders().add("Access-Control-Allow-Credentials", "true");
   }
 
   private void authenticateClientRequest(ContainerRequestContext requestContext) {
+    if ("OPTIONS".equalsIgnoreCase(requestContext.getMethod())) {
+      return; // do not authenticate OPTIONS calls.
+    }
+
     String authHeader = requestContext.getHeaderString("Authorization");
 
     if (authHeader == null || authHeader.startsWith("Basic ") == false) {
@@ -113,7 +125,7 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
     final SecurityContext securityContext = requestContext.getSecurityContext();
     requestContext.setSecurityContext(new ClientSecurityContext(securityContext, domainProfile.toDomainProfile()));
 
-    executionContextManager.create(domainProfile);
+    executionManager.create(domainProfile);
   }
 
   private void authenticateAdminRequest(ContainerRequestContext requestContext) {
