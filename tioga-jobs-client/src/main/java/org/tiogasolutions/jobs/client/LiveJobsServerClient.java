@@ -33,8 +33,7 @@ public class LiveJobsServerClient implements JobsServerClient {
 
   public QueryResult<JobDefinition> getJobs() {
     String path = "/client/jobs";
-    // noinspection unchecked
-    return client.get(QueryResult.class, path);
+    return client.getQueryResult(JobDefinition.class, path);
   }
 
   public JobDefinition getJob(String jobId) {
