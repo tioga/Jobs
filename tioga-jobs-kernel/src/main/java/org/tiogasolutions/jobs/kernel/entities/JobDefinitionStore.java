@@ -37,7 +37,7 @@ public class JobDefinitionStore extends DefaultCouchStore<JobDefinitionEntity> {
   @Override
   public String getDatabaseName() {
     DomainProfileEntity domainProfile = ecm.getExecutionContext().getDomainProfileEntity();
-    return config.getDomainDatabasePrefix() + domainProfile.getDomainName().toLowerCase() + config.getDomainDatabaseSuffix();
+    return config.getDomainDatabasePrefix() + domainProfile.getDomainName().toLowerCase();
   }
 
   @Override

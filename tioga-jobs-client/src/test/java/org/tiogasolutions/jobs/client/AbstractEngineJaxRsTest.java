@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.annotations.BeforeMethod;
 import org.tiogasolutions.dev.common.LogbackUtils;
-import org.tiogasolutions.jobs.kernel.JobsAgentApplication;
+import org.tiogasolutions.jobs.agent.engine.JobsAgentApplication;
 
 import javax.ws.rs.core.Application;
 

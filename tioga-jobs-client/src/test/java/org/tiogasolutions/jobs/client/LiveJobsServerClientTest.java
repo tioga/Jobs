@@ -1,15 +1,10 @@
 package org.tiogasolutions.jobs.client;
 
-import org.glassfish.jersey.test.JerseyTestNg;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tiogasolutions.dev.domain.query.QueryResult;
-import org.tiogasolutions.jobs.kernel.JobsAgentApplication;
-import org.tiogasolutions.jobs.kernel.TestFactory;
+import org.tiogasolutions.jobs.agent.engine.TestFactory;
 import org.tiogasolutions.jobs.pub.*;
-import org.tiogasolutions.jobs.pub.JobAction;
-import org.tiogasolutions.jobs.pub.JobActionResult;
 import org.tiogasolutions.jobs.pub.actions.OsAction;
 
 import javax.ws.rs.client.Invocation;

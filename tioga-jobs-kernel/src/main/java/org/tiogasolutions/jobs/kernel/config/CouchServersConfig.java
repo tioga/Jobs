@@ -17,7 +17,6 @@ public class CouchServersConfig {
   private String domainUserName;
   private String domainPassword;
   private String domainDatabasePrefix;
-  private String domainDatabaseSuffix;
 
   public CouchServersConfig() {
   }
@@ -92,13 +91,5 @@ public class CouchServersConfig {
 
   public void setDomainDatabasePrefix(String domainDatabasePrefix) {
     this.domainDatabasePrefix = domainDatabasePrefix;
-  }
-
-  public String getDomainDatabaseSuffix() {
-    return domainDatabaseSuffix;
-  }
-
-  public void setDomainDatabaseSuffix(String domainDatabaseSuffix) {
-    this.domainDatabaseSuffix = domainDatabaseSuffix;
   }
 }

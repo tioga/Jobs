@@ -8,7 +8,7 @@ project(":tioga-jobs-agent-grizzly") {
   version = tiogaAppVersion
 
   dependencies {
-    compile(project(":tioga-jobs-agent-kernel"))
+    compile(project(":tioga-jobs-agent-engine"))
 
     compile("org.tiogasolutions.app:tioga-app-common:+")
 

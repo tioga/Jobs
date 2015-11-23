@@ -29,8 +29,8 @@
 
   <bean class="org.tiogasolutions.jobs.kernel.config.SystemConfiguration">
     <constructor-arg index="0" value="*"/>
-    <constructor-arg index="2" value="/api/v1/client"/>
-    <constructor-arg index="1" value="/api/v1/admin"/>
+    <constructor-arg index="1" value="/api/v1/client"/>
+    <constructor-arg index="2" value="/api/v1/admin"/>
   </bean>
 
   <bean class="org.tiogasolutions.runners.grizzly.GrizzlyServerConfig"
@@ -40,13 +40,14 @@
         p:context="jobs-agent"
         p:toOpenBrowser="false"/>
 
+  <!--p:masterUrl="http://localhost:5984"-->
   <bean class="org.tiogasolutions.jobs.kernel.config.CouchServersConfig"
-        p:masterUrl="http://localhost:5984"
+        p:masterUrl="http://oakwinprod.stcg.net:5984"
         p:masterUserName="app-user"
         p:masterPassword="app-user"
         p:masterDatabaseName="tioga-jobs"
 
-        p:domainUrl="http://localhost:5984"
+        p:domainUrl="http://oakwinprod.stcg.net:5984"
         p:domainUserName="app-user"
         p:domainPassword="app-user"
         p:domainDatabasePrefix="tioga-jobs-"

@@ -4,7 +4,7 @@ import ch.qos.logback.classic.Level;
 import org.slf4j.Logger;
 import org.tiogasolutions.app.common.AppPathResolver;
 import org.tiogasolutions.app.common.LogUtils;
-import org.tiogasolutions.jobs.kernel.JobsAgentApplication;
+import org.tiogasolutions.jobs.agent.engine.JobsAgentApplication;
 import org.tiogasolutions.runners.grizzly.GrizzlyServer;
 import org.tiogasolutions.runners.grizzly.GrizzlyServerConfig;
 import org.tiogasolutions.runners.grizzlyspring.ApplicationResolver;
@@ -70,12 +70,5 @@ public class JobsAgentServer {
 
     // Lastly, start the server.
     grizzlyServer.start();
-
-//    JobsAgentApplication application = new JobsAgentApplication(activeProfiles, springConfigPath);
-//    GrizzlyServerConfig serverConfig = application.getBeanFactory().getBean(GrizzlyServerConfig.class);
-//    GrizzlyServer grizzlyServer = new GrizzlyServer(serverConfig, application);
-//    JerseySpringBridge jerseySpringBridge = new JerseySpringBridge(application.getBeanFactory());
-//    grizzlyServer.getResourceConfig().register(jerseySpringBridge);
-//    grizzlyServer.start();
   }
 }

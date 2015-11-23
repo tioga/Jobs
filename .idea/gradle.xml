@@ -10,8 +10,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/tioga-jobs-agent-engine" />
             <option value="$PROJECT_DIR$/tioga-jobs-agent-grizzly" />
-            <option value="$PROJECT_DIR$/tioga-jobs-agent-kernel" />
             <option value="$PROJECT_DIR$/tioga-jobs-client" />
             <option value="$PROJECT_DIR$/tioga-jobs-jackson" />
             <option value="$PROJECT_DIR$/tioga-jobs-kernel" />
@@ -24,8 +24,8 @@
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/tioga-jobs-agent-engine" />
             <option value="$PROJECT_DIR$/tioga-jobs-agent-grizzly" />
-            <option value="$PROJECT_DIR$/tioga-jobs-agent-kernel" />
             <option value="$PROJECT_DIR$/tioga-jobs-client" />
             <option value="$PROJECT_DIR$/tioga-jobs-jackson" />
             <option value="$PROJECT_DIR$/tioga-jobs-kernel" />
