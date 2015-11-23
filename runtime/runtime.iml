@@ -7,17 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="tioga-jobs-kernel" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/tiogasolutions/runners/tioga-runners-grizzly/1.1.0/tioga-runners-grizzly-1.1.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/tiogasolutions/runners/tioga-runners-grizzly/1.1.0/tioga-runners-grizzly-1.1.0-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
+    <orderEntry type="module" module-name="tioga-jobs-server-grizzly" />
   </component>
 </module>
