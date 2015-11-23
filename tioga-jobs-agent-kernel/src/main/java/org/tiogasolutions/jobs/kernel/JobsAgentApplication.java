@@ -8,7 +8,6 @@ package org.tiogasolutions.jobs.kernel;
 
 import org.springframework.stereotype.Component;
 import org.tiogasolutions.jobs.kernel.resources.RootResourceV1;
-import org.tiogasolutions.jobs.kernel.support.JobsFilter;
 import org.tiogasolutions.jobs.kernel.support.JobsJaxRsExceptionMapper;
 import org.tiogasolutions.jobs.kernel.support.JobsReaderWriterProvider;
 import org.tiogasolutions.jobs.kernel.view.LocalResourceMessageBodyWriter;
@@ -25,7 +24,6 @@ public class JobsAgentApplication extends Application {
 
   public JobsAgentApplication() {
 
-    classes.add(JobsFilter.class);
     classes.add(RootResourceV1.class);
     classes.add(JobsReaderWriterProvider.class);
     classes.add(JobsJaxRsExceptionMapper.class);

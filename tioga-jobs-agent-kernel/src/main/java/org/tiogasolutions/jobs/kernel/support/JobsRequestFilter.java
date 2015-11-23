@@ -1,5 +1,6 @@
 package org.tiogasolutions.jobs.kernel.support;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tiogasolutions.dev.common.StringUtils;
 import org.tiogasolutions.jobs.kernel.config.SystemConfiguration;
@@ -8,17 +9,19 @@ import org.tiogasolutions.jobs.kernel.entities.DomainProfileStore;
 import org.tiogasolutions.jobs.pub.DomainProfile;
 
 import javax.annotation.Priority;
-import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.*;
-import javax.ws.rs.core.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.SecurityContext;
+import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.Provider;
 import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.Principal;
 
+import static org.slf4j.LoggerFactory.getLogger;
 import static org.tiogasolutions.dev.common.EqualsUtils.objectsNotEqual;
 
 /**
@@ -30,7 +33,9 @@ import static org.tiogasolutions.dev.common.EqualsUtils.objectsNotEqual;
 @Provider
 @PreMatching
 @Priority(Priorities.AUTHENTICATION)
-public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilter {
+public class JobsRequestFilter implements ContainerRequestFilter {
+
+  private static final Logger log = getLogger(JobsRequestFilter.class);
 
   @Context
   private UriInfo uriInfo;
@@ -44,7 +49,8 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
   @Autowired
   private SystemConfiguration systemConfiguration;
 
-  public JobsFilter() {
+  public JobsRequestFilter() {
+    log.info("Created.");
   }
 
   @Override
@@ -63,15 +69,6 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
     } else if (path.equals(adminContext) || path.startsWith(adminContext+"/")) {
       authenticateAdminRequest(requestContext);
     }
-  }
-
-  @Override
-  public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
-    executionManager.clearContext();
-    responseContext.getHeaders().add("Access-Control-Allow-Origin", systemConfiguration.getAccessControlAllowOrigin());
-    responseContext.getHeaders().add("Access-Control-Allow-Headers", "Accept, Content-Type, Authorization");
-    responseContext.getHeaders().add("Access-Control-Allow-Methods", "GET");
-    responseContext.getHeaders().add("Access-Control-Allow-Credentials", "true");
   }
 
   private void authenticateClientRequest(ContainerRequestContext requestContext) {
