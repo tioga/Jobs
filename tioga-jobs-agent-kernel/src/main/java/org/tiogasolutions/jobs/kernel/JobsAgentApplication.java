@@ -6,16 +6,18 @@
 
 package org.tiogasolutions.jobs.kernel;
 
-import org.tiogasolutions.jobs.agent.core.resources.RootResourceV1;
-import org.tiogasolutions.jobs.agent.core.support.JobsFilter;
-import org.tiogasolutions.jobs.agent.core.support.JobsJaxRsExceptionMapper;
-import org.tiogasolutions.jobs.agent.core.support.JobsReaderWriterProvider;
-import org.tiogasolutions.jobs.agent.core.view.LocalResourceMessageBodyWriter;
-import org.tiogasolutions.jobs.agent.core.view.ThymeleafMessageBodyWriter;
+import org.springframework.stereotype.Component;
+import org.tiogasolutions.jobs.kernel.resources.RootResourceV1;
+import org.tiogasolutions.jobs.kernel.support.JobsFilter;
+import org.tiogasolutions.jobs.kernel.support.JobsJaxRsExceptionMapper;
+import org.tiogasolutions.jobs.kernel.support.JobsReaderWriterProvider;
+import org.tiogasolutions.jobs.kernel.view.LocalResourceMessageBodyWriter;
+import org.tiogasolutions.jobs.kernel.view.ThymeleafMessageBodyWriter;
 
 import javax.ws.rs.core.Application;
 import java.util.*;
 
+@Component
 public class JobsAgentApplication extends Application {
 
   private final Set<Class<?>> classes = new HashSet<>();

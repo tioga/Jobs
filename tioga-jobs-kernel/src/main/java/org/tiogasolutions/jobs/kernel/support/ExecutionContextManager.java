@@ -1,11 +1,12 @@
 package org.tiogasolutions.jobs.kernel.support;
 
+import org.springframework.stereotype.Component;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileEntity;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named
+@Component
 public class ExecutionContextManager {
 
   private final ThreadLocal<ExecutionContext> threadLocal = new ThreadLocal<>();

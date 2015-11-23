@@ -1,5 +1,7 @@
 package org.tiogasolutions.jobs.kernel.entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.jobs.kernel.config.CouchServersConfig;
 import org.tiogasolutions.jobs.kernel.support.ExecutionContextManager;
@@ -12,7 +14,7 @@ import java.util.List;
 
 import static java.util.Collections.singletonList;
 
-@Named
+@Component
 public class JobExecutionRequestStore extends DefaultCouchStore<JobExecutionRequestEntity> {
 
   public static final String JOB_EXECUTION_REQUEST_DESIGN_NAME = "jobExecutionRequest";
@@ -20,7 +22,7 @@ public class JobExecutionRequestStore extends DefaultCouchStore<JobExecutionRequ
   private final CouchServersConfig config;
   private final ExecutionContextManager ecm;
 
-  @Inject
+  @Autowired
   public JobExecutionRequestStore(CouchServersConfig config, ExecutionContextManager ecm) {
     super(JobsCouchServer.newDomainDb(config), JobExecutionRequestEntity.class);
     this.ecm = ecm;

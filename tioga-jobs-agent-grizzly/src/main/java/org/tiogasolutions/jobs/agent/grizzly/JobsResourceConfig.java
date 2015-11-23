@@ -1,7 +1,7 @@
 package org.tiogasolutions.jobs.agent.grizzly;
 
 import org.glassfish.jersey.server.ResourceConfig;
-import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
+import org.tiogasolutions.jobs.kernel.JobsAgentApplication;
 
 public class JobsResourceConfig extends ResourceConfig {
 

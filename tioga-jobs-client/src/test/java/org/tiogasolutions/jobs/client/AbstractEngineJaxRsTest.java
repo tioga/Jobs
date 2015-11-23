@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.annotations.BeforeMethod;
 import org.tiogasolutions.dev.common.LogbackUtils;
-import org.tiogasolutions.push.engine.system.PushApplication;
+import org.tiogasolutions.jobs.kernel.JobsAgentApplication;
 
 import javax.ws.rs.core.Application;
 
@@ -30,19 +30,19 @@ public class AbstractEngineJaxRsTest extends JerseyTestNg.ContainerPerClassTest 
 
     applicationContext = new AnnotationConfigApplicationContext();
     applicationContext.getEnvironment().setActiveProfiles("test");
-    applicationContext.scan("org.tiogasolutions.push");
+    applicationContext.scan("org.tiogasolutions.jobs");
     applicationContext.refresh();
 
     // Inject our unit test with any beans.
     beanFactory = applicationContext.getBeanFactory();
 
-    PushApplication application = beanFactory.getBean(PushApplication.class);
+    JobsAgentApplication application = beanFactory.getBean(JobsAgentApplication.class);
 
     ResourceConfig resourceConfig = ResourceConfig.forApplication(application);
     resourceConfig.register(SpringLifecycleListener.class);
     resourceConfig.register(RequestContextFilter.class);
     resourceConfig.property("contextConfig", applicationContext);
-    resourceConfig.packages("org.tiogasolutions.push");
+    resourceConfig.packages("org.tiogasolutions.jobs");
 
     return resourceConfig;
   }

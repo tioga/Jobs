@@ -11,7 +11,7 @@ public class AbstractSpringTest {
 
     applicationContext = new AnnotationConfigApplicationContext();
     applicationContext.getEnvironment().setActiveProfiles("test");
-    applicationContext.scan("org.tiogasolutions.push");
+    applicationContext.scan("org.tiogasolutions.jobs");
     applicationContext.refresh();
 
     // Inject our unit test with any beans.

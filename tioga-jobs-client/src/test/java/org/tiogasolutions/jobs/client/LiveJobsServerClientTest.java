@@ -1,17 +1,17 @@
 package org.tiogasolutions.jobs.client;
 
 import org.glassfish.jersey.test.JerseyTestNg;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tiogasolutions.dev.domain.query.QueryResult;
-import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
-import org.tiogasolutions.jobs.agent.core.TestFactory;
+import org.tiogasolutions.jobs.kernel.JobsAgentApplication;
+import org.tiogasolutions.jobs.kernel.TestFactory;
 import org.tiogasolutions.jobs.pub.*;
 import org.tiogasolutions.jobs.pub.JobAction;
 import org.tiogasolutions.jobs.pub.JobActionResult;
 import org.tiogasolutions.jobs.pub.actions.OsAction;
 
-import javax.inject.Inject;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.UriBuilder;
@@ -23,22 +23,13 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.*;
 
 @Test(enabled = false)
-public class LiveJobsServerClientTest extends JerseyTestNg.ContainerPerClassTest {
+public class LiveJobsServerClientTest extends AbstractEngineJaxRsTest {
 
   private final String jobAId = "deac9600-d96e-11e4-adce-b8ca3a8e2d05";
   private final String jobBId = "08f20270-be1b-11e4-af58-b8ca3a8e2d05";
 
-  @Inject
+  @Autowired
   private TestFactory testFactory;
-
-  @Override
-  protected JobsAgentApplication configure() {
-    return new JobsAgentApplication("test", "classpath:/spring-test-jobs-client.xml");
-  }
-
-  @BeforeClass
-  public void beforeClass() throws Exception {
-  }
 
   protected Invocation.Builder request(WebTarget webTarget) {
     String httpAuth = toHttpAuth(TestFactory.API_KEY, TestFactory.API_PASSWORD);

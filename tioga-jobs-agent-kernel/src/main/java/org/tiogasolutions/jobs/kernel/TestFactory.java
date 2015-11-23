@@ -1,5 +1,8 @@
 package org.tiogasolutions.jobs.kernel;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.couchace.core.api.CouchServer;
 import org.tiogasolutions.couchace.core.api.request.CouchFeature;
@@ -8,18 +11,17 @@ import org.tiogasolutions.jobs.kernel.config.CouchServersConfig;
 import org.tiogasolutions.lib.couchace.DefaultCouchServer;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.xml.bind.DatatypeConverter;
 import java.util.Arrays;
 
-@Named
+@Component
 @Profile("test")
 public class TestFactory {
 
   public static final String API_KEY = "9999";
   public static final String API_PASSWORD = "unittest";
 
-  @Inject
+  @Autowired
   public TestFactory(CouchServersConfig domainDbConfig) throws Exception {
 
     String sysDatabase = "test-jobs";

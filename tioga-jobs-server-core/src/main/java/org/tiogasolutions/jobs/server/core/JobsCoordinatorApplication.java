@@ -1,30 +1,10 @@
 package org.tiogasolutions.jobs.server.core;
 
-import org.tiogasolutions.lib.spring.jaxrs.TiogaSpringApplication;
+import javax.ws.rs.core.Application;
 
-import java.util.*;
+public class JobsCoordinatorApplication extends Application {
 
-public class JobsCoordinatorApplication extends TiogaSpringApplication {
-
-  public JobsCoordinatorApplication(String profile, String springFile) {
-    super(profile, springFile, createProperties(), createClasses(), createSingletons());
+  public JobsCoordinatorApplication() {
   }
 
-  private static Set<Object> createSingletons() {
-    return Collections.emptySet();
-  }
-
-  private static Map<String,Object> createProperties() {
-    Map<String,Object> properties = new HashMap<>();
-
-    properties.put("app.admin.context", "/api/v1/admin");
-    properties.put("app.client.context", "/api/v1/client");
-
-    return properties;
-  }
-
-  private static Set<Class<?>> createClasses() {
-    Set<Class<?>> classes = new HashSet<>();
-    return Collections.unmodifiableSet(classes);
-  }
 }

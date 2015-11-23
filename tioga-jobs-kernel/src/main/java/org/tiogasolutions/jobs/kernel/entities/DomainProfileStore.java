@@ -1,5 +1,7 @@
 package org.tiogasolutions.jobs.kernel.entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.dev.common.id.TimeUuidIdGenerator;
 import org.tiogasolutions.jobs.kernel.config.CouchServersConfig;
@@ -14,14 +16,14 @@ import java.util.List;
 
 import static java.util.Collections.singletonList;
 
-@Named
+@Component
 public class DomainProfileStore extends DefaultCouchStore<DomainProfileEntity> {
 
   public static final String DOMAIN_PROFILE_DESIGN_NAME = "domainProfile";
 
   private final String databaseName;
 
-  @Inject
+  @Autowired
   public DomainProfileStore(CouchServersConfig config) {
     super(JobsCouchServer.newMasterDb(config), DomainProfileEntity.class);
     this.databaseName = config.getMasterDatabaseName();

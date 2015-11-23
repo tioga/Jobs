@@ -7,6 +7,7 @@ package org.tiogasolutions.jobs.kernel.resources;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tiogasolutions.jobs.kernel.view.Thymeleaf;
 import org.tiogasolutions.jobs.kernel.view.ThymeleafViewFactory;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileStore;
@@ -28,16 +29,16 @@ public class RootResourceV1 extends RootResourceSupport {
 
   private static final Log log = LogFactory.getLog(RootResourceV1.class);
 
-  @Inject
+  @Autowired
   private ExecutionContextManager executionContextManager;
 
-  @Inject
+  @Autowired
   private DomainProfileStore domainProfileStore;
 
-  @Inject
+  @Autowired
   private JobExecutionRequestStore jobExecutionRequestStore;
 
-  @Inject
+  @Autowired
   private JobDefinitionStore jobDefinitionStore;
 
   private @Context UriInfo uriInfo;

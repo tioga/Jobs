@@ -8,13 +8,18 @@ project(":tioga-jobs-agent-grizzly") {
   version = tiogaAppVersion
 
   dependencies {
-    compile(project(":tioga-jobs-agent-core"))
+    compile(project(":tioga-jobs-agent-kernel"))
 
     compile("org.tiogasolutions.app:tioga-app-common:+")
 
-    compile("org.tiogasolutions.lib:tioga-lib-spring-jersey:+")
-    compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
-    compile("org.tiogasolutions.lib:tioga-lib-spring-couchace:+")
+    compile("org.springframework:spring-aop:4.1.6.RELEASE") {force = true}
+    compile("org.springframework:spring-core:4.1.6.RELEASE") {force = true}
+    compile("org.springframework:spring-beans:4.1.6.RELEASE") {force = true}
+    compile("org.springframework:spring-context:4.1.6.RELEASE") {force = true}
+    compile("org.tiogasolutions.runners:tioga-runners-spring-grizzly:+")
+
+    // required by Jersey-Spring's stupid attempt to check for a ServletContext
+    runtime("javax.servlet:javax.servlet-api:3.1.0")
 
     testCompile ("org.testng:testng:6.8.21")
   }

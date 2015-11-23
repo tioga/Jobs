@@ -4,20 +4,26 @@ import ch.qos.logback.classic.Level;
 import org.slf4j.Logger;
 import org.tiogasolutions.app.common.AppPathResolver;
 import org.tiogasolutions.app.common.LogUtils;
-import org.tiogasolutions.jobs.agent.core.JobsAgentApplication;
-import org.tiogasolutions.lib.spring.jersey.JerseySpringBridge;
+import org.tiogasolutions.jobs.kernel.JobsAgentApplication;
 import org.tiogasolutions.runners.grizzly.GrizzlyServer;
 import org.tiogasolutions.runners.grizzly.GrizzlyServerConfig;
+import org.tiogasolutions.runners.grizzlyspring.ApplicationResolver;
+import org.tiogasolutions.runners.grizzlyspring.GrizzlySpringServer;
+import org.tiogasolutions.runners.grizzlyspring.ServerConfigResolver;
+
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.slf4j.LoggerFactory.*;
 
 public class JobsAgentServer {
 
   private static final Logger log = getLogger(JobsAgentServer.class);
 
-  public static final String DEFAULT_SPRING_FILE = "/org/tiogasolutions/jobs/agent/grizzly/spring-config.xml";
-
   public static void main(String...args) throws Exception {
+
+    List<String> arguments = Arrays.asList(args);
 
     // Priority #1, configure default logging levels. This will be overridden later
     // when/if the logback.xml is found and loaded.
@@ -28,8 +34,7 @@ public class JobsAgentServer {
 
     // Load the resolver which gives us common tools for identifying the
     // runtime & config directories, logback.xml, etc.
-    AppPathResolver resolver = new AppPathResolver(getLogger(AppPathResolver.class)::info, "jobs.");
-
+    AppPathResolver resolver = new AppPathResolver(getLogger(AppPathResolver.class)::info, "jobs-agent.");
     Path runtimeDir = resolver.resolveRuntimePath();
     Path configDir = resolver.resolveConfigDir(runtimeDir);
 
@@ -37,7 +42,7 @@ public class JobsAgentServer {
     Path logbackFile = LogUtils.initLogback(configDir, "jobs.log.config", "logback.xml");
 
     // Locate the spring file for this app or use DEFAULT_SPRING_FILE from the classpath if one is not found.
-    String springConfigPath = resolver.resolveSpringPath(configDir, "classpath:" + DEFAULT_SPRING_FILE);
+    String springConfigPath = resolver.resolveSpringPath(configDir, null);
     String activeProfiles = resolver.resolveSpringProfiles(); // defaults to "hosted"
 
     log.info("Starting Notify Server:\n" +
@@ -46,20 +51,31 @@ public class JobsAgentServer {
       "  *  Logback File: {}\n" +
       "  *  Spring Path:  {}", runtimeDir, configDir, logbackFile, springConfigPath);
 
-    // Create our application, initializing it with the specified spring file.
-    JobsAgentApplication application = new JobsAgentApplication(activeProfiles, springConfigPath);
-
-    // Get from the app an instance of the grizzly server config.
-    GrizzlyServerConfig serverConfig = application.getBeanFactory().getBean(GrizzlyServerConfig.class);
-
     // Create an instance of the grizzly server.
-    GrizzlyServer grizzlyServer = new GrizzlyServer(serverConfig, application);
+    GrizzlySpringServer grizzlyServer = new GrizzlySpringServer(
+        ServerConfigResolver.fromClass(GrizzlyServerConfig.class),
+        ApplicationResolver.fromClass(JobsAgentApplication.class),
+        activeProfiles,
+        springConfigPath
+    );
 
-    // Before we start it, register a hook for our jersey-spring bridge.
-    JerseySpringBridge jerseySpringBridge = new JerseySpringBridge(application.getBeanFactory());
-    grizzlyServer.getResourceConfig().register(jerseySpringBridge);
+    grizzlyServer.packages("org.tiogasolutions.jobs");
+
+    if (arguments.contains("-shutdown")) {
+      GrizzlyServer.shutdownRemote(grizzlyServer.getConfig());
+      log.warn("Shutting down Jobs Agent at {}:{}", grizzlyServer.getConfig().getHostName(), grizzlyServer.getConfig().getShutdownPort());
+      System.exit(0);
+      return;
+    }
 
     // Lastly, start the server.
     grizzlyServer.start();
+
+//    JobsAgentApplication application = new JobsAgentApplication(activeProfiles, springConfigPath);
+//    GrizzlyServerConfig serverConfig = application.getBeanFactory().getBean(GrizzlyServerConfig.class);
+//    GrizzlyServer grizzlyServer = new GrizzlyServer(serverConfig, application);
+//    JerseySpringBridge jerseySpringBridge = new JerseySpringBridge(application.getBeanFactory());
+//    grizzlyServer.getResourceConfig().register(jerseySpringBridge);
+//    grizzlyServer.start();
   }
 }

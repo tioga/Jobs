@@ -13,9 +13,17 @@ project(":tioga-jobs-client") {
 
     compile("org.tiogasolutions.lib:tioga-lib-jaxrs-jackson:+")
 
-    testCompile(project(":tioga-jobs-agent-core"))
+    testCompile(project(":tioga-jobs-test"))
+    testCompile(project(":tioga-jobs-agent-kernel"))
+
+    testCompile project(":tioga-jobs-test")
+    testCompile("org.glassfish.jersey.ext:jersey-spring3:2.17")
+    testCompile("org.springframework:spring-aop:4.1.6.RELEASE") {force = true}
+    testCompile("org.springframework:spring-core:4.1.6.RELEASE") {force = true}
+    testCompile("org.springframework:spring-beans:4.1.6.RELEASE") {force = true}
+    testCompile("org.springframework:spring-context:4.1.6.RELEASE") {force = true}
+
     testCompile("org.testng:testng:6.8.21")
-    testCompile("org.tiogasolutions.runners:tioga-runners-jersey-spring:+")
     testCompile("org.glassfish.jersey.test-framework:jersey-test-framework-core:2.17")
     testCompile("org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2:2.17")
   }

@@ -21,61 +21,35 @@
   <context:component-scan base-package="org.tiogasolutions.jobs"/>
 
   <!--
-    The default configuration uses the couch property placeholder which loads
-    properties from a local CouchDB. The default configuration assumes CouchDB
-    is running at http://localhost:5984 with the username "app-user" and the
-    password "app-user".
+    <context:property-placeholder properties-ref="envProperties"/>
+    <util:properties id="envProperties">
+      <prop key="testing">123</prop>
+    </util:properties>
   -->
-  <bean class="org.tiogasolutions.lib.spring.couchace.CouchPropertyPlaceholderConfigurer">
-    <constructor-arg value="jobs-agent"/>
-    <constructor-arg ref="defaultProperties"/>
-  </bean>
-
-  <!--
-    Defines the list of default properties to be used by the couch property placeholder.
-    When not specified in couch, the defaults will be used. If specified in couch, the
-    values specified here will be overridden.
-  -->
-  <util:properties id="defaultProperties">
-    <prop key="agent.server.hostName">localhost</prop>
-    <prop key="agent.server.port">39007</prop>
-    <prop key="agent.server.shutdownPort">39008</prop>
-    <prop key="agent.server.context">jobs-agent</prop>
-
-    <prop key="couchdb.master.url">http://localhost:5984</prop>
-    <prop key="couchdb.master.username">app-user</prop>
-    <prop key="couchdb.master.password">app-user</prop>
-    <prop key="couchdb.master.dbName">tioga-jobs</prop>
-
-    <prop key="couchdb.jobs.url">http://localhost:5984</prop>
-    <prop key="couchdb.jobs.username">app-user</prop>
-    <prop key="couchdb.jobs.password">app-user</prop>
-    <prop key="couchdb.jobs.dbNamePrefix">tioga-jobs-</prop>
-    <prop key="couchdb.jobs.dbNameSuffix"/>
-  </util:properties>
 
   <bean class="org.tiogasolutions.jobs.kernel.config.SystemConfiguration">
-    <property name="accessControlAllowOrigin" value="${system.config.accessControlAllowOrigin}"/>
+    <constructor-arg index="0" value="*"/>
+    <constructor-arg index="2" value="/api/v1/client"/>
+    <constructor-arg index="1" value="/api/v1/admin"/>
   </bean>
 
   <bean class="org.tiogasolutions.runners.grizzly.GrizzlyServerConfig"
-        p:hostName="${agent.server.hostName}"
-        p:port="${agent.server.port}"
-        p:shutdownPort="${agent.server.shutdownPort}"
-        p:context="${agent.server.context}"
+        p:hostName="localhost"
+        p:port="39007"
+        p:shutdownPort="39008"
+        p:context="jobs-agent"
         p:toOpenBrowser="false"/>
 
   <bean class="org.tiogasolutions.jobs.kernel.config.CouchServersConfig"
-        p:masterUrl="${couchdb.master.url}"
-        p:masterUserName="${couchdb.master.username}"
-        p:masterPassword="${couchdb.master.password}"
-        p:masterDatabaseName="${couchdb.master.dbName}"
+        p:masterUrl="http://localhost:5984"
+        p:masterUserName="app-user"
+        p:masterPassword="app-user"
+        p:masterDatabaseName="tioga-jobs"
 
-        p:domainUrl="${couchdb.jobs.url}"
-        p:domainUserName="${couchdb.jobs.username}"
-        p:domainPassword="${couchdb.jobs.password}"
-        p:domainDatabasePrefix="${couchdb.jobs.dbNamePrefix}"
-        p:domainDatabaseSuffix="${couchdb.jobs.dbNameSuffix}"
+        p:domainUrl="http://localhost:5984"
+        p:domainUserName="app-user"
+        p:domainPassword="app-user"
+        p:domainDatabasePrefix="tioga-jobs-"
   />
 
 </beans>

@@ -1,5 +1,6 @@
 package org.tiogasolutions.jobs.kernel.support;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.tiogasolutions.dev.common.StringUtils;
 import org.tiogasolutions.jobs.kernel.config.SystemConfiguration;
 import org.tiogasolutions.jobs.kernel.entities.DomainProfileEntity;
@@ -34,13 +35,13 @@ public class JobsFilter implements ContainerRequestFilter, ContainerResponseFilt
   @Context
   private UriInfo uriInfo;
 
-  @Inject
+  @Autowired
   private ExecutionContextManager executionManager;
 
-  @Inject
+  @Autowired
   private DomainProfileStore domainProfileStore;
 
-  @Inject
+  @Autowired
   private SystemConfiguration systemConfiguration;
 
   public JobsFilter() {
