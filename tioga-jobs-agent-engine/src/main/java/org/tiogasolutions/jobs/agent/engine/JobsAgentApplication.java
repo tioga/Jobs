@@ -8,7 +8,6 @@ package org.tiogasolutions.jobs.agent.engine;
 
 import org.springframework.stereotype.Component;
 import org.tiogasolutions.jobs.agent.engine.resources.RootResourceV1;
-import org.tiogasolutions.jobs.agent.engine.support.JobsJaxRsExceptionMapper;
 import org.tiogasolutions.jobs.agent.engine.support.JobsRequestFilter;
 import org.tiogasolutions.jobs.agent.engine.support.JobsResponseFilter;
 
@@ -30,7 +29,6 @@ public class JobsAgentApplication extends Application {
     classes.add(JobsRequestFilter.class);
 
     classes.add(RootResourceV1.class);
-    classes.add(JobsJaxRsExceptionMapper.class);
   }
 
   @Override

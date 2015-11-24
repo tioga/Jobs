@@ -20,13 +20,6 @@
   <task:annotation-driven/>
   <context:component-scan base-package="org.tiogasolutions.jobs"/>
 
-  <!--
-    <context:property-placeholder properties-ref="envProperties"/>
-    <util:properties id="envProperties">
-      <prop key="testing">123</prop>
-    </util:properties>
-  -->
-
   <bean class="org.tiogasolutions.jobs.kernel.config.SystemConfiguration">
     <constructor-arg index="0" value="*"/>
     <constructor-arg index="1" value="/api/v1/client"/>
