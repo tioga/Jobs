@@ -4,7 +4,8 @@
  * This software may not be used without permission.
  */
 project(":tioga-jobs-jackson") {
-  version = "4.1.1"
+
+  version = "4.2.0"
 
   dependencies {
 

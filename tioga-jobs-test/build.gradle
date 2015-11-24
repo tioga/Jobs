@@ -4,7 +4,8 @@
  * This software may not be used without permission.
  */
 project(":tioga-jobs-test") {
-  version = "1.1.2"
+
+  version = "1.2.0"
 
   dependencies {
     compile(project(":tioga-jobs-kernel"))
