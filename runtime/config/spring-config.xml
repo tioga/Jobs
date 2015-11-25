@@ -20,12 +20,6 @@
   <task:annotation-driven/>
   <context:component-scan base-package="org.tiogasolutions.jobs"/>
 
-  <bean class="org.tiogasolutions.jobs.kernel.config.SystemConfiguration">
-    <constructor-arg index="0" value="*"/>
-    <constructor-arg index="1" value="/api/v1/client"/>
-    <constructor-arg index="2" value="/api/v1/admin"/>
-  </bean>
-
   <bean class="org.tiogasolutions.runners.grizzly.GrizzlyServerConfig"
         p:hostName="localhost"
         p:port="39007"
