@@ -7,6 +7,7 @@ import org.tiogasolutions.app.common.AppUtils;
 import org.tiogasolutions.jobs.agent.engine.JobsAgentApplication;
 import org.tiogasolutions.runners.grizzly.GrizzlyServer;
 import org.tiogasolutions.runners.grizzly.GrizzlyServerConfig;
+import org.tiogasolutions.runners.grizzly.ShutdownUtils;
 import org.tiogasolutions.runners.grizzly.spring.ApplicationResolver;
 import org.tiogasolutions.runners.grizzly.spring.GrizzlySpringServer;
 import org.tiogasolutions.runners.grizzly.spring.ServerConfigResolver;
@@ -44,11 +45,14 @@ public class JobsAgentServer {
     String springConfigPath = resolver.resolveSpringPath(configDir, null);
     String activeProfiles = resolver.resolveSpringProfiles(); // defaults to "hosted"
 
-    log.info("Starting server:\n" +
+    boolean shuttingDown = Arrays.asList(args).contains("-shutdown");
+    String action = (shuttingDown ? "Shutting down" : "Starting");
+
+    log.info("{} server:\n" +
         "  *  Runtime Dir:  {}\n" +
         "  *  Config Dir:   {}\n" +
         "  *  Logback File: {}\n" +
-        "  *  Spring Path ({}):  {}", runtimeDir, configDir, logbackFile, activeProfiles, springConfigPath);
+        "  *  Spring Path ({}):  {}", action, runtimeDir, configDir, logbackFile, activeProfiles, springConfigPath);
 
     // Create an instance of the grizzly server.
     GrizzlySpringServer grizzlyServer = new GrizzlySpringServer(
@@ -61,7 +65,7 @@ public class JobsAgentServer {
     grizzlyServer.packages("org.tiogasolutions.jobs");
 
     if (Arrays.asList(args).contains("-shutdown")) {
-      GrizzlyServer.shutdownRemote(grizzlyServer.getConfig());
+      ShutdownUtils.shutdownRemote(grizzlyServer.getConfig());
       log.warn("Shutting down server at {}:{}", grizzlyServer.getConfig().getHostName(), grizzlyServer.getConfig().getShutdownPort());
       System.exit(0);
       return;
