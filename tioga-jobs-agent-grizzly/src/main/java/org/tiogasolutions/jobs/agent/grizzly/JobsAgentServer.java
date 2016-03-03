@@ -2,20 +2,19 @@ package org.tiogasolutions.jobs.agent.grizzly;
 
 import ch.qos.logback.classic.Level;
 import org.slf4j.Logger;
+import org.springframework.context.support.AbstractXmlApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.tiogasolutions.app.common.AppPathResolver;
 import org.tiogasolutions.app.common.AppUtils;
-import org.tiogasolutions.jobs.agent.engine.JobsAgentApplication;
 import org.tiogasolutions.runners.grizzly.GrizzlyServer;
-import org.tiogasolutions.runners.grizzly.GrizzlyServerConfig;
 import org.tiogasolutions.runners.grizzly.ShutdownUtils;
-import org.tiogasolutions.runners.grizzly.spring.ApplicationResolver;
-import org.tiogasolutions.runners.grizzly.spring.GrizzlySpringServer;
-import org.tiogasolutions.runners.grizzly.spring.ServerConfigResolver;
 
 import java.nio.file.Path;
 import java.util.Arrays;
 
-import static org.slf4j.LoggerFactory.*;
+import static java.util.Arrays.asList;
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class JobsAgentServer {
 
@@ -30,7 +29,7 @@ public class JobsAgentServer {
     // Assume we want by default INFO on when & how the grizzly server
     // is started. Possibly overwritten by logback.xml if used.
     AppUtils.setLogLevel(Level.INFO, JobsAgentServer.class);
-    AppUtils.setLogLevel(Level.INFO, GrizzlySpringServer.GRIZZLY_CLASSES);
+    AppUtils.setLogLevel(Level.INFO, GrizzlyServer.GRIZZLY_CLASSES);
 
     // Load the resolver which gives us common tools for identifying the
     // runtime & config directories, logback.xml, etc.
@@ -43,26 +42,21 @@ public class JobsAgentServer {
 
     // Locate the spring file for this app.
     String springConfigPath = resolver.resolveSpringPath(configDir, null);
-    String activeProfiles = resolver.resolveSpringProfiles(); // defaults to "hosted"
+    String[] activeProfiles = resolver.resolveSpringProfiles(); // defaults to "hosted"
 
     boolean shuttingDown = Arrays.asList(args).contains("-shutdown");
     String action = (shuttingDown ? "Shutting down" : "Starting");
 
     log.info("{} server:\n" +
-        "  *  Runtime Dir:  {}\n" +
-        "  *  Config Dir:   {}\n" +
-        "  *  Logback File: {}\n" +
-        "  *  Spring Path ({}):  {}", action, runtimeDir, configDir, logbackFile, activeProfiles, springConfigPath);
+      "  *  Runtime Dir     (jobs.runtime.dir)     {}\n" +
+      "  *  Config Dir      (jobs.config.dir)      {}\n" +
+      "  *  Logback File    (jobs.log.config)      {}\n" +
+      "  *  Spring Path     (jobs.spring.config)   {}\n" +
+      "  *  Active Profiles (jobs.active.profiles) {}", action, runtimeDir, configDir, logbackFile, springConfigPath, asList(activeProfiles));
 
-    // Create an instance of the grizzly server.
-    GrizzlySpringServer grizzlyServer = new GrizzlySpringServer(
-        ServerConfigResolver.fromClass(GrizzlyServerConfig.class),
-        ApplicationResolver.fromClass(JobsAgentApplication.class),
-        activeProfiles,
-        springConfigPath
-    );
+    AbstractXmlApplicationContext applicationContext = createXmlConfigApplicationContext(springConfigPath, activeProfiles);
 
-    grizzlyServer.packages("org.tiogasolutions.jobs");
+    GrizzlyServer grizzlyServer = applicationContext.getBean(GrizzlyServer.class);
 
     if (Arrays.asList(args).contains("-shutdown")) {
       ShutdownUtils.shutdownRemote(grizzlyServer.getConfig());
@@ -73,5 +67,18 @@ public class JobsAgentServer {
 
     // Lastly, start the server.
     grizzlyServer.start();
+  }
+
+  public static AbstractXmlApplicationContext createXmlConfigApplicationContext(String xmlConfigPath, String...activeProfiles) {
+
+    boolean classPath = xmlConfigPath.startsWith("classpath:");
+    AbstractXmlApplicationContext applicationContext = classPath ?
+      new ClassPathXmlApplicationContext() :
+      new FileSystemXmlApplicationContext();
+
+    applicationContext.setConfigLocation(xmlConfigPath);
+    applicationContext.getEnvironment().setActiveProfiles(activeProfiles);
+    applicationContext.refresh();
+    return applicationContext;
   }
 }

@@ -5,7 +5,7 @@ project(":tioga-jobs-server-grizzly") {
   dependencies {
     compile(project(":tioga-jobs-server-core"))
 
-    compile("org.tiogasolutions.runners:tioga-runners-jersey-spring:+")
+    compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
   }
 
   apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))

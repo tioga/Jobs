@@ -8,7 +8,7 @@ import org.tiogasolutions.jobs.kernel.config.SystemConfiguration;
 
 @Profile("hosted")
 @Configuration
-public class GrizzlyHostedSpringConfig {
+public class AgentsHostedSpringConfig {
 
   @Bean
   public JobsObjectMapper notifyObjectMapper() {
@@ -19,4 +19,6 @@ public class GrizzlyHostedSpringConfig {
   public SystemConfiguration systemConfiguration() {
     return new SystemConfiguration("*", "/api/v1/client", "/api/v1/admin");
   }
+
+
 }
