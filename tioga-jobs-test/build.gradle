@@ -5,7 +5,7 @@
  */
 project(":tioga-jobs-test") {
 
-  version = "1.2.3"
+  version = tiogaPubVersion
 
   dependencies {
     compile(project(":tioga-jobs-kernel"))

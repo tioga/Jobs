@@ -5,7 +5,7 @@
  */
 project(":tioga-jobs-jackson") {
 
-  version = "4.2.2"
+  version = tiogaPubVersion
 
   dependencies {
 

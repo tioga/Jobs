@@ -5,7 +5,7 @@
  */
 project(":tioga-jobs-pub") {
 
-  version = "2.1.1"
+  version = tiogaPubVersion
 
   dependencies {
     compile("com.fasterxml.jackson.core:jackson-annotations:2.5.0")
