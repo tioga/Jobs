@@ -29,7 +29,7 @@ public class JobsAgentServer {
     // Assume we want by default INFO on when & how the grizzly server
     // is started. Possibly overwritten by logback.xml if used.
     AppUtils.setLogLevel(Level.INFO, JobsAgentServer.class);
-    AppUtils.setLogLevel(Level.INFO, GrizzlyServer.GRIZZLY_CLASSES);
+    AppUtils.setLogLevel(Level.INFO, GrizzlyServer.class);
 
     // Load the resolver which gives us common tools for identifying the
     // runtime & config directories, logback.xml, etc.
