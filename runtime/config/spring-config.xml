@@ -22,8 +22,8 @@
 
   <bean class="org.tiogasolutions.runners.grizzly.GrizzlyServerConfig"
         p:hostName="localhost"
-        p:port="39007"
-        p:shutdownPort="39008"
+        p:port="39013"
+        p:shutdownPort="39014"
         p:context="jobs-agent"
         p:toOpenBrowser="false"/>
 
