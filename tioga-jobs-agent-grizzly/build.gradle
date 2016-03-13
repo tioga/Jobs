@@ -5,65 +5,66 @@
  */
 project(":tioga-jobs-agent-grizzly") {
 
-  version = tiogaAppVersion
+    version = tiogaAppVersion
 
-  dependencies {
-    compile(project(":tioga-jobs-agent-engine"))
+    dependencies {
+        compile(project(":tioga-jobs-agent-engine"))
 
-    compile("org.tiogasolutions.app:tioga-app-common:+")
+        compile("org.tiogasolutions.app:tioga-app-common:+")
 
-    compile("org.glassfish.jersey.ext:jersey-spring3:2.17")
-    compile("org.springframework:spring-aop:4.1.6.RELEASE") {force = true}
-    compile("org.springframework:spring-core:4.1.6.RELEASE") {force = true}
-    compile("org.springframework:spring-beans:4.1.6.RELEASE") {force = true}
-    compile("org.springframework:spring-context:4.1.6.RELEASE") {force = true}
+        compile("org.glassfish.jersey.ext:jersey-spring3:2.17")
+        compile("org.springframework:spring-aop:4.1.6.RELEASE") { force = true }
+        compile("org.springframework:spring-core:4.1.6.RELEASE") { force = true }
+        compile("org.springframework:spring-beans:4.1.6.RELEASE") { force = true }
+        compile("org.springframework:spring-context:4.1.6.RELEASE") { force = true }
+        compile("org.tiogasolutions.lib:tioga-lib-spring:+")
 
-    compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
+        compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
 
-    // required by Jersey-Spring's stupid attempt to check for a ServletContext
-    runtime("javax.servlet:javax.servlet-api:3.1.0")
+        // required by Jersey-Spring's stupid attempt to check for a ServletContext
+        runtime("javax.servlet:javax.servlet-api:3.1.0")
 
-    testCompile ("org.testng:testng:6.8.21")
-  }
+        testCompile("org.testng:testng:6.8.21")
+    }
 
-  File serverStartFile = file("$buildDir/scripts/server-start.bat");
+    File serverStartFile = file("$buildDir/scripts/server-start.bat");
 
-  task createStartScript << {
-    serverStartFile.parentFile.mkdirs()
-    FileWriter writer = new FileWriter(serverStartFile);
-    writer.write("@echo off\r\ncls\r\n");
-    writer.write("echo Starting application\r\n");
-    writer.write("%JAVA_HOME%\\bin\\javaw.exe -jar ./lib/${project.name}-${project.version}.jar");
-    writer.close()
-  }
+    task createStartScript << {
+        serverStartFile.parentFile.mkdirs()
+        FileWriter writer = new FileWriter(serverStartFile);
+        writer.write("@echo off\r\ncls\r\n");
+        writer.write("echo Starting application\r\n");
+        writer.write("%JAVA_HOME%\\bin\\javaw.exe -jar ./lib/${project.name}-${project.version}.jar");
+        writer.close()
+    }
 
-  apply plugin:'distribution'
+    apply plugin: 'distribution'
 
-  artifacts {
-    archives distZip
-  }
+    artifacts {
+        archives distZip
+    }
 
-  distributions {
-    main {
-      contents {
-        into("lib") {
-          from(jar)
-          from(project.configurations.runtime)
+    distributions {
+        main {
+            contents {
+                into("lib") {
+                    from(jar)
+                    from(project.configurations.runtime)
+                }
+                from(serverStartFile, createStartScript)
+            }
         }
-        from(serverStartFile, createStartScript)
-      }
     }
-  }
 
-  jar {
-    manifest {
-      attributes(
-        "Implementation-Version" : "0.1",
-        "Main-Class"             : "org.tiogasolutions.jobs.agent.grizzly.JobsAgentServer",
-        "Class-Path"             : configurations.compile.collect { it.getName() }.join(' ')
-      )
+    jar {
+        manifest {
+            attributes(
+                    "Implementation-Version": "0.1",
+                    "Main-Class": "org.tiogasolutions.jobs.agent.grizzly.JobsAgentServer",
+                    "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+            )
+        }
     }
-  }
 
-  apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
+    apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
 }
