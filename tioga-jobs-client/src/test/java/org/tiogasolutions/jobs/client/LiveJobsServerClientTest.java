@@ -35,14 +35,14 @@ public class LiveJobsServerClientTest extends AbstractEngineJaxRsTest {
     return testFactory.toHttpAuth(username, password);
   }
 
-  private LiveJobsServerClient getClient() {
+  private LiveJobsServerClient getLiveClient() {
     URI uri = UriBuilder.fromUri(getBaseUri()).path("api").path("v1").build();
     return new LiveJobsServerClient(TestFactory.API_KEY, TestFactory.API_PASSWORD, uri);
   }
 
   public void testExecuteJobA() throws Exception {
     JobParameters parameters = JobParameters.createSynchronous();
-    JobExecutionRequest request = getClient().start(jobAId, parameters);
+    JobExecutionRequest request = getLiveClient().start(jobAId, parameters);
 
     assertNotNull(request);
     assertNotNull(request.getRevision());
@@ -74,7 +74,7 @@ public class LiveJobsServerClientTest extends AbstractEngineJaxRsTest {
 
   public void testExecuteJobB() throws Exception {
     JobParameters parameters = JobParameters.createSynchronous();
-    JobExecutionRequest request = getClient().start(jobBId, parameters);
+    JobExecutionRequest request = getLiveClient().start(jobBId, parameters);
 
     assertNotNull(request);
     assertNotNull(request.getRevision());
@@ -105,17 +105,17 @@ public class LiveJobsServerClientTest extends AbstractEngineJaxRsTest {
   }
 
   public void testGetJobA() throws Exception {
-    JobDefinition jobDef = getClient().getJob(jobAId);
+    JobDefinition jobDef = getLiveClient().getJob(jobAId);
     validateJobA(jobDef);
   }
 
   public void testGetJobB() throws Exception {
-    JobDefinition jobDef = getClient().getJob(jobBId);
+    JobDefinition jobDef = getLiveClient().getJob(jobBId);
     validateJobB(jobDef);
   }
 
   public void testGetJobs() throws Exception {
-    QueryResult<JobDefinition> result = getClient().getJobs();
+    QueryResult<JobDefinition> result = getLiveClient().getJobs();
 
     assertNotNull(result);
     assertEquals(result.getSize(), 2);

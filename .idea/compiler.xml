@@ -18,5 +18,25 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tioga-jobs-agent-engine_main" target="1.8" />
+      <module name="tioga-jobs-agent-engine_test" target="1.8" />
+      <module name="tioga-jobs-agent-grizzly_main" target="1.8" />
+      <module name="tioga-jobs-agent-grizzly_test" target="1.8" />
+      <module name="tioga-jobs-client_main" target="1.8" />
+      <module name="tioga-jobs-client_test" target="1.8" />
+      <module name="tioga-jobs-jackson_main" target="1.8" />
+      <module name="tioga-jobs-jackson_test" target="1.8" />
+      <module name="tioga-jobs-kernel_main" target="1.8" />
+      <module name="tioga-jobs-kernel_test" target="1.8" />
+      <module name="tioga-jobs-pub_main" target="1.8" />
+      <module name="tioga-jobs-pub_test" target="1.8" />
+      <module name="tioga-jobs-server-core_main" target="1.8" />
+      <module name="tioga-jobs-server-core_test" target="1.8" />
+      <module name="tioga-jobs-server-grizzly_main" target="1.8" />
+      <module name="tioga-jobs-server-grizzly_test" target="1.8" />
+      <module name="tioga-jobs-test_main" target="1.8" />
+      <module name="tioga-jobs-test_test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

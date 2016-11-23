@@ -12,7 +12,8 @@ project(":tioga-jobs-agent-grizzly") {
 
         compile("org.tiogasolutions.app:tioga-app-common:+")
 
-        compile("org.glassfish.jersey.ext:jersey-spring3:2.17")
+        compile("org.glassfish.jersey.ext:jersey-spring3:2.22.2")
+
         compile("org.springframework:spring-aop:4.1.6.RELEASE") { force = true }
         compile("org.springframework:spring-core:4.1.6.RELEASE") { force = true }
         compile("org.springframework:spring-beans:4.1.6.RELEASE") { force = true }
@@ -57,11 +58,14 @@ project(":tioga-jobs-agent-grizzly") {
     }
 
     jar {
+        into("libs") {
+            from configurations.runtime
+        }
         manifest {
             attributes(
-                    "Implementation-Version": "0.1",
+                    "Implementation-Version": project.version,
                     "Main-Class": "org.tiogasolutions.jobs.agent.grizzly.JobsAgentServer",
-                    "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+                    "Class-Path": configurations.compile.collect { "./libs/" + it.getName() }.join(" ")
             )
         }
     }

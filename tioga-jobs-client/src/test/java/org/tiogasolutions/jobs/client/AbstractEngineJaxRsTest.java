@@ -40,7 +40,7 @@ public class AbstractEngineJaxRsTest extends JerseyTestNg.ContainerPerClassTest 
 
     ResourceConfig resourceConfig = ResourceConfig.forApplication(application);
     resourceConfig.register(SpringLifecycleListener.class);
-    resourceConfig.register(RequestContextFilter.class);
+    resourceConfig.register(RequestContextFilter.class, 1);
     resourceConfig.property("contextConfig", applicationContext);
     resourceConfig.packages("org.tiogasolutions.jobs");
 

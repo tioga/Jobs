@@ -28,8 +28,9 @@ subprojects {
         failOnVersionConflict()
       }
       force(
-        "org.slf4j:slf4j-api:1.7.7",
-        "org.javassist:javassist:3.18.1-GA",
+//        "org.slf4j:slf4j-api:1.7.7",
+//        "org.javassist:javassist:3.18.1-GA",
+              "org.glassfish.hk2.external:javax.inject:2.4.0-b34"
       )
     }
   })

@@ -13,14 +13,14 @@ project(":tioga-jobs-agent-engine") {
 
     testCompile(project(":tioga-jobs-test"))
 
-    testCompile("org.glassfish.jersey.ext:jersey-spring3:2.17")
+    testCompile("org.glassfish.jersey.ext:jersey-spring3:2.22.2")
     testCompile("org.springframework:spring-aop:4.1.6.RELEASE") {force = true}
     testCompile("org.springframework:spring-core:4.1.6.RELEASE") {force = true}
     testCompile("org.springframework:spring-beans:4.1.6.RELEASE") {force = true}
     testCompile("org.springframework:spring-context:4.1.6.RELEASE") {force = true}
 
-    testCompile("org.glassfish.jersey.test-framework:jersey-test-framework-core:2.17")
-    testCompile("org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2:2.17")
+    testCompile("org.glassfish.jersey.test-framework:jersey-test-framework-core:2.22.2")
+    testCompile("org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2:2.22.2")
   }
 
   apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))

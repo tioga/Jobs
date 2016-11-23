@@ -2,17 +2,35 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Jobs.iml" filepath="$PROJECT_DIR$/Jobs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Jobs.iml" filepath="$PROJECT_DIR$/.idea/modules/Jobs.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime/runtime.iml" filepath="$PROJECT_DIR$/runtime/runtime.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-agent-engine/tioga-jobs-agent-engine.iml" filepath="$PROJECT_DIR$/tioga-jobs-agent-engine/tioga-jobs-agent-engine.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly.iml" filepath="$PROJECT_DIR$/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-client/tioga-jobs-client.iml" filepath="$PROJECT_DIR$/tioga-jobs-client/tioga-jobs-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-jackson/tioga-jobs-jackson.iml" filepath="$PROJECT_DIR$/tioga-jobs-jackson/tioga-jobs-jackson.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-kernel/tioga-jobs-kernel.iml" filepath="$PROJECT_DIR$/tioga-jobs-kernel/tioga-jobs-kernel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-pub/tioga-jobs-pub.iml" filepath="$PROJECT_DIR$/tioga-jobs-pub/tioga-jobs-pub.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-server-core/tioga-jobs-server-core.iml" filepath="$PROJECT_DIR$/tioga-jobs-server-core/tioga-jobs-server-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly.iml" filepath="$PROJECT_DIR$/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tioga-jobs-test/tioga-jobs-test.iml" filepath="$PROJECT_DIR$/tioga-jobs-test/tioga-jobs-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-engine/tioga-jobs-agent-engine.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-engine/tioga-jobs-agent-engine.iml" group="tioga-jobs-agent-engine" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-engine/tioga-jobs-agent-engine_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-engine/tioga-jobs-agent-engine_main.iml" group="tioga-jobs-agent-engine" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-engine/tioga-jobs-agent-engine_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-engine/tioga-jobs-agent-engine_test.iml" group="tioga-jobs-agent-engine" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly.iml" group="tioga-jobs-agent-grizzly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly_main.iml" group="tioga-jobs-agent-grizzly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-agent-grizzly/tioga-jobs-agent-grizzly_test.iml" group="tioga-jobs-agent-grizzly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-client/tioga-jobs-client.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-client/tioga-jobs-client.iml" group="tioga-jobs-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-client/tioga-jobs-client_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-client/tioga-jobs-client_main.iml" group="tioga-jobs-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-client/tioga-jobs-client_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-client/tioga-jobs-client_test.iml" group="tioga-jobs-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-jackson/tioga-jobs-jackson.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-jackson/tioga-jobs-jackson.iml" group="tioga-jobs-jackson" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-jackson/tioga-jobs-jackson_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-jackson/tioga-jobs-jackson_main.iml" group="tioga-jobs-jackson" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-jackson/tioga-jobs-jackson_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-jackson/tioga-jobs-jackson_test.iml" group="tioga-jobs-jackson" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-kernel/tioga-jobs-kernel.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-kernel/tioga-jobs-kernel.iml" group="tioga-jobs-kernel" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-kernel/tioga-jobs-kernel_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-kernel/tioga-jobs-kernel_main.iml" group="tioga-jobs-kernel" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-kernel/tioga-jobs-kernel_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-kernel/tioga-jobs-kernel_test.iml" group="tioga-jobs-kernel" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-pub/tioga-jobs-pub.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-pub/tioga-jobs-pub.iml" group="tioga-jobs-pub" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-pub/tioga-jobs-pub_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-pub/tioga-jobs-pub_main.iml" group="tioga-jobs-pub" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-pub/tioga-jobs-pub_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-pub/tioga-jobs-pub_test.iml" group="tioga-jobs-pub" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-server-core/tioga-jobs-server-core.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-server-core/tioga-jobs-server-core.iml" group="tioga-jobs-server-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-server-core/tioga-jobs-server-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-server-core/tioga-jobs-server-core_main.iml" group="tioga-jobs-server-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-server-core/tioga-jobs-server-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-server-core/tioga-jobs-server-core_test.iml" group="tioga-jobs-server-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly.iml" group="tioga-jobs-server-grizzly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly_main.iml" group="tioga-jobs-server-grizzly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-server-grizzly/tioga-jobs-server-grizzly_test.iml" group="tioga-jobs-server-grizzly" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-test/tioga-jobs-test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-test/tioga-jobs-test.iml" group="tioga-jobs-test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-test/tioga-jobs-test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-test/tioga-jobs-test_main.iml" group="tioga-jobs-test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tioga-jobs-test/tioga-jobs-test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tioga-jobs-test/tioga-jobs-test_test.iml" group="tioga-jobs-test" />
     </modules>
   </component>
 </project>

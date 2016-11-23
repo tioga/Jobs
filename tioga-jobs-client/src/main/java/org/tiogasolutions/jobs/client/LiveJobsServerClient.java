@@ -9,7 +9,6 @@ import org.tiogasolutions.jobs.pub.JobParameters;
 import org.tiogasolutions.lib.jaxrs.jackson.SimpleRestClient;
 
 import java.net.URI;
-import java.util.List;
 
 public class LiveJobsServerClient implements JobsServerClient {
 
