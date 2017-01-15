@@ -1,6 +1,5 @@
 package org.tiogasolutions.jobs.client;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 import org.tiogasolutions.dev.domain.query.QueryResult;
 import org.tiogasolutions.jobs.agent.engine.TestFactory;
@@ -23,7 +22,7 @@ public class LiveJobsServerClientTest extends AbstractEngineJaxRsTest {
   private final String jobAId = "deac9600-d96e-11e4-adce-b8ca3a8e2d05";
   private final String jobBId = "08f20270-be1b-11e4-af58-b8ca3a8e2d05";
 
-  @Autowired
+//  @Autowired
   private TestFactory testFactory;
 
   protected Invocation.Builder request(WebTarget webTarget) {
