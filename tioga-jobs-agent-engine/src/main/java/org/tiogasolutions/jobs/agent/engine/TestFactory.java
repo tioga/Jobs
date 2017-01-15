@@ -1,7 +1,5 @@
 package org.tiogasolutions.jobs.agent.engine;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.tiogasolutions.couchace.core.api.CouchDatabase;
 import org.tiogasolutions.couchace.core.api.CouchServer;
 import org.tiogasolutions.couchace.core.api.request.CouchFeature;
@@ -12,8 +10,8 @@ import org.tiogasolutions.lib.couchace.DefaultCouchServer;
 import javax.xml.bind.DatatypeConverter;
 import java.util.Arrays;
 
-@Component
-@Profile("test")
+//@Component
+//@Profile("test")
 public class TestFactory {
 
   public static final String API_KEY = "9999";
