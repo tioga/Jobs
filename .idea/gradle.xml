@@ -3,25 +3,12 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="disableWrapperSourceDistributionNotification" value="true" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="C:/tools/gradle-1.11" />
         <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/tioga-jobs-agent-engine" />
-            <option value="$PROJECT_DIR$/tioga-jobs-agent-grizzly" />
-            <option value="$PROJECT_DIR$/tioga-jobs-client" />
-            <option value="$PROJECT_DIR$/tioga-jobs-jackson" />
-            <option value="$PROJECT_DIR$/tioga-jobs-kernel" />
-            <option value="$PROJECT_DIR$/tioga-jobs-pub" />
-            <option value="$PROJECT_DIR$/tioga-jobs-server-core" />
-            <option value="$PROJECT_DIR$/tioga-jobs-server-grizzly" />
-            <option value="$PROJECT_DIR$/tioga-jobs-test" />
-          </set>
-        </option>
-        <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/tioga-jobs-agent-engine" />

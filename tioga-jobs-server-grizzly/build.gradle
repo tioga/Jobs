@@ -1,12 +1,62 @@
 project(":tioga-jobs-server-grizzly") {
 
-  version = tiogaAppVersion
+    apply plugin: 'distribution'
 
-  dependencies {
-    compile(project(":tioga-jobs-server-core"))
+    version = tiogaAppVersion
 
-    compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
-  }
+    dependencies {
+        compile(project(":tioga-jobs-jackson"))
+        compile(project(":tioga-jobs-kernel"))
+        compile(project(":tioga-jobs-server-core"))
 
-  apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
+        compile("org.glassfish.jersey.ext:jersey-spring3:2.22.2")
+
+        compile("org.tiogasolutions.lib:tioga-lib-spring:+")
+        compile("org.tiogasolutions.app:tioga-app-common:+")
+        compile("org.tiogasolutions.runners:tioga-runners-grizzly:+")
+
+        // required by Jersey-Spring's stupid attempt to check for a ServletContext
+        compile("javax.servlet:javax.servlet-api:3.1.0")
+    }
+
+    File procfile = file("$buildDir/aws/Procfile")
+    task createProcfile << {
+        procfile.parentFile.mkdirs()
+        FileWriter writer = new FileWriter(procfile)
+        writer.write("web: java -cp ./lib/* org.tiogasolutions.jobs.agent.grizzly.JobsAgentServer\n")
+        writer.close()
+    }
+
+    artifacts {
+        archives distZip
+    }
+
+    distributions {
+        main {
+            contents {
+                into("lib") {
+                    from(jar)
+                    from(project.configurations.runtime)
+                }
+                from(procfile, createProcfile)
+            }
+        }
+    }
+
+    jar {
+        into("libs") {
+            from configurations.runtime
+        }
+        manifest {
+            attributes(
+                    "Module-Name": "Grizzly Jobs Server",
+                    "Implementation-Version": project.version,
+                    "Build-Timestamp": new Date().format("yyyy-MM.dd HH:mm:ss"),
+                    "Main-Class": "org.tiogasolutions.jobs.server.grizzly.JobsServer",
+                    "Class-Path": configurations.compile.collect { "./libs/" + it.getName() }.join(" ")
+            )
+        }
+    }
+
+    apply(from: urlCache.get("https://raw.githubusercontent.com/tioga/build-scripts/master/build-config-deployer.gradle"))
 }

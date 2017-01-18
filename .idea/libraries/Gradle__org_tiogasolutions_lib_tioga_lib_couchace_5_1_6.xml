@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.tiogasolutions.lib:tioga-lib-couchace:5.1.6">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/tiogasolutions/lib/tioga-lib-couchace/5.1.6/tioga-lib-couchace-5.1.6.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.tiogasolutions.lib/tioga-lib-couchace/5.1.6/18ec0b88a579902791bf22ff4c1b0b16af6da4a0/tioga-lib-couchace-5.1.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/tiogasolutions/lib/tioga-lib-couchace/5.1.6/tioga-lib-couchace-5.1.6-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.tiogasolutions.lib/tioga-lib-couchace/5.1.6/d0eca89e405c15921b1a8b2b7f6af9d96b58875d/tioga-lib-couchace-5.1.6-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
